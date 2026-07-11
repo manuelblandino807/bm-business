@@ -8,104 +8,306 @@
 
   <link rel="stylesheet" href="css/style.css">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
-
-    body{
-      background:#f5f7fb;
-      color:#222;
-    }
-
-    header{
-      background:linear-gradient(135deg,#1565C0,#1E88E5);
-      color:white;
-      text-align:center;
-      padding:70px 20px;
-    }
-
-    header h1{
-      font-size:42px;
-      margin-bottom:15px;
-    }
-
-    header p{
-      font-size:20px;
-      opacity:.95;
-    }
-
-    .container{
-      max-width:1200px;
-      margin:auto;
-      padding:50px 20px;
-    }
-
-    .card{
-      background:white;
-      border-radius:20px;
-      padding:40px;
-      box-shadow:0 10px 30px rgba(0,0,0,.08);
-      text-align:center;
-    }
-
-    .btn{
-      display:inline-block;
-      margin-top:30px;
-      background:#1565C0;
-      color:white;
-      text-decoration:none;
-      padding:15px 35px;
-      border-radius:50px;
-      font-weight:bold;
-      transition:.3s;
-    }
-
-    .btn:hover{
-      background:#0D47A1;
-    }
-
-    footer{
-      text-align:center;
-      padding:35px;
-      color:#666;
-      font-size:14px;
-    }
-  </style>
+  
 </head>
 
 <body>
 
-<header>
-  <h1>B-M Business</h1>
-  <p>La nuova pagina professionale per aziende, negozi e artigiani.</p>
-</header>
+  <header class="hero">
+    <div class="hero-content">
+      <p class="tagline">B-M Business Demo</p>
 
-<div class="container">
+      <h1>Luxury Hair Studio</h1>
 
-  <div class="card">
-    <h2>Benvenuto</h2>
+      <p class="subtitle">
+        Parrucchiere professionale per tagli, colore e trattamenti su misura.
+      </p>
 
-    <p style="margin-top:20px;line-height:1.7;">
-      Questo è il nuovo progetto Business di B-M App.
-      Qui realizzeremo una landing page moderna,
-      elegante e professionale, pensata per mettere
-      in evidenza ogni attività.
-    </p>
+      <div class="hero-buttons">
+        <a href="#" class="btn primary">Prenota ora</a>
+        
+      </div>
+    </div>
+  </header>
+    <section class="about">
+    <div class="section-container">
+      <div class="about-text">
+        <p class="section-label">Chi siamo</p>
 
-    <a href="#" class="btn">Scopri di più</a>
+        <h2>Eleganza, stile e cura dei dettagli</h2>
+
+        <p>
+          Luxury Hair Studio è un salone moderno pensato per chi desidera
+          un servizio personalizzato, professionale e attento alla bellezza
+          naturale di ogni persona.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>Perché sceglierci</h3>
+
+        <ul>
+          <li>Consulenza personalizzata</li>
+          <li>Prodotti professionali</li>
+          <li>Ambiente elegante e rilassante</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="services">
+  <div class="services-container">
+    <p class="section-label">I nostri servizi</p>
+
+    <h2>Trattamenti pensati per ogni esigenza</h2>
+
+    <div class="services-grid">
+  <div class="service-card">
+    <div class="service-icon">✂️</div>
+    <h3>Taglio Uomo</h3>
+    <p>Tagli moderni, classici e personalizzati per ogni stile.</p>
+    <a href="#" class="service-link">Prenota Ora</a>
   </div>
+
+  <div class="service-card">
+    <div class="service-icon">💇‍♀️</div>
+    <h3>Taglio Donna</h3>
+    <p>Tagli su misura, piega e consulenza per valorizzare il viso.</p>
+    <a href="#" class="service-link">Prenota Ora</a>
+  </div>
+
+  <div class="service-card">
+    <div class="service-icon">🎨</div>
+    <h3>Colore e Trattamenti</h3>
+    <p>Colorazioni professionali, trattamenti nutrienti e cura del capello.</p>
+    <a href="#" class="service-link">Prenota Ora</a>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+<section class="gallery">
+  <div class="gallery-container">
+
+    <p class="section-label">I nostri lavori</p>
+
+    <h2>Alcuni dei nostri risultati</h2>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">Foto 1</div>
+      <div class="gallery-item">Foto 2</div>
+      <div class="gallery-item">Foto 3</div>
+
+      <div class="gallery-item">Foto 4</div>
+      <div class="gallery-item">Foto 5</div>
+      <div class="gallery-item">Foto 6</div>
+
+    </div>
+
+  </div>
+</section>
+   <section class="reviews">
+  <div class="reviews-container">
+
+    <p class="section-label">Google Reviews</p>
+
+    <h2>La fiducia dei nostri clienti</h2>
+
+    <a href="#" class="google-review-card">
+
+      <div class="google-stars">
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="google-score">
+        4.8
+      </div>
+
+      <p>157 recensioni</p>
+
+      <div class="google-logo">
+        Google
+      </div>
+
+    </a>
+
+  </div>
+</section>
+<section class="hours">
+
+  <div class="hours-container">
+
+    <p class="section-label">Orari</p>
+
+    <h2>Quando puoi trovarci</h2>
+
+    <div class="hours-card">
+
+      <div class="hour-row">
+        <span>Lunedì</span>
+        <strong>09:00 - 18:30</strong>
+      </div>
+
+      <div class="hour-row">
+        <span>Martedì</span>
+        <strong>09:00 - 18:30</strong>
+      </div>
+
+      <div class="hour-row">
+        <span>Mercoledì</span>
+        <strong class="closed">Chiuso</strong>
+      </div>
+
+      <div class="hour-row">
+        <span>Giovedì</span>
+        <strong>09:00 - 18:30</strong>
+      </div>
+
+      <div class="hour-row">
+        <span>Venerdì</span>
+        <strong>09:00 - 18:30</strong>
+      </div>
+
+      <div class="hour-row">
+        <span>Sabato</span>
+        <strong>08:30 - 17:00</strong>
+      </div>
+
+      <div class="hour-row">
+        <span>Domenica</span>
+        <strong class="closed">Chiuso</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<section class="location">
+  <div class="location-container">
+
+    <p class="section-label">Dove siamo</p>
+
+    <h2>Vieni a trovarci</h2>
+
+    <div class="location-card">
+
+      <div class="location-info">
+        <h3>Luxury Hair Studio</h3>
+        <p>Via Roma 123, Milano</p>
+
+        <a href="#" class="map-link">
+          Apri in Google Maps
+        </a>
+      </div>
+
+      <div class="map-placeholder">
+        Mappa Google
+      </div>
+
+    </div>
+
+  </div>
+</section>
+  <section class="contacts">
+
+  <div class="contacts-container">
+
+    <p class="section-label">Contatti</p>
+
+  
+
+    <div class="contacts-grid">
+
+      <a href="#" class="contact-card">
+        <div class="contact-icon">📞</div>
+        <h3>Telefono</h3>
+        <p>035 1234567</p>
+      </a>
+
+      <a href="#" class="contact-card">
+        <div class="contact-icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p>Scrivici ora</p>
+      </a>
+
+      <a href="#" class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <h3>Email</h3>
+        <p>info@luxuryhair.it</p>
+      </a>
+
+      <a href="#" class="contact-card">
+        <div class="contact-icon">🌍</div>
+        <h3>Sito Web</h3>
+        <p>www.luxuryhair.it</p>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+<section class="social">
+  <div class="social-container">
+
+    <p class="section-label">I nostri canali</p>
+
+   <div class="social-links">
+
+  <a href="#" class="social-card">Instagram</a>
+
+  <a href="#" class="social-card">Facebook</a>
+
+  <a href="#" class="social-card">TikTok</a>
+
+  <a href="#" class="social-card">YouTube</a>
+
+  <a href="#" class="social-card">LinkedIn</a>
+
+  <a href="#" class="social-card">X</a>
+
+  <a href="#" class="social-card">Booking</a>
+
+  <a href="#" class="social-card">Tripadvisor</a>
+
+  <a href="#" class="social-card">TheFork</a>
 
 </div>
 
+  </div>
+</section>
+<section class="share">
+
+  <div class="share-container">
+
+    <p class="section-label">Condividi</p>
+
+    <h2>Ti è piaciuta questa attività?</h2>
+
+    <p>
+      Aiutaci a farci conoscere.
+      Condividi questa pagina con amici e familiari.
+    </p>
+
+    <a href="#" class="share-button">
+      📤 Condividi la pagina
+    </a>
+
+  </div>
+
+</section>
 <footer>
-  © 2026 B-M App - All Rights Reserved
+
+  <img src="images/logo-bm.png" alt="B-M App" class="footer-logo">
+
+  <p>Powered by <strong>B-M App</strong></p>
+
+  <small>© 2026 Tutti i diritti riservati.</small>
+
 </footer>
 
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
 </html>

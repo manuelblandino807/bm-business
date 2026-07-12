@@ -744,6 +744,10 @@ footer small{
   text-align:center;
 }
 
+.social h2{
+  margin-bottom:30px;
+}
+
 .social-links{
   display:flex;
   justify-content:center;

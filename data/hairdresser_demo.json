@@ -1,0 +1,93 @@
+{
+  "category": "hairdresser",
+  "theme": "pink",
+
+  "business": {
+    "name": "Luxury Hair Studio JSON",
+    "tagline": "B-M Business Demo",
+    "subtitle": "Parrucchiere professionale per tagli, colore e trattamenti su misura.",
+    "description": "Luxury Hair Studio è un salone moderno pensato per chi desidera un servizio personalizzato, professionale e attento alla bellezza naturale di ogni persona.",
+    "logo": "images/logo-demo.png"
+  },
+
+  "mainAction": {
+    "text": "Prenota ora",
+    "link": ""
+  },
+
+  "contacts": {
+    "phone": "0351234567",
+    "whatsapp": "393331234567",
+    "email": "info@luxuryhair.it",
+    "website": "https://www.luxuryhair.it"
+  },
+
+  "social": {
+    "instagram": "https://www.instagram.com/",
+    "facebook": "https://www.facebook.com/",
+    "tiktok": "https://www.tiktok.com/",
+    "youtube": "https://www.youtube.com/",
+    "linkedin": "https://www.linkedin.com/",
+    "x": "https://x.com/"
+  },
+
+  "platforms": {
+    "booking": "",
+    "tripadvisor": "",
+    "thefork": ""
+  },
+
+  "services": [
+    {
+      "title": "Taglio Uomo",
+      "description": "Tagli moderni, classici e personalizzati per ogni stile."
+    },
+    {
+      "title": "Taglio Donna",
+      "description": "Tagli su misura, piega e consulenza per valorizzare il viso."
+    },
+    {
+      "title": "Colore e Trattamenti",
+      "description": "Colorazioni professionali, trattamenti nutrienti e cura del capello."
+    }
+  ],
+
+  "gallery": [
+    "images/gallery/photo1.jpg",
+    "images/gallery/photo2.jpg",
+    "images/gallery/photo3.jpg",
+    "images/gallery/photo4.jpg",
+    "images/gallery/photo5.jpg",
+    "images/gallery/photo6.jpg"
+  ],
+
+  "reviews": {
+    "enabled": true,
+    "provider": "Google",
+    "score": "4.8",
+    "count": "157",
+    "link": ""
+  },
+
+  "hours": {
+    "monday": "09:00 - 18:30",
+    "tuesday": "09:00 - 18:30",
+    "wednesday": "Chiuso",
+    "thursday": "09:00 - 18:30",
+    "friday": "09:00 - 18:30",
+    "saturday": "08:30 - 17:00",
+    "sunday": "Chiuso"
+  },
+
+  "location": {
+    "businessName": "Luxury Hair Studio",
+    "address": "Via Roma 123, Milano",
+    "mapsLink": "",
+    "mapEmbed": ""
+  },
+
+  "sharing": {
+    "title": "Ti è piaciuta questa attività?",
+    "text": "Aiutaci a farci conoscere. Condividi questa pagina con amici e familiari."
+  }
+}

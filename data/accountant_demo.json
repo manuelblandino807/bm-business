@@ -1,0 +1,93 @@
+{
+  "category": "accountant",
+  "theme": "blue",
+
+  "business": {
+    "name": "Studio Commercialista Rossi",
+    "tagline": "B-M Business Demo",
+    "subtitle": "Consulenza fiscale, contabile e societaria per privati, professionisti e imprese.",
+    "description": "Lo Studio Commercialista Rossi offre assistenza fiscale e contabile con professionalità, precisione e attenzione alle esigenze di ogni cliente.",
+    "logo": "images/logo-demo.png"
+  },
+
+  "mainAction": {
+    "text": "Richiedi una consulenza",
+    "link": ""
+  },
+
+  "contacts": {
+    "phone": "0359876543",
+    "whatsapp": "393401234567",
+    "email": "info@studiorossi.it",
+    "website": "https://www.studiorossi.it"
+  },
+
+  "social": {
+    "instagram": "",
+    "facebook": "",
+    "tiktok": "",
+    "youtube": "",
+    "linkedin": "https://www.linkedin.com/",
+    "x": ""
+  },
+
+  "platforms": {
+    "booking": "",
+    "tripadvisor": "",
+    "thefork": ""
+  },
+
+  "services": [
+    {
+      "title": "Dichiarazione dei Redditi",
+      "description": "Assistenza completa per persone fisiche, professionisti e imprese."
+    },
+    {
+      "title": "Contabilità Aziendale",
+      "description": "Gestione contabile e amministrativa per aziende e professionisti."
+    },
+    {
+      "title": "Consulenza Fiscale",
+      "description": "Pianificazione fiscale e supporto continuativo."
+    }
+  ],
+
+      "gallery": [
+      "images/gallery/photo1.jpg",
+      "images/gallery/photo2.jpg",
+      "images/gallery/photo3.jpg",
+      "images/gallery/photo4.jpg",
+      "images/gallery/photo5.jpg",
+      "images/gallery/photo6.jpg"
+  ],
+
+  "reviews": {
+    "enabled": true,
+    "provider": "Google",
+    "score": "4.9",
+    "count": "86",
+    "link": ""
+  },
+
+  "hours": {
+    "monday": "08:30 - 12:30 | 14:00 - 18:00",
+    "tuesday": "08:30 - 12:30 | 14:00 - 18:00",
+    "wednesday": "08:30 - 12:30 | 14:00 - 18:00",
+    "thursday": "08:30 - 12:30 | 14:00 - 18:00",
+    "friday": "08:30 - 12:30 | 14:00 - 17:30",
+    "saturday": "Chiuso",
+    "sunday": "Chiuso"
+  },
+
+  "location": {
+    "businessName": "Studio Commercialista Rossi",
+    "address": "Via Verdi 25, Bergamo",
+    "mapsLink": "",
+    "mapEmbed": ""
+  },
+
+  "sharing": {
+    "title": "Conosci qualcuno che cerca un commercialista?",
+    "text": "Condividi questa pagina con professionisti, imprese e privati."
+  }
+}

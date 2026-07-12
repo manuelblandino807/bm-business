@@ -820,3 +820,17 @@ footer small{
     transform:translateY(-3px);
 
 }
+.social-links img {
+  width: 45px;
+  height: 45px;
+  display: block;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 12px;
+  border-radius: 50%;
+}

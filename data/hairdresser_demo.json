@@ -82,7 +82,7 @@
   "location": {
     "businessName": "Luxury Hair Studio",
     "address": "Via Roma 123, Milano",
-    "mapsLink": "",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Via+Roma+123+Milano",
     "mapEmbed": ""
   },
 

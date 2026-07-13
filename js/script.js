@@ -10,7 +10,7 @@ const sitoUrl = params.get('sito') || '';
 
 async function loadBusinessData() {
   try {
-    const response = await fetch('data/hairdresser_demo.json?v=3');
+    const response = await fetch('data/hairdresser_demo.json?v=4');
 
     if (!response.ok) {
       throw new Error('Impossibile caricare il file JSON');

@@ -18,29 +18,52 @@ async function loadBusinessData() {
 
     const data = await response.json();
 
+    const phoneCard =
+      document.getElementById('phone-card');
+
+    const phoneText =
+      document.getElementById('phone-text');
+
     const businessNameElement =
       document.getElementById('business-name');
 
-      const businessTaglineElement =
+    const businessTaglineElement =
       document.getElementById('business-tagline');
 
-const businessSubtitleElement =
+    const businessSubtitleElement =
       document.getElementById('business-subtitle');
 
     if (businessNameElement) {
       businessNameElement.textContent =
-      data.business.name || nomeUrl;
+        data.business.name || nomeUrl;
     }
 
     if (businessTaglineElement) {
-    businessTaglineElement.textContent =
+      businessTaglineElement.textContent =
         data.business.tagline;
     }
 
-   if (businessSubtitleElement) {
-    businessSubtitleElement.textContent =
+    if (businessSubtitleElement) {
+      businessSubtitleElement.textContent =
         data.business.subtitle;
     }
+
+    const phone =
+      data.contacts?.phone?.trim() || '';
+
+    if (phoneCard && phoneText) {
+      if (phone) {
+        phoneText.textContent = phone;
+
+        phoneCard.href =
+          `tel:${phone.replace(/\s+/g, '')}`;
+
+        phoneCard.style.display = '';
+      } else {
+        phoneCard.style.display = 'none';
+      }
+    }
+
     console.log('Dati JSON caricati:', data);
 
     console.log('Dati ricevuti dall’URL:', {

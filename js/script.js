@@ -84,6 +84,30 @@ async function loadBusinessData() {
     const mapsLink =
       document.getElementById('maps-link');
 
+    const instagramLink =
+      document.getElementById('instagram-link');
+
+    const facebookLink =
+      document.getElementById('facebook-link');
+
+    const tiktokLink =
+      document.getElementById('tiktok-link');
+
+    const youtubeLink =
+      document.getElementById('youtube-link');
+
+    const linkedinLink =
+      document.getElementById('linkedin-link');
+
+    const xLink =
+      document.getElementById('x-link');
+
+    const bookingLink =
+      document.getElementById('booking-link');
+
+    const tripadvisorLink =
+      document.getElementById('tripadvisor-link');
+
     // HERO
     if (businessNameElement) {
       businessNameElement.textContent =
@@ -270,6 +294,39 @@ async function loadBusinessData() {
         mapsLink.style.cursor = 'default';
       }
     }
+    const social = data.social || {};
+
+function setSocialLink(element, url) {
+  if (!element) return;
+
+  if (url && url.trim() !== '') {
+    element.href = url;
+    element.target = '_blank';
+    element.rel = 'noopener noreferrer';
+    element.style.display = '';
+  } else {
+    element.style.display = 'none';
+  }
+}
+
+setSocialLink(instagramLink, social.instagram);
+setSocialLink(facebookLink, social.facebook);
+setSocialLink(tiktokLink, social.tiktok);
+setSocialLink(youtubeLink, social.youtube);
+setSocialLink(linkedinLink, social.linkedin);
+setSocialLink(xLink, social.x);
+const platforms =
+  data.platforms || {};
+
+setSocialLink(
+  bookingLink,
+  platforms.booking
+);
+
+setSocialLink(
+  tripadvisorLink,
+  platforms.tripadvisor
+);
 
     console.log(
       'Dati JSON caricati:',

@@ -32,8 +32,8 @@
   },
 
   "platforms": {
-    "booking": "",
-    "tripadvisor": "",
+    "booking": "https://www.booking.com/",
+    "tripadvisor": "https://www.tripadvisor.it/",
     "thefork": ""
   },
 

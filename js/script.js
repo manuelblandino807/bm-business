@@ -108,6 +108,15 @@ async function loadBusinessData() {
     const tripadvisorLink =
       document.getElementById('tripadvisor-link');
 
+    const servicesGrid =
+      document.getElementById('services-grid');
+
+    const gallerySection =
+      document.getElementById('gallery-section');
+
+    const galleryGrid =
+      document.getElementById('gallery-grid');
+
     // HERO
     if (businessNameElement) {
       businessNameElement.textContent =
@@ -327,6 +336,132 @@ setSocialLink(
   tripadvisorLink,
   platforms.tripadvisor
 );
+
+const services =
+  Array.isArray(data.services)
+    ? data.services
+    : [];
+
+if (servicesGrid) {
+  servicesGrid.innerHTML = '';
+
+  services.forEach((service) => {
+    const serviceCard =
+      document.createElement('div');
+
+    serviceCard.className =
+      'service-card';
+
+    const serviceIcon =
+      document.createElement('div');
+
+    serviceIcon.className =
+      'service-icon';
+
+    serviceIcon.textContent =
+      service.icon || '🛠️';
+
+    const serviceTitle =
+      document.createElement('h3');
+
+    serviceTitle.textContent =
+      service.title || '';
+
+    const serviceDescription =
+      document.createElement('p');
+
+    serviceDescription.textContent =
+      service.description || '';
+
+      const mainAction =
+  data.mainAction || {};
+
+const serviceButton =
+  document.createElement('a');
+
+serviceButton.className =
+  'service-link';
+
+serviceButton.textContent =
+  mainAction.text || '';
+
+if (mainAction.link) {
+  serviceButton.href =
+    mainAction.link;
+
+  serviceButton.target =
+    '_blank';
+
+  serviceButton.rel =
+    'noopener noreferrer';
+} else {
+  serviceButton.style.display =
+    'none';
+}
+
+    serviceCard.appendChild(
+      serviceIcon
+    );
+
+    serviceCard.appendChild(
+      serviceTitle
+    );
+
+    serviceCard.appendChild(
+      serviceDescription
+    );
+
+    serviceCard.appendChild(
+      serviceButton
+    );
+
+    servicesGrid.appendChild(
+      serviceCard
+    );
+  });
+}
+
+const gallery =
+  Array.isArray(data.gallery)
+    ? data.gallery
+    : [];
+
+if (gallerySection && galleryGrid) {
+  galleryGrid.innerHTML = '';
+
+  if (gallery.length > 0) {
+    gallery.forEach((imagePath, index) => {
+      const galleryItem =
+        document.createElement('div');
+
+      galleryItem.className =
+        'gallery-item';
+
+      const galleryImage =
+        document.createElement('img');
+
+      galleryImage.src = imagePath;
+
+      galleryImage.alt =
+        `Foto ${index + 1} di ${data.business?.name || 'attività'}`;
+
+      galleryImage.loading =
+        'lazy';
+
+      galleryItem.appendChild(
+        galleryImage
+      );
+
+      galleryGrid.appendChild(
+        galleryItem
+      );
+    });
+
+    gallerySection.style.display = '';
+  } else {
+    gallerySection.style.display = 'none';
+  }
+}
 
     console.log(
       'Dati JSON caricati:',

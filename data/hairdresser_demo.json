@@ -12,8 +12,9 @@
 
   "mainAction": {
     "text": "Prenota ora",
-    "link": ""
+    "link": "https://wa.me/393331234567"
   },
+
 
   "contacts": {
     "phone": "0351234567",
@@ -37,29 +38,32 @@
     "thefork": ""
   },
 
-  "services": [
-    {
-      "title": "Taglio Uomo",
-      "description": "Tagli moderni, classici e personalizzati per ogni stile."
-    },
-    {
-      "title": "Taglio Donna",
-      "description": "Tagli su misura, piega e consulenza per valorizzare il viso."
-    },
-    {
-      "title": "Colore e Trattamenti",
-      "description": "Colorazioni professionali, trattamenti nutrienti e cura del capello."
-    }
-  ],
+ "services": [
+  {
+    "icon": "✂️",
+    "title": "Taglio Uomo",
+    "description": "Tagli moderni, classici e personalizzati per ogni stile."
+  },
+  {
+    "icon": "💇‍♀️",
+    "title": "Taglio Donna",
+    "description": "Tagli su misura, piega e consulenza per valorizzare il viso."
+  },
+  {
+    "icon": "🎨",
+    "title": "Colore e Trattamenti",
+    "description": "Colorazioni professionali, trattamenti nutrienti e cura del capello."
+  }
+],
 
-  "gallery": [
-    "images/gallery/photo1.jpg",
-    "images/gallery/photo2.jpg",
-    "images/gallery/photo3.jpg",
-    "images/gallery/photo4.jpg",
-    "images/gallery/photo5.jpg",
-    "images/gallery/photo6.jpg"
-  ],
+"gallery": [
+  "images/hairdresser/photo1.jpg",
+  "images/hairdresser/photo2.jpg",
+  "images/hairdresser/photo3.jpg",
+  "images/hairdresser/photo4.jpg",
+  "images/hairdresser/photo5.jpg",
+  "images/hairdresser/photo6.jpg"
+],
 
   "reviews": {
     "enabled": true,

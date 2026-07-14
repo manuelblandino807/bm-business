@@ -117,6 +117,12 @@ async function loadBusinessData() {
     const galleryGrid =
       document.getElementById('gallery-grid');
 
+    const hoursSection =
+      document.getElementById('hours-section');
+
+    const hoursCard =
+      document.getElementById('hours-card');
+
     // HERO
     if (businessNameElement) {
       businessNameElement.textContent =
@@ -460,6 +466,75 @@ if (gallerySection && galleryGrid) {
     gallerySection.style.display = '';
   } else {
     gallerySection.style.display = 'none';
+  }
+}
+
+const hours =
+  data.hours || {};
+
+const days = [
+  ['monday', 'Lunedì'],
+  ['tuesday', 'Martedì'],
+  ['wednesday', 'Mercoledì'],
+  ['thursday', 'Giovedì'],
+  ['friday', 'Venerdì'],
+  ['saturday', 'Sabato'],
+  ['sunday', 'Domenica'],
+];
+
+if (hoursSection && hoursCard) {
+  hoursCard.innerHTML = '';
+
+  const availableDays = days.filter(
+    ([key]) => hours[key]?.trim()
+  );
+
+  if (availableDays.length > 0) {
+    availableDays.forEach(([key, label]) => {
+      const hourRow =
+        document.createElement('div');
+
+      hourRow.className =
+        'hour-row';
+
+      const dayName =
+        document.createElement('span');
+
+      dayName.textContent =
+        label;
+
+      const dayHours =
+        document.createElement('strong');
+
+      const value =
+        hours[key].trim();
+
+      dayHours.textContent =
+        value;
+
+      if (
+        value.toLowerCase() === 'chiuso'
+      ) {
+        dayHours.className =
+          'closed';
+      }
+
+      hourRow.appendChild(
+        dayName
+      );
+
+      hourRow.appendChild(
+        dayHours
+      );
+
+      hoursCard.appendChild(
+        hourRow
+      );
+    });
+
+    hoursSection.style.display = '';
+  } else {
+    hoursSection.style.display = 'none';
   }
 }
 

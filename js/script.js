@@ -7,6 +7,35 @@ const descrizioneUrl = params.get('descrizione') || '';
 const telefonoUrl = params.get('telefono') || '';
 const emailUrl = params.get('email') || '';
 const sitoUrl = params.get('sito') || '';
+const instagramUrl =
+  params.get('instagram') || '';
+
+const facebookUrl =
+  params.get('facebook') || '';
+
+const tiktokUrl =
+  params.get('tiktok') || '';
+
+const youtubeUrl =
+  params.get('youtube') || '';
+
+const linkedinUrl =
+  params.get('linkedin') || '';
+
+const xUrl =
+  params.get('x') || '';
+
+const bookingUrl =
+  params.get('booking') || '';
+
+const tripadvisorUrl =
+  params.get('tripadvisor') || '';
+
+const whatsappUrl =
+  params.get('whatsapp') || '';
+
+const mapsUrl =
+params.get('maps') || '';
 
 async function loadBusinessData() {
   try {
@@ -271,45 +300,60 @@ async function loadBusinessData() {
       }
     }
 
-    // MAPS
-    const location = data.location || {};
+   // MAPS
+const location = data.location || {};
 
-    const businessLocationName =
-      location.businessName?.trim() || '';
+const businessLocationName =
+  nomeUrl ||
+  location.businessName?.trim() ||
+  '';
 
-    const address =
-      location.address?.trim() || '';
+const address =
+  mapsUrl ||
+  location.address?.trim() ||
+  '';
 
-    const googleMapsLink =
-      location.mapsLink?.trim() || '';
+const googleMapsLink =
+  address
+    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
+    : location.mapsLink?.trim() || '';
 
-    if (locationBusinessName) {
-      locationBusinessName.textContent =
-        businessLocationName;
-    }
+if (locationBusinessName) {
+  locationBusinessName.textContent =
+    businessLocationName;
+}
 
-    if (locationAddress) {
-      locationAddress.textContent =
-        address;
-    }
+if (locationAddress) {
+  locationAddress.textContent =
+    address;
+}
 
-    if (mapsLink) {
-      if (googleMapsLink) {
-        mapsLink.href = googleMapsLink;
-        mapsLink.target = '_blank';
-        mapsLink.rel =
-          'noopener noreferrer';
+if (mapsLink) {
+  if (googleMapsLink) {
+    mapsLink.href = googleMapsLink;
+    mapsLink.target = '_blank';
+    mapsLink.rel =
+      'noopener noreferrer';
 
-        mapsLink.style.cursor =
-          'pointer';
+    mapsLink.style.cursor =
+      'pointer';
 
-        mapsLink.style.display = '';
-      } else {
-        mapsLink.removeAttribute('href');
-        mapsLink.style.cursor = 'default';
-      }
-    }
-    const social = data.social || {};
+    mapsLink.style.display = '';
+  } else {
+    mapsLink.removeAttribute('href');
+    mapsLink.style.cursor = 'default';
+    mapsLink.style.display = 'none';
+  }
+}
+
+    const social = {
+  instagram: instagramUrl || data.social?.instagram || '',
+  facebook: facebookUrl || data.social?.facebook || '',
+  tiktok: tiktokUrl || data.social?.tiktok || '',
+  youtube: youtubeUrl || data.social?.youtube || '',
+  linkedin: linkedinUrl || data.social?.linkedin || '',
+  x: xUrl || data.social?.x || '',
+};
 
 function setSocialLink(element, url) {
   if (!element) return;
@@ -330,8 +374,18 @@ setSocialLink(tiktokLink, social.tiktok);
 setSocialLink(youtubeLink, social.youtube);
 setSocialLink(linkedinLink, social.linkedin);
 setSocialLink(xLink, social.x);
-const platforms =
-  data.platforms || {};
+
+const platforms = {
+  booking:
+    bookingUrl ||
+    data.platforms?.booking ||
+    '',
+
+  tripadvisor:
+    tripadvisorUrl ||
+    data.platforms?.tripadvisor ||
+    '',
+};
 
 setSocialLink(
   bookingLink,

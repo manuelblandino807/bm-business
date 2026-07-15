@@ -993,3 +993,24 @@ body.accountant-theme .share-button:hover{
 body.accountant-theme footer{
   background:#1565C0;
 }
+
+/* Forza colori blu nei servizi del commercialista */
+
+body.accountant-theme .services h2,
+body.accountant-theme .service-card h3,
+body.accountant-theme .service-icon{
+  color:#1565C0 !important;
+}
+
+body.accountant-theme .service-card{
+  border-top:4px solid #1565C0 !important;
+}
+
+body.accountant-theme .service-link{
+  background:#1565C0 !important;
+  color:white !important;
+}
+
+body.accountant-theme .service-link:hover{
+  background:#0D47A1 !important;
+}

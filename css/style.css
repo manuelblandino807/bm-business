@@ -522,8 +522,10 @@ footer small{
 
 .hour-row strong{
     color:#222;
-
+    white-space:nowrap;
+    font-size:16px;
 }
+
 
 @media(max-width:800px){
 
@@ -537,6 +539,20 @@ footer small{
 
         padding:25px;
 
+    }
+
+        .hour-row{
+        gap:12px;
+    }
+
+    .hour-row span{
+        flex-shrink:0;
+        font-size:15px;
+    }
+
+    .hour-row strong{
+        font-size:14px;
+        white-space:nowrap;
     }
 
 }

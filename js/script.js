@@ -40,6 +40,9 @@ const mapsUrl =
 const hoursJsonUrl =
   params.get('hoursJson') || '';
 
+const servicesJsonUrl =
+  params.get('servicesJson') || '';
+
 async function loadBusinessData() {
   try {
     const response = await fetch(
@@ -400,10 +403,29 @@ setSocialLink(
   platforms.tripadvisor
 );
 
-const services =
+const servicesJsonUrl =
+  params.get('servicesJson') || '';
+
+  let services =
   Array.isArray(data.services)
     ? data.services
     : [];
+
+if (servicesJsonUrl) {
+  try {
+    const decodedServices =
+      JSON.parse(servicesJsonUrl);
+
+    if (Array.isArray(decodedServices)) {
+      services = decodedServices;
+    }
+  } catch (error) {
+    console.error(
+      'Errore nella lettura dei servizi:',
+      error
+    );
+  }
+}
 
 if (servicesGrid) {
   servicesGrid.innerHTML = '';
@@ -436,31 +458,31 @@ if (servicesGrid) {
     serviceDescription.textContent =
       service.description || '';
 
-      const mainAction =
-  data.mainAction || {};
+    const mainAction =
+      data.mainAction || {};
 
-const serviceButton =
-  document.createElement('a');
+    const serviceButton =
+      document.createElement('a');
 
-serviceButton.className =
-  'service-link';
+    serviceButton.className =
+      'service-link';
 
-serviceButton.textContent =
-  mainAction.text || '';
+    serviceButton.textContent =
+      mainAction.text || '';
 
-if (mainAction.link) {
-  serviceButton.href =
-    mainAction.link;
+    if (mainAction.link) {
+      serviceButton.href =
+        mainAction.link;
 
-  serviceButton.target =
-    '_blank';
+      serviceButton.target =
+        '_blank';
 
-  serviceButton.rel =
-    'noopener noreferrer';
-} else {
-  serviceButton.style.display =
-    'none';
-}
+      serviceButton.rel =
+        'noopener noreferrer';
+    } else {
+      serviceButton.style.display =
+        'none';
+    }
 
     serviceCard.appendChild(
       serviceIcon

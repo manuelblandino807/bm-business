@@ -965,3 +965,45 @@ body.accountant-theme .reviews-card{
 body.accountant-theme .reviews-score{
   color:#1565C0;
 }
+/* Commercialista - sezione Chi siamo / Perché sceglierci */
+
+body.accountant-theme .section-label,
+body.accountant-theme .about-card h3{
+  color:#1565C0;
+}
+
+body.accountant-theme .about-card{
+  border-top:4px solid #1565C0;
+}
+
+body.accountant-theme .about-card li::marker{
+  color:#1565C0;
+}
+
+/* ===========================
+   SHARE - COMMERCIALISTA
+=========================== */
+
+body.accountant-theme .share{
+  background:#EAF4FE;
+}
+
+body.accountant-theme .share .section-label{
+  color:#1565C0;
+}
+
+body.accountant-theme .share-button{
+  background:#1565C0;
+}
+
+body.accountant-theme .share-button:hover{
+  background:#0D47A1;
+}
+
+/* ===========================
+   FOOTER - COMMERCIALISTA
+=========================== */
+
+body.accountant-theme footer{
+  background:#1565C0;
+}

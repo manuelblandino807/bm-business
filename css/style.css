@@ -1014,3 +1014,18 @@ body.accountant-theme .service-link{
 body.accountant-theme .service-link:hover{
   background:#0D47A1 !important;
 }
+
+/* Hero blu solo per la demo commercialista */
+
+body.accountant-theme .hero{
+  background:#1565C0 !important;
+}
+
+body.accountant-theme .hero .tagline{
+  color:white !important;
+}
+
+body.accountant-theme .hero h1,
+body.accountant-theme .hero p{
+  color:white !important;
+}

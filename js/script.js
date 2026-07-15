@@ -53,7 +53,7 @@ const servicesJsonUrl =
 
 async function loadBusinessData() {
   try {
-    
+
     const response = await fetch(
   `${demoFile}?v=5`
 );
@@ -64,6 +64,10 @@ async function loadBusinessData() {
     }
 
     const data = await response.json();
+
+    if (data.category === 'accountant') {
+  document.body.classList.add('accountant-theme');
+}
 
     // HERO
     const businessNameElement =

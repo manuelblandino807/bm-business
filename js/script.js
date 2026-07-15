@@ -35,7 +35,10 @@ const whatsappUrl =
   params.get('whatsapp') || '';
 
 const mapsUrl =
-params.get('maps') || '';
+  params.get('maps') || '';
+
+const hoursJsonUrl =
+  params.get('hoursJson') || '';
 
 async function loadBusinessData() {
   try {
@@ -523,8 +526,29 @@ if (gallerySection && galleryGrid) {
   }
 }
 
-const hours =
-  data.hours || {};
+const hoursJsonUrl =
+  params.get('hoursJson') || '';
+
+let hours = data.hours || {};
+
+if (hoursJsonUrl) {
+  try {
+    const decodedHours =
+      JSON.parse(hoursJsonUrl);
+
+    if (
+      decodedHours &&
+      typeof decodedHours === 'object'
+    ) {
+      hours = decodedHours;
+    }
+  } catch (error) {
+    console.error(
+      'Errore nella lettura degli orari:',
+      error
+    );
+  }
+}
 
 const days = [
   ['monday', 'Lunedì'],
@@ -540,7 +564,7 @@ if (hoursSection && hoursCard) {
   hoursCard.innerHTML = '';
 
   const availableDays = days.filter(
-    ([key]) => hours[key]?.trim()
+    ([key]) => hours[key]
   );
 
   if (availableDays.length > 0) {
@@ -560,8 +584,35 @@ if (hoursSection && hoursCard) {
       const dayHours =
         document.createElement('strong');
 
-      const value =
-        hours[key].trim();
+      const daySchedule =
+        hours[key];
+
+      let value = '';
+
+      if (
+        typeof daySchedule === 'string'
+      ) {
+        value =
+          daySchedule.trim();
+      } else if (
+        daySchedule &&
+        typeof daySchedule === 'object'
+      ) {
+        if (
+          daySchedule.open === false
+        ) {
+          value = 'Chiuso';
+        } else if (
+          daySchedule.type === 'split'
+        ) {
+          value =
+            `${daySchedule.start1 || ''} - ${daySchedule.end1 || ''}` +
+            ` / ${daySchedule.start2 || ''} - ${daySchedule.end2 || ''}`;
+        } else {
+          value =
+            `${daySchedule.start1 || ''} - ${daySchedule.end1 || ''}`;
+        }
+      }
 
       dayHours.textContent =
         value;
@@ -605,6 +656,7 @@ if (hoursSection && hoursCard) {
         telefonoUrl,
         emailUrl,
         sitoUrl,
+        hoursJsonUrl,
       }
     );
   } catch (error) {

@@ -2,6 +2,14 @@
 
 const params = new URLSearchParams(window.location.search);
 
+const demoType =
+  params.get('demo') || 'hairdresser';
+
+const demoFile =
+  demoType === 'accountant'
+    ? 'data/accountant_demo.json'
+    : 'data/hairdresser_demo.json';
+
 const nomeUrl = params.get('nome') || '';
 const descrizioneUrl = params.get('descrizione') || '';
 const telefonoUrl = params.get('telefono') || '';
@@ -45,10 +53,10 @@ const servicesJsonUrl =
 
 async function loadBusinessData() {
   try {
+    
     const response = await fetch(
-      'data/hairdresser_demo.json?v=4'
-    );
-
+  `${demoFile}?v=5`
+);
     if (!response.ok) {
       throw new Error(
         'Impossibile caricare il file JSON'

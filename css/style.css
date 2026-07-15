@@ -925,77 +925,41 @@ footer small{
 
 /* ===========================
    TEMA COMMERCIALISTA
+   Si attiva solo con body.accountant-theme
 =========================== */
 
-body.accountant-theme .section-label{
-  color:#1565C0;
+/* Hero */
+body.accountant-theme .hero{
+  background-image:none !important;
+  background-color:#1565C0 !important;
+}
+
+body.accountant-theme .hero .tagline,
+body.accountant-theme .hero h1,
+body.accountant-theme .hero .subtitle,
+body.accountant-theme .hero p{
+  color:#fff !important;
+}
+
+body.accountant-theme .btn.primary{
+  color:#1565C0 !important;
+}
+
+/* Chi siamo / Perché sceglierci */
+body.accountant-theme .section-label,
+body.accountant-theme .about-card h3{
+  color:#1565C0 !important;
 }
 
 body.accountant-theme .about-card{
-  background:#EDF5FF;
-}
-
-body.accountant-theme .about-card h3{
-  color:#1565C0;
+  background:#EDF5FF !important;
 }
 
 body.accountant-theme .about-card li::before{
-  color:#1565C0;
+  color:#1565C0 !important;
 }
 
-body.accountant-theme .service-card h3{
-  color:#1565C0;
-}
-
-body.accountant-theme .service-link,
-body.accountant-theme .map-link,
-body.accountant-theme .share-button{
-  background:#1565C0;
-}
-
-body.accountant-theme .service-link:hover,
-body.accountant-theme .map-link:hover,
-body.accountant-theme .share-button:hover{
-  background:#0D47A1;
-}
-
-body.accountant-theme footer{
-  background:#1565C0;
-}
-
-body.accountant-theme .share{
-  background:#EDF5FF;
-}
-/* ===========================
-   SHARE - COMMERCIALISTA
-=========================== */
-
-body.accountant-theme .share{
-  background:#EAF4FE;
-}
-
-body.accountant-theme .share .section-label{
-  color:#1565C0;
-}
-
-body.accountant-theme .share-button{
-  background:#1565C0;
-}
-
-body.accountant-theme .share-button:hover{
-  background:#0D47A1;
-}
-
-/* ===========================
-   FOOTER - COMMERCIALISTA
-=========================== */
-
-body.accountant-theme footer{
-  background:#1565C0;
-}
-
-/* Forza colori blu nei servizi del commercialista */
-
+/* Servizi */
 body.accountant-theme .services h2,
 body.accountant-theme .service-card h3,
 body.accountant-theme .service-icon{
@@ -1007,25 +971,65 @@ body.accountant-theme .service-card{
 }
 
 body.accountant-theme .service-link{
-  background:#1565C0 !important;
-  color:white !important;
+  color:#1565C0 !important;
+  background:transparent !important;
 }
 
 body.accountant-theme .service-link:hover{
-  background:#0D47A1 !important;
+  color:#0D47A1 !important;
 }
 
-/* Hero blu solo per la demo commercialista */
+/* Orari */
+body.accountant-theme .hour-row span{
+  color:#1565C0 !important;
+}
 
-body.accountant-theme .hero{
+/* Mappa */
+body.accountant-theme .location-info h3{
+  color:#1565C0 !important;
+}
+
+body.accountant-theme .map-link{
   background:#1565C0 !important;
 }
 
-body.accountant-theme .hero .tagline{
-  color:white !important;
+body.accountant-theme .map-link:hover{
+  background:#0D47A1 !important;
 }
 
-body.accountant-theme .hero h1,
-body.accountant-theme .hero p{
-  color:white !important;
+/* Contatti */
+body.accountant-theme .contact-card h3{
+  color:#1565C0 !important;
+}
+
+/* Social e portali */
+body.accountant-theme .social h2,
+body.accountant-theme .platforms-group h3,
+body.accountant-theme .social-card,
+body.accountant-theme .platform-item{
+  color:#1565C0 !important;
+}
+
+/* Condivisione */
+body.accountant-theme .share{
+  background:#EAF4FE !important;
+}
+
+body.accountant-theme .share-button{
+  background:#1565C0 !important;
+  color:#fff !important;
+}
+
+body.accountant-theme .share-button:hover{
+  background:#0D47A1 !important;
+}
+
+/* Footer */
+body.accountant-theme footer{
+  background-image:none !important;
+  background-color:#1565C0 !important;
+}
+
+body.accountant-theme footer small{
+  color:#EAF4FE !important;
 }

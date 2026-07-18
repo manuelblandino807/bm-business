@@ -2,13 +2,25 @@
 
 const params = new URLSearchParams(window.location.search);
 
-const demoType =
-  params.get('demo') || 'hairdresser';
+const demoType = params.get('demo') || 'hairdresser';
+
+const demoFiles = {
+  hairdresser: 'data/hairdresser_demo.json',
+  accountant: 'data/accountant_demo.json',
+  artisan: 'data/artisan_demo.json',
+  restaurant: 'data/restaurant_demo.json',
+  hotel: 'data/hotel_demo.json',
+  beauty: 'data/beauty_demo.json',
+  fitness: 'data/fitness_demo.json',
+  retail: 'data/retail_demo.json',
+  nature: 'data/nature_demo.json',
+};
 
 const demoFile =
-  demoType === 'accountant'
-    ? 'data/accountant_demo.json'
-    : 'data/hairdresser_demo.json';
+  demoFiles[demoType] || demoFiles.hairdresser;
+
+  console.log('DEMO RICHIESTA:', demoType);
+  console.log('FILE CARICATO:', demoFile);
 
 const nomeUrl = params.get('nome') || '';
 const descrizioneUrl = params.get('descrizione') || '';
@@ -65,8 +77,22 @@ async function loadBusinessData() {
 
     const data = await response.json();
 
-    if (data.category === 'accountant') {
-  document.body.classList.add('accountant-theme');
+  // Rimuove eventuali temi precedenti
+document.body.classList.remove(
+  'hairdresser-theme',
+  'accountant-theme',
+  'artisan-theme',
+  'restaurant-theme',
+  'hotel-theme',
+  'beauty-theme',
+  'fitness-theme',
+  'retail-theme',
+  'nature-theme'
+);
+
+// Applica automaticamente il tema corretto
+if (data.category) {
+  document.body.classList.add(`${data.category}-theme`);
 }
 
     // HERO

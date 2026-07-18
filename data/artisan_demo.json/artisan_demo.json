@@ -1,0 +1,79 @@
+{
+  "category": "artisan",
+  "business": {
+    "name": "B-M Impianti",
+    "tagline": "Soluzioni professionali per la tua casa",
+    "subtitle": "Interventi rapidi, precisi e affidabili",
+    "description": "B-M Impianti offre servizi professionali di installazione, manutenzione e riparazione per abitazioni, uffici e attività commerciali. Esperienza, puntualità e attenzione ai dettagli in ogni intervento.",
+    "logo": ""
+  },
+  "services": [
+    {
+      "title": "Riparazioni",
+      "description": "Interventi rapidi per guasti, perdite e problemi domestici."
+    },
+    {
+      "title": "Installazione impianti",
+      "description": "Realizzazione e sostituzione di impianti con materiali di qualità."
+    },
+    {
+      "title": "Manutenzione",
+      "description": "Controlli periodici e manutenzione preventiva degli impianti."
+    },
+    {
+      "title": "Pronto intervento",
+      "description": "Assistenza tempestiva per le urgenze più importanti."
+    }
+  ],
+  "contacts": {
+    "phone": "+39 035 1234567",
+    "whatsapp": "+39 333 1234567",
+    "email": "info@bmimpianti.it",
+    "website": "https://www.bmimpianti.it"
+  },
+  "social": {
+    "instagram": "",
+    "facebook": "",
+    "tiktok": "",
+    "youtube": "",
+    "linkedin": "",
+    "x": ""
+  },
+  "portals": {
+    "booking": "",
+    "tripadvisor": ""
+  },
+  "googleReviews": "",
+  "googleMaps": "Bergamo, Italia",
+  "gallery": [],
+  "hours": [
+    {
+      "day": "Lunedì",
+      "hours": "08:00 - 18:00"
+    },
+    {
+      "day": "Martedì",
+      "hours": "08:00 - 18:00"
+    },
+    {
+      "day": "Mercoledì",
+      "hours": "08:00 - 18:00"
+    },
+    {
+      "day": "Giovedì",
+      "hours": "08:00 - 18:00"
+    },
+    {
+      "day": "Venerdì",
+      "hours": "08:00 - 18:00"
+    },
+    {
+      "day": "Sabato",
+      "hours": "08:00 - 12:30"
+    },
+    {
+      "day": "Domenica",
+      "hours": "Chiuso"
+    }
+  ]
+}

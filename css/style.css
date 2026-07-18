@@ -1033,3 +1033,120 @@ body.accountant-theme footer{
 body.accountant-theme footer small{
   color:#EAF4FE !important;
 }
+
+/* ===========================
+   TEMA ARTIGIANO
+=========================== */
+
+body.artisan-theme .hero{
+  background-image:
+    linear-gradient(
+      rgba(20, 25, 28, 0.68),
+      rgba(20, 25, 28, 0.68)
+    ),
+    url("../images/backgrounds/artisan-hero.jpg") !important;
+
+  background-color:#37474F !important;
+  background-size:cover !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+}
+
+body.artisan-theme .hero .tagline,
+body.artisan-theme .hero h1,
+body.artisan-theme .hero .subtitle,
+body.artisan-theme .hero p{
+  color:#fff !important;
+}
+
+body.artisan-theme .btn.primary{
+  color:#F57C00 !important;
+}
+
+/* Chi siamo */
+body.artisan-theme .section-label,
+body.artisan-theme .about-card h3{
+  color:#F57C00 !important;
+}
+
+body.artisan-theme .about-card{
+  background:#FFF3E0 !important;
+}
+
+body.artisan-theme .about-card li::before{
+  color:#F57C00 !important;
+}
+
+/* Servizi */
+body.artisan-theme .services h2,
+body.artisan-theme .service-card h3,
+body.artisan-theme .service-icon{
+  color:#F57C00 !important;
+}
+
+body.artisan-theme .service-card{
+  border-top:4px solid #F57C00 !important;
+}
+
+body.artisan-theme .service-link{
+  color:#F57C00 !important;
+}
+
+body.artisan-theme .service-link:hover{
+  color:#E65100 !important;
+}
+
+/* Orari */
+body.artisan-theme .hour-row span{
+  color:#F57C00 !important;
+}
+
+/* Mappa */
+body.artisan-theme .location-info h3{
+  color:#F57C00 !important;
+}
+
+body.artisan-theme .map-link{
+  background:#F57C00 !important;
+}
+
+body.artisan-theme .map-link:hover{
+  background:#E65100 !important;
+}
+
+/* Contatti */
+body.artisan-theme .contact-card h3{
+  color:#F57C00 !important;
+}
+
+/* Social */
+body.artisan-theme .social h2,
+body.artisan-theme .platforms-group h3,
+body.artisan-theme .social-card,
+body.artisan-theme .platform-item{
+  color:#F57C00 !important;
+}
+
+/* Condivisione */
+body.artisan-theme .share{
+  background:#FFF3E0 !important;
+}
+
+body.artisan-theme .share-button{
+  background:#F57C00 !important;
+  color:#fff !important;
+}
+
+body.artisan-theme .share-button:hover{
+  background:#E65100 !important;
+}
+
+/* Footer */
+body.artisan-theme footer{
+  background-image:none !important;
+  background-color:#263238 !important;
+}
+
+body.artisan-theme footer small{
+  color:#FFE0B2 !important;
+}

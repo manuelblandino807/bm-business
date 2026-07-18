@@ -95,6 +95,20 @@ if (data.category) {
   document.body.classList.add(`${data.category}-theme`);
 }
 
+// Rimuove eventuali temi colore già presenti
+document.body.classList.remove(
+  'theme-ocean',
+  'theme-green-sage',
+  'theme-pink-blush',
+  'theme-graphite'
+);
+
+// Applica il tema scelto nel JSON.
+// Se manca, usa automaticamente il blu
+const selectedTheme = data.theme || 'ocean';
+
+document.body.classList.add(`theme-${selectedTheme}`);
+
     // HERO
     const businessNameElement =
       document.getElementById('business-name');

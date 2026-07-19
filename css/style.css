@@ -160,69 +160,6 @@ body{
   font-weight:bold;
   margin-right:10px;
 }
-.about{
-  padding:90px 20px;
-  background:white;
-}
-
-.section-container{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:40px;
-  align-items:center;
-}
-
-.section-label{
-  text-transform:uppercase;
-  letter-spacing:3px;
-  color:#D81B60;
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:14px;
-}
-
-.about h2{
-  font-size:42px;
-  margin-bottom:22px;
-}
-
-.about-text p{
-  font-size:18px;
-  line-height:1.8;
-  color:#555;
-}
-
-.about-card{
-  background:#f8eef6;
-  border-radius:28px;
-  padding:35px;
-  box-shadow:0 15px 35px rgba(0,0,0,.08);
-}
-
-.about-card h3{
-  font-size:24px;
-  margin-bottom:20px;
-  color:#8E24AA;
-}
-
-.about-card ul{
-  list-style:none;
-}
-
-.about-card li{
-  margin-bottom:14px;
-  font-size:17px;
-  color:#444;
-}
-
-.about-card li::before{
-  content:"✓";
-  color:#D81B60;
-  font-weight:bold;
-  margin-right:10px;
-}
 .services{
   padding:90px 20px;
   background:#f5f7fb;
@@ -278,18 +215,9 @@ body{
 
 @media(max-width:800px){
 
-  .hero{
-    min-height:60vh;
-    padding:20px 20px;
-  }
-
   .section-container,
   .services-grid{
     grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:42px;
   }
 
   .about h2,
@@ -360,11 +288,6 @@ body{
 }
 
 @media(max-width:800px){
-
-  .hero{
-    min-height:60vh;
-    padding:30px 20px;
-  }
 
   .gallery h2{
     font-size:28px;
@@ -575,10 +498,6 @@ footer small{
     }
 
 }
-.hour-row strong{
-    color:#222;
-}
-
 .hour-row .closed{
     color:#888;
 }
@@ -839,21 +758,6 @@ footer small{
 }
 
 .platform-item{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-  background:white;
-  padding:16px 22px;
-  border-radius:20px;
-  color:#222;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  transition:.3s;
-}
-
-.platform-item{
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -949,8 +853,7 @@ footer small{
 
 /* Hero */
 body.accountant-theme .hero{
-  background-image:none !important;
-  background-color:#1565C0 !important;
+  background-color:transparent !important;
 }
 
 body.accountant-theme .hero .tagline,
@@ -1386,4 +1289,33 @@ body.theme-ocean .share {
 body.theme-ocean footer {
   background-image:none !important;
   background-color:#1565C0 !important;
+}
+
+/* ===========================
+   HERO MOBILE - REGOLA FINALE
+=========================== */
+
+@media(max-width:800px) {
+  #hero {
+    min-height:280px;
+    padding:24px 16px;
+    background-size:cover !important;
+    background-position:center !important;
+  }
+
+  #hero h1 {
+    font-size:32px;
+    margin-bottom:12px;
+  }
+
+  #hero .subtitle {
+    font-size:16px;
+    line-height:1.35;
+    margin-bottom:16px;
+  }
+
+  #hero .tagline {
+    font-size:11px;
+    margin-bottom:12px;
+  }
 }

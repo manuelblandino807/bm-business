@@ -118,15 +118,19 @@ const themeMap = {
   graphite: 'graphite'
 };
 
-const selectedTheme =
+let selectedTheme =
   themeMap[themeIdUrl] ||
   data.theme ||
   'ocean';
 
+// Il Barbiere utilizza sempre Blu Ocean
+if (categoriaUrl === 'barber') {
+  selectedTheme = 'ocean';
+}
+
 document.body.classList.add(
   `theme-${selectedTheme}`
 );
-
 
 // HERO STYLE
 const heroElement =
@@ -136,10 +140,7 @@ let heroStyle =
   data.heroStyle || 'elegance';
 
 // Parrucchiere uomo con tema Ocean
-if (
-  categoriaUrl === 'barber' &&
-  selectedTheme === 'ocean'
-) {
+if (categoriaUrl === 'barber') {
   heroStyle = 'barber-ocean';
 }
 

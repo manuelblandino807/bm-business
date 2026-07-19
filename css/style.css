@@ -1332,3 +1332,58 @@ body a {
   filter:none !important;
   opacity:1 !important;
 }
+
+/* ===========================
+   TEMA BLU OCEANO AUTOMATICO
+=========================== */
+
+body.theme-ocean .section-label,
+body.theme-ocean .about-card h3,
+body.theme-ocean .service-card h3,
+body.theme-ocean .service-link,
+body.theme-ocean .hour-row span,
+body.theme-ocean .location-info h3,
+body.theme-ocean .contact-card h3,
+body.theme-ocean .social h2,
+body.theme-ocean .platforms-group h3,
+body.theme-ocean .social-card,
+body.theme-ocean .platform-item,
+body.theme-ocean .google-score {
+  color:#1565C0 !important;
+}
+
+body.theme-ocean .about-card {
+  background:#EAF4FE !important;
+}
+
+body.theme-ocean .about-card li::before {
+  color:#1565C0 !important;
+}
+
+body.theme-ocean .service-card {
+  border-top:4px solid #1565C0;
+}
+
+body.theme-ocean .map-link,
+body.theme-ocean .share-button {
+  background:#1565C0 !important;
+  color:white !important;
+}
+
+body.theme-ocean .map-link:hover,
+body.theme-ocean .share-button:hover {
+  background:#0D47A1 !important;
+}
+
+body.theme-ocean .btn.primary {
+  color:#1565C0 !important;
+}
+
+body.theme-ocean .share {
+  background:#EAF4FE;
+}
+
+body.theme-ocean footer {
+  background-image:none !important;
+  background-color:#1565C0 !important;
+}

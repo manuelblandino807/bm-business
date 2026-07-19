@@ -18,13 +18,32 @@ body{
   text-align:center;
   padding:40px 20px;
   color:white;
-  background:
-    
-    linear-gradient(135deg,#8E24AA,#D81B60);
+
+  position:relative;
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.hero-overlay{
+  display:none;
 }
 
 .hero-content{
+  position:relative;
+  z-index:2;
   max-width:800px;
+}
+
+.hero .tagline,
+.hero h1,
+.hero .subtitle{
+  color:white;
+  text-shadow:
+    0 2px 5px rgba(0,0,0,.90),
+    0 4px 12px rgba(0,0,0,.75),
+    0 0 25px rgba(0,0,0,.55);
 }
 
 .tagline{
@@ -1274,22 +1293,42 @@ body a {
   text-decoration-color: var(--theme-primary);
 }
 
-/* Velo colorato sopra lo sfondo della Hero */
-body .hero {
-  position: relative;
-  isolation: isolate;
+
+
+/* CORREZIONE DEFINITIVA HERO */
+#hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
+  color:white;
+
+  background-size:cover !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+  background-color:transparent !important;
+  background-blend-mode:normal !important;
+
+  filter:none !important;
+  opacity:1 !important;
 }
 
-body .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--theme-dark) 76%, transparent),
-      color-mix(in srgb, var(--theme-primary) 48%, transparent)
-    );
-  pointer-events: none;
+/* Disattiva eventuali livelli colorati sopra la foto */
+#hero::before,
+#hero::after{
+  display:none !important;
+  content:none !important;
+  background:none !important;
+}
+
+/* Mantiene il testo sopra l’immagine */
+#hero .hero-content{
+  position:relative;
+  z-index:2;
+  max-width:800px;
+  filter:none !important;
+  opacity:1 !important;
 }

@@ -1,6 +1,7 @@
 {
   "category": "hairdresser",
-  "theme": "pink",
+  "theme": "pink-blush",
+  "heroStyle": "elegance",
 
   "business": {
     "name": "Luxury Hair Studio JSON",

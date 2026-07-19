@@ -4,6 +4,12 @@ const params = new URLSearchParams(window.location.search);
 
 const demoType = params.get('demo') || 'hairdresser';
 
+const categoriaUrl =
+  (params.get('categoria') || '').toLowerCase();
+
+const themeIdUrl =
+  params.get('themeId') || '';
+
 const demoFiles = {
   hairdresser: 'data/hairdresser_demo.json',
   accountant: 'data/accountant_demo.json',
@@ -103,11 +109,44 @@ document.body.classList.remove(
   'theme-graphite'
 );
 
-// Applica il tema scelto nel JSON.
-// Se manca, usa automaticamente il blu
-const selectedTheme = data.theme || 'ocean';
+// Converte i nomi ricevuti dalla app
+// nei nomi utilizzati dal CSS
+const themeMap = {
+  blueOcean: 'ocean',
+  greenSage: 'green-sage',
+  pinkBlush: 'pink-blush',
+  graphite: 'graphite'
+};
 
-document.body.classList.add(`theme-${selectedTheme}`);
+const selectedTheme =
+  themeMap[themeIdUrl] ||
+  data.theme ||
+  'ocean';
+
+document.body.classList.add(
+  `theme-${selectedTheme}`
+);
+
+
+// HERO STYLE
+const heroElement =
+  document.getElementById('hero');
+
+let heroStyle =
+  data.heroStyle || 'elegance';
+
+// Parrucchiere uomo con tema Ocean
+if (
+  categoriaUrl === 'barber' &&
+  selectedTheme === 'ocean'
+) {
+  heroStyle = 'barber-ocean';
+}
+
+if (heroElement) {
+  heroElement.style.backgroundImage =
+    `url("images/themes/${heroStyle}.png")`;
+}
 
     // HERO
     const businessNameElement =

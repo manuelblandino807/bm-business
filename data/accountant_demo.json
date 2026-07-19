@@ -1,6 +1,7 @@
 {
   "category": "accountant",
-  "theme": "blue",
+  "theme": "ocean",
+  "heroStyle": "office",
 
   "business": {
     "name": "Studio Commercialista Rossi",

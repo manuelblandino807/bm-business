@@ -121,8 +121,14 @@ document.body.classList.remove(
 // nei nomi utilizzati dal CSS
 const themeMap = {
   blueOcean: 'ocean',
+  blue_ocean: 'ocean',
+
   greenSage: 'green-sage',
+  green_sage: 'green-sage',
+
   pinkBlush: 'pink-blush',
+  pink_blush: 'pink-blush',
+
   graphite: 'graphite'
 };
 
@@ -697,8 +703,31 @@ if (servicesGrid) {
     serviceDescription.textContent =
       service.description || '';
 
-    const mainAction =
-      data.mainAction || {};
+    let mainAction =
+  data.mainAction || {};
+
+if (isGeneratedProfile) {
+  const whatsappNumber =
+    whatsapp.replace(/\D/g, '');
+
+  const phoneNumber =
+    phone.replace(/\s+/g, '');
+
+  if (whatsappNumber) {
+    mainAction = {
+      text: 'Prenota ora',
+      link:
+        `https://wa.me/${whatsappNumber}`,
+    };
+  } else if (phoneNumber) {
+    mainAction = {
+      text: 'Chiama ora',
+      link: `tel:${phoneNumber}`,
+    };
+  } else {
+    mainAction = {};
+  }
+}
 
     const serviceButton =
       document.createElement('a');

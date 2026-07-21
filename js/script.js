@@ -29,6 +29,8 @@ const demoFile =
   console.log('FILE CARICATO:', demoFile);
 
 const nomeUrl = params.get('nome') || '';
+const isGeneratedProfile =
+  nomeUrl.trim() !== '';
 const descrizioneUrl = params.get('descrizione') || '';
 const telefonoUrl = params.get('telefono') || '';
 const emailUrl = params.get('email') || '';
@@ -63,11 +65,17 @@ const whatsappUrl =
 const mapsUrl =
   params.get('maps') || '';
 
+const reviewsUrl =
+  params.get('reviews') || '';
+
 const hoursJsonUrl =
   params.get('hoursJson') || '';
 
 const servicesJsonUrl =
   params.get('servicesJson') || '';
+
+const galleryJsonUrl =
+  params.get('galleryJson') || '';
 
 async function loadBusinessData() {
   try {
@@ -160,6 +168,10 @@ if (heroElement) {
       document.getElementById('business-subtitle');
 
     // CONTATTI
+
+    const contactsSection =
+      document.getElementById('contacts-section');
+
     const phoneCard =
       document.getElementById('phone-card');
 
@@ -185,6 +197,10 @@ if (heroElement) {
       document.getElementById('website-text');
 
     // REVIEWS
+
+    const reviewsSection =
+      document.getElementById('reviews-section');
+
     const reviewsCard =
       document.getElementById('reviews-card');
 
@@ -203,6 +219,9 @@ if (heroElement) {
         'location-business-name'
       );
 
+    const locationSection =
+      document.getElementById('location-section');
+
     const locationAddress =
       document.getElementById(
         'location-address'
@@ -210,6 +229,20 @@ if (heroElement) {
 
     const mapsLink =
       document.getElementById('maps-link');
+
+    const onlineSection =
+      document.getElementById('online-section');
+
+    const socialTitle =
+      document.getElementById('social-title');
+
+    const socialLinksContainer =
+      document.getElementById(
+      'social-links-container'
+      );
+
+    const platformsGroup =
+      document.getElementById('platforms-group');
 
     const instagramLink =
       document.getElementById('instagram-link');
@@ -235,6 +268,9 @@ if (heroElement) {
     const tripadvisorLink =
       document.getElementById('tripadvisor-link');
 
+    const servicesSection =
+      document.getElementById('services-section');
+
     const servicesGrid =
       document.getElementById('services-grid');
 
@@ -250,6 +286,14 @@ if (heroElement) {
     const hoursCard =
       document.getElementById('hours-card');
 
+    const shareButton =
+      document.getElementById('share-button');
+
+    const saveContactButton =
+      document.getElementById(
+      'save-contact-button'
+    ); 
+
     // HERO
     if (businessNameElement) {
       businessNameElement.textContent =
@@ -257,8 +301,16 @@ if (heroElement) {
     }
 
     if (businessTaglineElement) {
-      businessTaglineElement.textContent =
-        data.business?.tagline || '';
+    const tagline =
+     isGeneratedProfile
+      ? ''
+      : data.business?.tagline || '';
+
+     businessTaglineElement.textContent =
+     tagline;
+
+     businessTaglineElement.style.display =
+     tagline ? '' : 'none';
     }
 
     if (businessSubtitleElement) {
@@ -268,7 +320,9 @@ if (heroElement) {
 
     // TELEFONO
     const phone =
-      telefonoUrl ||
+  isGeneratedProfile
+    ? telefonoUrl.trim()
+    : telefonoUrl ||
       data.contacts?.phone?.trim() ||
       '';
 
@@ -286,8 +340,12 @@ if (heroElement) {
     }
 
     // WHATSAPP
-    const whatsapp =
-      data.contacts?.whatsapp?.trim() || '';
+   const whatsapp =
+  isGeneratedProfile
+    ? whatsappUrl.trim()
+    : whatsappUrl ||
+      data.contacts?.whatsapp?.trim() ||
+      '';
 
     if (whatsappCard && whatsappText) {
       if (whatsapp) {
@@ -312,7 +370,9 @@ if (heroElement) {
 
     // EMAIL
     const email =
-      emailUrl ||
+  isGeneratedProfile
+    ? emailUrl.trim()
+    : emailUrl ||
       data.contacts?.email?.trim() ||
       '';
 
@@ -327,8 +387,10 @@ if (heroElement) {
     }
 
     // SITO WEB
-    const website =
-      sitoUrl ||
+   const website =
+  isGeneratedProfile
+    ? sitoUrl.trim()
+    : sitoUrl ||
       data.contacts?.website?.trim() ||
       '';
 
@@ -354,49 +416,72 @@ if (heroElement) {
       }
     }
 
+    const hasContacts =
+  phone !== '' ||
+  whatsapp !== '' ||
+  email !== '' ||
+  website !== '';
+
+if (contactsSection) {
+  contactsSection.style.display =
+    hasContacts ? '' : 'none';
+}
+
     // REVIEWS
-    const reviews = data.reviews || {};
+const reviews = data.reviews || {};
 
-    if (
-      reviewsCard &&
-      reviewsScore &&
-      reviewsCount &&
-      reviewsProvider
-    ) {
-      if (reviews.enabled) {
-        reviewsScore.textContent =
-          reviews.score || '';
+if (
+  reviewsSection &&
+  reviewsCard &&
+  reviewsScore &&
+  reviewsCount &&
+  reviewsProvider
+) {
+  if (isGeneratedProfile) {
+    // Pagina reale generata dalla app
+    if (reviewsUrl) {
+      reviewsCard.href = reviewsUrl;
+      reviewsCard.target = '_blank';
+      reviewsCard.rel = 'noopener noreferrer';
 
-        reviewsCount.textContent =
-          reviews.count
-            ? `${reviews.count} recensioni`
-            : '';
+      reviewsScore.textContent = '';
+      reviewsCount.textContent =
+        'Leggi le recensioni su Google';
+      reviewsProvider.textContent = 'Google';
 
-        reviewsProvider.textContent =
-          reviews.provider || 'Google';
-
-        if (reviews.link) {
-          reviewsCard.href = reviews.link;
-          reviewsCard.target = '_blank';
-          reviewsCard.rel =
-            'noopener noreferrer';
-
-          reviewsCard.style.cursor =
-            'pointer';
-        } else {
-          reviewsCard.removeAttribute(
-            'href'
-          );
-
-          reviewsCard.style.cursor =
-            'default';
-        }
-
-        reviewsCard.style.display = '';
-      } else {
-        reviewsCard.style.display = 'none';
-      }
+      reviewsSection.style.display = '';
+      reviewsCard.style.display = '';
+    } else {
+      reviewsSection.style.display = 'none';
     }
+  } else {
+    // Pagina dimostrativa
+    if (reviews.enabled) {
+      reviewsScore.textContent =
+        reviews.score || '';
+
+      reviewsCount.textContent =
+        reviews.count
+          ? `${reviews.count} recensioni`
+          : '';
+
+      reviewsProvider.textContent =
+        reviews.provider || 'Google';
+
+      if (reviews.link) {
+        reviewsCard.href = reviews.link;
+        reviewsCard.target = '_blank';
+        reviewsCard.rel =
+          'noopener noreferrer';
+      }
+
+      reviewsSection.style.display = '';
+      reviewsCard.style.display = '';
+    } else {
+      reviewsSection.style.display = 'none';
+    }
+  }
+}
 
    // MAPS
 const location = data.location || {};
@@ -407,14 +492,18 @@ const businessLocationName =
   '';
 
 const address =
-  mapsUrl ||
-  location.address?.trim() ||
-  '';
+  isGeneratedProfile
+    ? mapsUrl.trim()
+    : mapsUrl ||
+      location.address?.trim() ||
+      '';
 
 const googleMapsLink =
   address
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
-    : location.mapsLink?.trim() || '';
+    : isGeneratedProfile
+      ? ''
+      : location.mapsLink?.trim() || '';
 
 if (locationBusinessName) {
   locationBusinessName.textContent =
@@ -443,14 +532,35 @@ if (mapsLink) {
     mapsLink.style.display = 'none';
   }
 }
+if (locationSection) {
+  locationSection.style.display =
+    address ? '' : 'none';
+}
 
-    const social = {
-  instagram: instagramUrl || data.social?.instagram || '',
-  facebook: facebookUrl || data.social?.facebook || '',
-  tiktok: tiktokUrl || data.social?.tiktok || '',
-  youtube: youtubeUrl || data.social?.youtube || '',
-  linkedin: linkedinUrl || data.social?.linkedin || '',
-  x: xUrl || data.social?.x || '',
+   const social = {
+  instagram: isGeneratedProfile
+    ? instagramUrl
+    : instagramUrl || data.social?.instagram || '',
+
+  facebook: isGeneratedProfile
+    ? facebookUrl
+    : facebookUrl || data.social?.facebook || '',
+
+  tiktok: isGeneratedProfile
+    ? tiktokUrl
+    : tiktokUrl || data.social?.tiktok || '',
+
+  youtube: isGeneratedProfile
+    ? youtubeUrl
+    : youtubeUrl || data.social?.youtube || '',
+
+  linkedin: isGeneratedProfile
+    ? linkedinUrl
+    : linkedinUrl || data.social?.linkedin || '',
+
+  x: isGeneratedProfile
+    ? xUrl
+    : xUrl || data.social?.x || '',
 };
 
 function setSocialLink(element, url) {
@@ -472,17 +582,34 @@ setSocialLink(tiktokLink, social.tiktok);
 setSocialLink(youtubeLink, social.youtube);
 setSocialLink(linkedinLink, social.linkedin);
 setSocialLink(xLink, social.x);
+const hasSocialLinks =
+  Object.values(social).some(
+    (value) => value.trim() !== ''
+  );
+
+if (socialTitle) {
+  socialTitle.style.display =
+    hasSocialLinks ? '' : 'none';
+}
+
+if (socialLinksContainer) {
+  socialLinksContainer.style.display =
+    hasSocialLinks ? '' : 'none';
+}
 
 const platforms = {
-  booking:
-    bookingUrl ||
-    data.platforms?.booking ||
-    '',
+  booking: isGeneratedProfile
+    ? bookingUrl
+    : bookingUrl ||
+      data.platforms?.booking ||
+      '',
 
-  tripadvisor:
-    tripadvisorUrl ||
-    data.platforms?.tripadvisor ||
-    '',
+  tripadvisor: isGeneratedProfile
+    ? tripadvisorUrl
+    : tripadvisorUrl ||
+      data.platforms?.tripadvisor ||
+      '',
+
 };
 
 setSocialLink(
@@ -495,13 +622,33 @@ setSocialLink(
   platforms.tripadvisor
 );
 
+const hasPlatforms =
+  Object.values(platforms).some(
+    (value) => value.trim() !== ''
+  );
+
+if (platformsGroup) {
+  platformsGroup.style.display =
+    hasPlatforms ? '' : 'none';
+}
+
+if (onlineSection) {
+  onlineSection.style.display =
+    hasSocialLinks || hasPlatforms
+      ? ''
+      : 'none';
+}
+
 const servicesJsonUrl =
   params.get('servicesJson') || '';
 
-  let services =
-  Array.isArray(data.services)
-    ? data.services
-    : [];
+let services =
+  isGeneratedProfile
+    ? []
+    : Array.isArray(data.services)
+      ? data.services
+      : [];
+
 
 if (servicesJsonUrl) {
   try {
@@ -598,10 +745,33 @@ if (servicesGrid) {
   });
 }
 
-const gallery =
-  Array.isArray(data.gallery)
-    ? data.gallery
-    : [];
+if (servicesSection) {
+  servicesSection.style.display =
+    services.length > 0 ? '' : 'none';
+}
+
+let gallery =
+  isGeneratedProfile
+    ? []
+    : Array.isArray(data.gallery)
+      ? data.gallery
+      : [];
+
+if (galleryJsonUrl) {
+  try {
+    const decodedGallery =
+      JSON.parse(galleryJsonUrl);
+
+    if (Array.isArray(decodedGallery)) {
+      gallery = decodedGallery;
+    }
+  } catch (error) {
+    console.error(
+      'Errore nella lettura della gallery:',
+      error
+    );
+  }
+}
 
 if (gallerySection && galleryGrid) {
   galleryGrid.innerHTML = '';
@@ -643,7 +813,10 @@ if (gallerySection && galleryGrid) {
 const hoursJsonUrl =
   params.get('hoursJson') || '';
 
-let hours = data.hours || {};
+let hours =
+  isGeneratedProfile
+    ? {}
+    : data.hours || {};
 
 if (hoursJsonUrl) {
   try {
@@ -761,6 +934,187 @@ if (hoursSection && hoursCard) {
       'Dati JSON caricati:',
       data
     );
+
+    // CONDIVIDI PAGINA
+if (shareButton) {
+  shareButton.addEventListener(
+    'click',
+    async (event) => {
+      event.preventDefault();
+
+      const shareTitle =
+        nomeUrl ||
+        data.business?.name ||
+        'B-M Business';
+
+      const shareData = {
+        title: shareTitle,
+        text:
+          `Scopri ${shareTitle}`,
+        url: window.location.href,
+      };
+
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+        } else if (navigator.clipboard) {
+          await navigator.clipboard.writeText(
+            window.location.href
+          );
+
+          const originalText =
+            shareButton.textContent;
+
+          shareButton.textContent =
+            '✅ Link copiato';
+
+          setTimeout(() => {
+            shareButton.textContent =
+              originalText;
+          }, 2000);
+        } else {
+          window.prompt(
+            'Copia questo link:',
+            window.location.href
+          );
+        }
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          console.error(
+            'Errore durante la condivisione:',
+            error
+          );
+        }
+      }
+    }
+  );
+}
+
+    // SALVA CONTATTO VCARD
+if (saveContactButton) {
+  const contactName =
+    nomeUrl ||
+    data.business?.name ||
+    '';
+
+  const contactPhone =
+    phone || whatsapp || '';
+
+  const hasContactData =
+    contactPhone ||
+    email ||
+    website ||
+    address;
+
+  if (
+    isGeneratedProfile &&
+    contactName &&
+    hasContactData
+  ) {
+    saveContactButton.style.display = '';
+
+    saveContactButton.addEventListener(
+      'click',
+      (event) => {
+        event.preventDefault();
+
+        function escapeVCard(value) {
+          return String(value || '')
+            .replace(/\\/g, '\\\\')
+            .replace(/\n/g, '\\n')
+            .replace(/;/g, '\\;')
+            .replace(/,/g, '\\,');
+        }
+
+        const vCardLines = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          `FN:${escapeVCard(contactName)}`,
+          `ORG:${escapeVCard(contactName)}`,
+        ];
+
+        if (contactPhone) {
+          vCardLines.push(
+            `TEL;TYPE=CELL:${escapeVCard(contactPhone)}`
+          );
+        }
+
+        if (email) {
+          vCardLines.push(
+            `EMAIL;TYPE=INTERNET:${escapeVCard(email)}`
+          );
+        }
+
+        if (website) {
+          vCardLines.push(
+            `URL;TYPE=WORK:${escapeVCard(website)}`
+          );
+        }
+
+        if (address) {
+          vCardLines.push(
+            `ADR;TYPE=WORK:;;${escapeVCard(address)};;;;`
+          );
+        }
+
+        vCardLines.push(
+          `URL:${escapeVCard(window.location.href)}`
+        );
+
+        if (descrizioneUrl) {
+          vCardLines.push(
+            `NOTE:${escapeVCard(descrizioneUrl)}`
+          );
+        }
+
+        vCardLines.push('END:VCARD');
+
+        const vCardContent =
+          vCardLines.join('\r\n');
+
+        const blob = new Blob(
+          [vCardContent],
+          {
+            type:
+              'text/vcard;charset=utf-8',
+          }
+        );
+
+        const downloadUrl =
+          URL.createObjectURL(blob);
+
+        const downloadLink =
+          document.createElement('a');
+
+        const safeFileName =
+          contactName
+            .replace(
+              /[^a-zA-Z0-9À-ÿ_-]/g,
+              '_'
+            )
+            .replace(/_+/g, '_');
+
+        downloadLink.href = downloadUrl;
+        downloadLink.download =
+          `${safeFileName || 'contatto'}.vcf`;
+
+        document.body.appendChild(
+          downloadLink
+        );
+
+        downloadLink.click();
+        downloadLink.remove();
+
+        setTimeout(() => {
+          URL.revokeObjectURL(downloadUrl);
+        }, 1000);
+      }
+    );
+  } else {
+    saveContactButton.style.display =
+      'none';
+  }
+}
 
     console.log(
       'Dati ricevuti dall’URL:',

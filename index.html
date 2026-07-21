@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>B-M Business</title>
 
-  <link rel="stylesheet" href="css/style.css">
+ <link rel="stylesheet" href="css/style.css?v=1015">
 
   
 </head>
@@ -36,7 +36,7 @@
         <h2>Eleganza, stile e cura dei dettagli</h2>
 
         <p>
-          Luxury Hair Studio è un salone moderno pensato per chi desidera
+          &Egrave; un salone moderno pensato per chi desidera
           un servizio personalizzato, professionale e attento alla bellezza
           naturale di ogni persona.
         </p>
@@ -53,7 +53,7 @@
       </div>
     </div>
   </section>
-  <section class="services">
+  <section class="services" id="services-section">
   <div class="services-container">
     <p class="section-label">I nostri servizi</p>
 
@@ -79,7 +79,7 @@
 </section>
 
 </section>
-   <section class="reviews">
+   <section class="reviews" id="reviews-section">
   <div class="reviews-container">
 
     <p class="section-label">Google Reviews</p>
@@ -121,7 +121,7 @@
 
 </section>
 
-<section class="location">
+<section class="location" id="location-section">
   <div class="location-container">
 
     <p class="section-label">Dove siamo</p>
@@ -148,7 +148,7 @@
 
   </div>
 </section>
-  <section class="contacts">
+  <section class="contacts" id="contacts-section">
 
   <div class="contacts-container">
 
@@ -190,15 +190,15 @@
   </div>
 
 </section>
-<section class="social">
+<section class="social" id="online-section">
 
   <div class="social-container">
 
     <p class="section-label">Presenza online</p>
 
-    <h2>Social</h2>
+    <h2 id="social-title">Social</h2>
 
-    <div class="social-links">
+    <div class="social-links" id="social-links-container">
 
       <a href="#" id="instagram-link">
         <img src="icons/social/instagram.svg" alt="Instagram">
@@ -226,7 +226,7 @@
       </a>
 
     </div>
-    <div class="platforms-group">
+  <div class="platforms-group" id="platforms-group">
 
   <h2>Portali</h2>
 
@@ -260,10 +260,17 @@
       Condividi questa pagina con amici e familiari.
     </p>
 
-    <a href="#" class="share-button">
-      📤 Condividi la pagina
-    </a>
+    <div class="share-actions">
 
+ <a href="#" class="share-button" id="share-button">
+  📤 Condividi la pagina
+</a>
+
+  <a href="#" class="save-contact-button" id="save-contact-button">
+    👤 Salva contatto
+  </a>
+
+</div>
   </div>
 
 </section>
@@ -277,7 +284,7 @@
 
 </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js?v=1015"></script>
 
 </body>
 </html>

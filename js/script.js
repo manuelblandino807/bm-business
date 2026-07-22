@@ -145,9 +145,15 @@ if (
   selectedTheme = 'ocean';
 }
 
-if (categoriaUrl === 'real-estate') {
-  selectedTheme = 'gold';
+if (categoriaUrl === 'artisan') {
+  selectedTheme = 'artisan';
 }
+
+if (categoriaUrl === 'food') {
+  selectedTheme = 'food';
+}
+
+
 document.body.classList.add(
   `theme-${selectedTheme}`
 );
@@ -161,6 +167,8 @@ const categoryHeroMap = {
   barber: 'barber-ocean',
   professional: 'office',
   'real-estate': 'real-estate',
+  artisan: 'artisan',
+  food: 'food',
 };
 
 let heroStyle =
@@ -379,6 +387,34 @@ if (heroElement) {
       'Supporto in ogni fase',
     ],
   },
+
+  artisan: {
+  subtitle:
+    'Soluzioni artigianali e interventi professionali eseguiti con cura.',
+  title:
+    'Esperienza, precisione e qualità',
+  description:
+    'Competenza artigianale, attrezzature professionali e attenzione ai dettagli per offrire soluzioni affidabili e personalizzate.',
+  benefits: [
+    'Interventi su misura',
+    'Attrezzature professionali',
+    'Affidabilità e cura dei dettagli',
+  ],
+},
+
+food: {
+  subtitle:
+    'Sapori autentici, qualità e accoglienza.',
+  title:
+    'Gusto, qualità e passione',
+  description:
+    'Un ambiente accogliente dove ingredienti selezionati e cura del servizio creano un’esperienza da ricordare.',
+  benefits: [
+    'Ingredienti selezionati',
+    'Preparazioni curate',
+    'Ambiente accogliente'
+  ]
+},
 
   generic: {
     subtitle:

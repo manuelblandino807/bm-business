@@ -846,226 +846,6 @@ footer small{
   border-radius: 50%;
 }
 
-/* ===========================
-   TEMA COMMERCIALISTA
-   Si attiva solo con body.accountant-theme
-=========================== */
-
-/* Hero */
-body.accountant-theme .hero{
-  background-color:transparent !important;
-}
-
-body.accountant-theme .hero .tagline,
-body.accountant-theme .hero h1,
-body.accountant-theme .hero .subtitle,
-body.accountant-theme .hero p{
-  color:#fff !important;
-}
-
-body.accountant-theme .btn.primary{
-  color:#1565C0 !important;
-}
-
-/* Chi siamo / Perché sceglierci */
-body.accountant-theme .section-label,
-body.accountant-theme .about-card h3{
-  color:#1565C0 !important;
-}
-
-body.accountant-theme .about-card{
-  background:#EDF5FF !important;
-}
-
-body.accountant-theme .about-card li::before{
-  color:#1565C0 !important;
-}
-
-/* Servizi */
-body.accountant-theme .services h2,
-body.accountant-theme .service-card h3,
-body.accountant-theme .service-icon{
-  color:#1565C0 !important;
-}
-
-body.accountant-theme .service-card{
-  border-top:4px solid #1565C0 !important;
-}
-
-body.accountant-theme .service-link{
-  color:#1565C0 !important;
-  background:transparent !important;
-}
-
-body.accountant-theme .service-link:hover{
-  color:#0D47A1 !important;
-}
-
-/* Orari */
-body.accountant-theme .hour-row span{
-  color:#1565C0 !important;
-}
-
-/* Mappa */
-body.accountant-theme .location-info h3{
-  color:#1565C0 !important;
-}
-
-body.accountant-theme .map-link{
-  background:#1565C0 !important;
-}
-
-body.accountant-theme .map-link:hover{
-  background:#0D47A1 !important;
-}
-
-/* Contatti */
-body.accountant-theme .contact-card h3{
-  color:#1565C0 !important;
-}
-
-/* Social e portali */
-body.accountant-theme .social h2,
-body.accountant-theme .platforms-group h3,
-body.accountant-theme .social-card,
-body.accountant-theme .platform-item{
-  color:#1565C0 !important;
-}
-
-/* Condivisione */
-body.accountant-theme .share{
-  background:#EAF4FE !important;
-}
-
-body.accountant-theme .share-button{
-  background:#1565C0 !important;
-  color:#fff !important;
-}
-
-body.accountant-theme .share-button:hover{
-  background:#0D47A1 !important;
-}
-
-/* Footer */
-body.accountant-theme footer{
-  background-image:none !important;
-  background-color:#1565C0 !important;
-}
-
-body.accountant-theme footer small{
-  color:#EAF4FE !important;
-}
-
-/* ===========================
-   TEMA ARTIGIANO
-=========================== */
-
-body.artisan-theme .hero {
-  background: linear-gradient(
-    135deg,
-    #37474F 0%,
-    #546E7A 100%
-  ) !important;
-}
-
-body.artisan-theme .hero .tagline,
-body.artisan-theme .hero h1,
-body.artisan-theme .hero .subtitle,
-body.artisan-theme .hero p {
-  color: #fff !important;
-}
-body.artisan-theme .btn.primary{
-  color:#F57C00 !important;
-}
-
-/* Chi siamo */
-body.artisan-theme .section-label,
-body.artisan-theme .about-card h3{
-  color:#F57C00 !important;
-}
-
-body.artisan-theme .about-card{
-  background:#FFF3E0 !important;
-}
-
-body.artisan-theme .about-card li::before{
-  color:#F57C00 !important;
-}
-
-/* Servizi */
-body.artisan-theme .services h2,
-body.artisan-theme .service-card h3,
-body.artisan-theme .service-icon{
-  color:#F57C00 !important;
-}
-
-body.artisan-theme .service-card{
-  border-top:4px solid #F57C00 !important;
-}
-
-body.artisan-theme .service-link{
-  color:#F57C00 !important;
-}
-
-body.artisan-theme .service-link:hover{
-  color:#E65100 !important;
-}
-
-/* Orari */
-body.artisan-theme .hour-row span{
-  color:#F57C00 !important;
-}
-
-/* Mappa */
-body.artisan-theme .location-info h3{
-  color:#F57C00 !important;
-}
-
-body.artisan-theme .map-link{
-  background:#F57C00 !important;
-}
-
-body.artisan-theme .map-link:hover{
-  background:#E65100 !important;
-}
-
-/* Contatti */
-body.artisan-theme .contact-card h3{
-  color:#F57C00 !important;
-}
-
-/* Social */
-body.artisan-theme .social h2,
-body.artisan-theme .platforms-group h3,
-body.artisan-theme .social-card,
-body.artisan-theme .platform-item{
-  color:#F57C00 !important;
-}
-
-/* Condivisione */
-body.artisan-theme .share{
-  background:#FFF3E0 !important;
-}
-
-body.artisan-theme .share-button{
-  background:#F57C00 !important;
-  color:#fff !important;
-}
-
-body.artisan-theme .share-button:hover{
-  background:#E65100 !important;
-}
-
-/* Footer */
-body.artisan-theme footer{
-  background-image:none !important;
-  background-color:#263238 !important;
-}
-
-body.artisan-theme footer small{
-  color:#FFE0B2 !important;
-}
-
 /* ==================================================
    B-M BUSINESS - SISTEMA TEMI COLORE
    ================================================== */
@@ -1078,13 +858,13 @@ body {
   --theme-glow: rgba(0, 0, 0, 0.18);
 }
 
-/* BLU */
+/* BLU OCEANO — Barbiere */
 body.theme-ocean {
-  --theme-primary: #1976d2;
-  --theme-secondary: #64b5f6;
-  --theme-light: #e3f2fd;
-  --theme-dark: #0d47a1;
-  --theme-glow: rgba(25, 118, 210, 0.38);
+  --theme-primary: #0756a3;
+  --theme-secondary: #00a8cc;
+  --theme-light: #dff6ff;
+  --theme-dark: #062f55;
+  --theme-glow: rgba(0, 168, 204, 0.4);
 }
 
 /* ROSA */
@@ -1234,61 +1014,6 @@ body a {
   max-width:800px;
   filter:none !important;
   opacity:1 !important;
-}
-
-/* ===========================
-   TEMA BLU OCEANO AUTOMATICO
-=========================== */
-
-body.theme-ocean .section-label,
-body.theme-ocean .about-card h3,
-body.theme-ocean .service-card h3,
-body.theme-ocean .service-link,
-body.theme-ocean .hour-row span,
-body.theme-ocean .location-info h3,
-body.theme-ocean .contact-card h3,
-body.theme-ocean .social h2,
-body.theme-ocean .platforms-group h3,
-body.theme-ocean .social-card,
-body.theme-ocean .platform-item,
-body.theme-ocean .google-score {
-  color:#1565C0 !important;
-}
-
-body.theme-ocean .about-card {
-  background:#EAF4FE !important;
-}
-
-body.theme-ocean .about-card li::before {
-  color:#1565C0 !important;
-}
-
-body.theme-ocean .service-card {
-  border-top:4px solid #1565C0;
-}
-
-body.theme-ocean .map-link,
-body.theme-ocean .share-button {
-  background:#1565C0 !important;
-  color:white !important;
-}
-
-body.theme-ocean .map-link:hover,
-body.theme-ocean .share-button:hover {
-  background:#0D47A1 !important;
-}
-
-body.theme-ocean .btn.primary {
-  color:#1565C0 !important;
-}
-
-body.theme-ocean .share {
-  background:#EAF4FE;
-}
-
-body.theme-ocean footer {
-  background-image:none !important;
-  background-color:#1565C0 !important;
 }
 
 /* ===========================
@@ -1449,4 +1174,81 @@ body.theme-gold footer {
       #0B2239,
       #163E5C
     ) !important;
+}
+
+/* TEMA ARTIGIANO */
+
+body.theme-artisan,
+body.artisan-theme {
+  --theme-primary:#F57C00;
+  --theme-secondary:#FFB74D;
+  --theme-light:#FFF3E0;
+  --theme-dark:#263238;
+  --theme-glow:rgba(245,124,0,.38);
+}
+
+/* Tema ristorazione: Ristorante, Pizzeria e Bar */
+body.theme-food,
+body.food-theme {
+  --theme-primary: #b3261e;
+  --theme-secondary: #e09f3e;
+  --theme-light: #fff4cc;
+  --theme-dark: #4a1713;
+  --theme-glow: rgba(224, 159, 62, 0.38);
+}
+
+/* Sfumature bicolore tema Ocean */
+body.theme-ocean .about-card,
+body.theme-ocean .share {
+  background:
+    linear-gradient(
+      135deg,
+      #d8efff 0%,
+      #eefaff 48%,
+      #bcecff 100%
+    ) !important;
+}
+
+body.theme-ocean footer {
+  background:
+    linear-gradient(
+      90deg,
+      #031d33 0%,
+      #0756a3 52%,
+      #00bcd4 100%
+    ) !important;
+}
+
+body.theme-ocean .share-button {
+  background:#0756a3 !important;
+  color:white !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+
+body.theme-ocean .save-contact-button {
+  background:white !important;
+  color:#0756a3 !important;
+  border:2px solid #0756a3 !important;
+  box-shadow:none !important;
+}
+
+/* Elimina il contorno nero dai pulsanti Condividi */
+body.theme-ocean .share-button,
+body.theme-food .share-button,
+body.food-theme .share-button {
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+  -webkit-appearance:none;
+  appearance:none;
+}
+
+/* Focus accessibile coordinato con la palette */
+body.theme-ocean .share-button:focus,
+body.theme-food .share-button:focus,
+body.food-theme .share-button:focus {
+  border:0 !important;
+  outline:none !important;
+  box-shadow:none !important;
 }

@@ -1252,3 +1252,37 @@ body.food-theme .share-button:focus {
   outline:none !important;
   box-shadow:none !important;
 }
+
+/* Tema Hospitality: Hotel e B&B */
+body.theme-hospitality,
+body.hospitality-theme {
+  --theme-primary:#9A6B42;
+  --theme-secondary:#D3AA72;
+  --theme-light:#F7EBD8;
+  --theme-dark:#493225;
+  --theme-glow:rgba(154,107,66,.36);
+}
+
+body.theme-hospitality .about-card,
+body.theme-hospitality .share,
+body.hospitality-theme .about-card,
+body.hospitality-theme .share {
+  background:
+    linear-gradient(
+      135deg,
+      #F9F0E2 0%,
+      #F3DFC2 52%,
+      #E5C79E 100%
+    ) !important;
+}
+
+body.theme-hospitality footer,
+body.hospitality-theme footer {
+  background:
+    linear-gradient(
+      90deg,
+      #493225 0%,
+      #9A6B42 52%,
+      #D3AA72 100%
+    ) !important;
+}

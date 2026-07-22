@@ -153,6 +153,9 @@ if (categoriaUrl === 'food') {
   selectedTheme = 'food';
 }
 
+if (categoriaUrl === 'hospitality') {
+  selectedTheme = 'hospitality';
+}
 
 document.body.classList.add(
   `theme-${selectedTheme}`
@@ -169,6 +172,7 @@ const categoryHeroMap = {
   'real-estate': 'real-estate',
   artisan: 'artisan',
   food: 'food',
+  hospitality: 'hospitality',
 };
 
 let heroStyle =
@@ -413,6 +417,20 @@ food: {
     'Ingredienti selezionati',
     'Preparazioni curate',
     'Ambiente accogliente'
+  ]
+},
+
+hospitality: {
+  subtitle:
+    'Accoglienza, comfort e attenzione per ogni ospite.',
+  title:
+    'Il piacere di sentirsi a casa',
+  description:
+    'Un ambiente curato e accogliente, pensato per offrire soggiorni piacevoli, comfort e un servizio attento a ogni esigenza.',
+  benefits: [
+    'Ambienti confortevoli',
+    'Accoglienza personalizzata',
+    'Cura di ogni dettaglio'
   ]
 },
 

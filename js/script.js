@@ -138,10 +138,16 @@ let selectedTheme =
   'ocean';
 
 // Il Barbiere utilizza sempre Blu Ocean
-if (categoriaUrl === 'barber') {
+if (
+  categoriaUrl === 'barber' ||
+  categoriaUrl === 'professional'
+) {
   selectedTheme = 'ocean';
 }
 
+if (categoriaUrl === 'real-estate') {
+  selectedTheme = 'gold';
+}
 document.body.classList.add(
   `theme-${selectedTheme}`
 );
@@ -150,13 +156,17 @@ document.body.classList.add(
 const heroElement =
   document.getElementById('hero');
 
-let heroStyle =
-  data.heroStyle || 'elegance';
+const categoryHeroMap = {
+  hairdresser: 'elegance',
+  barber: 'barber-ocean',
+  professional: 'office',
+  'real-estate': 'real-estate',
+};
 
-// Parrucchiere uomo con tema Ocean
-if (categoriaUrl === 'barber') {
-  heroStyle = 'barber-ocean';
-}
+let heroStyle =
+  categoryHeroMap[categoriaUrl] ||
+  data.heroStyle ||
+  'elegance';
 
 if (heroElement) {
   heroElement.style.backgroundImage =
@@ -172,6 +182,19 @@ if (heroElement) {
 
     const businessSubtitleElement =
       document.getElementById('business-subtitle');
+
+    const aboutTitle =
+      document.getElementById('about-title');
+
+    const aboutDescription =
+      document.getElementById(
+      'about-description'
+   );
+
+    const aboutBenefits =
+      document.getElementById(
+      'about-benefits'
+   );
 
     // CONTATTI
 
@@ -300,31 +323,137 @@ if (heroElement) {
       'save-contact-button'
     ); 
 
-    // HERO
-    if (businessNameElement) {
-      businessNameElement.textContent =
-        nomeUrl || data.business?.name || '';
-    }
+    const categoryContentMap = {
+  hairdresser: {
+    subtitle:
+      'Parrucchiere professionale per tagli, colore e trattamenti su misura.',
+    title:
+      'Eleganza, stile e cura dei dettagli',
+    description:
+      'Un salone moderno pensato per offrire servizi personalizzati e professionali.',
+    benefits: [
+      'Consulenza personalizzata',
+      'Prodotti professionali',
+      'Ambiente elegante e rilassante',
+    ],
+  },
 
-    if (businessTaglineElement) {
-    const tagline =
-     isGeneratedProfile
+  barber: {
+    subtitle:
+      'Tagli, barba e stile per uomo e bambino.',
+    title:
+      'Stile, precisione e cura personale',
+    description:
+      'Un ambiente moderno dedicato alla cura dei capelli, della barba e dello stile maschile.',
+    benefits: [
+      'Tagli personalizzati',
+      'Cura di barba e capelli',
+      'Ambiente moderno e accogliente',
+    ],
+  },
+
+  professional: {
+    subtitle:
+      'Consulenza professionale e assistenza su misura.',
+    title:
+      'Competenza, affidabilità e attenzione',
+    description:
+      'Un servizio professionale pensato per accompagnare ogni cliente con precisione e disponibilità.',
+    benefits: [
+      'Consulenza personalizzata',
+      'Competenza e affidabilità',
+      'Assistenza continua',
+    ],
+  },
+
+  'real-estate': {
+    subtitle:
+      'Consulenza immobiliare per vendere, acquistare e valorizzare ogni immobile.',
+    title:
+      'La soluzione giusta per ogni immobile',
+    description:
+      'Un servizio immobiliare completo per accompagnare ogni cliente nella vendita, nell’acquisto e nella valutazione della proprietà.',
+    benefits: [
+      'Consulenza personalizzata',
+      'Valutazione e assistenza',
+      'Supporto in ogni fase',
+    ],
+  },
+
+  generic: {
+    subtitle:
+      'Servizi professionali pensati per ogni esigenza.',
+    title:
+      'Professionalità e attenzione al cliente',
+    description:
+      'Soluzioni personalizzate e un servizio attento, affidabile e professionale.',
+    benefits: [
+      'Servizio personalizzato',
+      'Professionalità',
+      'Assistenza al cliente',
+    ],
+  },
+};
+
+const categoryContent =
+  categoryContentMap[categoriaUrl] ||
+  categoryContentMap.generic;
+
+// HERO
+if (businessNameElement) {
+  businessNameElement.textContent =
+    nomeUrl || data.business?.name || '';
+}
+
+if (businessTaglineElement) {
+  const tagline =
+    isGeneratedProfile
       ? ''
       : data.business?.tagline || '';
 
-     businessTaglineElement.textContent =
-     tagline;
+  businessTaglineElement.textContent =
+    tagline;
 
-     businessTaglineElement.style.display =
-     tagline ? '' : 'none';
-    }
+  businessTaglineElement.style.display =
+    tagline ? '' : 'none';
+}
 
-    if (businessSubtitleElement) {
-      businessSubtitleElement.textContent =
-        data.business?.subtitle || '';
-    }
+if (businessSubtitleElement) {
+  businessSubtitleElement.textContent =
+    isGeneratedProfile
+      ? descrizioneUrl ||
+        categoryContent.subtitle
+      : data.business?.subtitle || '';
+}
 
-    // TELEFONO
+if (isGeneratedProfile) {
+  if (aboutTitle) {
+    aboutTitle.textContent =
+      categoryContent.title;
+  }
+
+  if (aboutDescription) {
+    aboutDescription.textContent =
+      categoryContent.description;
+  }
+
+  if (aboutBenefits) {
+    aboutBenefits.innerHTML = '';
+
+    categoryContent.benefits.forEach(
+      (benefit) => {
+        const item =
+          document.createElement('li');
+
+        item.textContent = benefit;
+
+        aboutBenefits.appendChild(item);
+      }
+    );
+  }
+}
+
+// TELEFONO
     const phone =
   isGeneratedProfile
     ? telefonoUrl.trim()

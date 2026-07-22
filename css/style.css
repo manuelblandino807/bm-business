@@ -1361,3 +1361,92 @@ body.theme-ocean footer {
     text-align:center;
   }
 }
+
+/* ===========================
+   COLORI DINAMICI DELLA PAGINA
+=========================== */
+
+body .section-label,
+body .about-card h3,
+body .service-card h3,
+body .service-link,
+body .hour-row span,
+body .location-info h3,
+body .contact-card h3,
+body .social h2,
+body .platforms-group h3,
+body .social-card,
+body .platform-item,
+body .google-score {
+  color:var(--theme-primary) !important;
+}
+
+body .about-card {
+  background:var(--theme-light) !important;
+}
+
+body .about-card li::before {
+  color:var(--theme-primary) !important;
+}
+
+body .service-card {
+  border-top:4px solid var(--theme-primary);
+}
+
+body .map-link,
+body .share-button {
+  background:var(--theme-primary) !important;
+  color:white !important;
+}
+
+body .map-link:hover,
+body .share-button:hover {
+  background:var(--theme-dark) !important;
+}
+
+body .share {
+  background:var(--theme-light);
+}
+
+body footer {
+  background:
+    linear-gradient(
+      135deg,
+      var(--theme-dark),
+      var(--theme-primary)
+    ) !important;
+}
+
+body footer small {
+  color:white;
+}
+
+/* CORREZIONE TEMA IMMOBILIARE */
+
+body.theme-gold .about-card {
+  background:#F4F6F8 !important;
+  border-top:4px solid #B68A20;
+}
+
+body.theme-gold .share {
+  background:#F4F6F8 !important;
+}
+
+body.theme-gold .save-contact-button {
+  background:white !important;
+  color:#B68A20 !important;
+  border-color:#B68A20 !important;
+}
+
+body.theme-gold .save-contact-button:hover {
+  background:#F4F6F8 !important;
+}
+
+body.theme-gold footer {
+  background:
+    linear-gradient(
+      135deg,
+      #0B2239,
+      #163E5C
+    ) !important;
+}

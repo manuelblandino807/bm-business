@@ -166,6 +166,10 @@ if (categoriaUrl === 'nature') {
   selectedTheme = 'nature';
 }
 
+if (categoriaUrl === 'hairdresser') {
+  selectedTheme = 'pink-blush';
+}
+
 document.body.classList.add(
   `theme-${selectedTheme}`
 );

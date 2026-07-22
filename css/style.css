@@ -1286,3 +1286,71 @@ body.hospitality-theme footer {
       #D3AA72 100%
     ) !important;
 }
+
+/* Tema Medical: Studio medico e Studio dentistico */
+body.theme-medical,
+body.medical-theme {
+  --theme-primary:#087F8C;
+  --theme-secondary:#48C9C5;
+  --theme-light:#E3F7F6;
+  --theme-dark:#064E59;
+  --theme-glow:rgba(72,201,197,.36);
+}
+
+body.theme-medical .about-card,
+body.theme-medical .share,
+body.medical-theme .about-card,
+body.medical-theme .share {
+  background:
+    linear-gradient(
+      135deg,
+      #F1FBFB 0%,
+      #DDF5F3 50%,
+      #BCEAE7 100%
+    ) !important;
+}
+
+body.theme-medical footer,
+body.medical-theme footer {
+  background:
+    linear-gradient(
+      90deg,
+      #064E59 0%,
+      #087F8C 52%,
+      #48C9C5 100%
+    ) !important;
+}
+
+/* Tema Nature: Giardinieri */
+body.theme-nature,
+body.nature-theme {
+  --theme-primary:#3F6F3A;
+  --theme-secondary:#9CAF72;
+  --theme-light:#EEF3E3;
+  --theme-dark:#243B26;
+  --theme-glow:rgba(63,111,58,.36);
+}
+
+body.theme-nature .about-card,
+body.theme-nature .share,
+body.nature-theme .about-card,
+body.nature-theme .share {
+  background:
+    linear-gradient(
+      135deg,
+      #F4F6EA 0%,
+      #DFE8C9 52%,
+      #C7D4A5 100%
+    ) !important;
+}
+
+body.theme-nature footer,
+body.nature-theme footer {
+  background:
+    linear-gradient(
+      90deg,
+      #243B26 0%,
+      #3F6F3A 52%,
+      #9CAF72 100%
+    ) !important;
+}

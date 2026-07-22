@@ -157,6 +157,15 @@ if (categoriaUrl === 'hospitality') {
   selectedTheme = 'hospitality';
 }
 
+
+if (categoriaUrl === 'medical') {
+  selectedTheme = 'medical';
+}
+
+if (categoriaUrl === 'nature') {
+  selectedTheme = 'nature';
+}
+
 document.body.classList.add(
   `theme-${selectedTheme}`
 );
@@ -173,6 +182,8 @@ const categoryHeroMap = {
   artisan: 'artisan',
   food: 'food',
   hospitality: 'hospitality',
+  medical: 'medical',
+  nature: 'nature',
 };
 
 let heroStyle =
@@ -431,6 +442,34 @@ hospitality: {
     'Ambienti confortevoli',
     'Accoglienza personalizzata',
     'Cura di ogni dettaglio'
+  ]
+},
+
+medical: {
+  subtitle:
+    'Professionalità, attenzione e cura della persona.',
+  title:
+    'La tua salute al centro',
+  description:
+    'Uno studio moderno e accogliente, dedicato alla prevenzione, alla cura e al benessere di ogni paziente.',
+  benefits: [
+    'Assistenza personalizzata',
+    'Ambienti moderni e curati',
+    'Attenzione a ogni esigenza'
+  ]
+},
+
+nature: {
+  subtitle:
+    'Cura, bellezza e armonia per ogni spazio verde.',
+  title:
+    'Diamo vita ai tuoi spazi verdi',
+  description:
+    'Servizi professionali per la progettazione, la manutenzione e la valorizzazione di giardini e aree verdi.',
+  benefits: [
+    'Interventi personalizzati',
+    'Cura professionale del verde',
+    'Soluzioni per ogni spazio'
   ]
 },
 

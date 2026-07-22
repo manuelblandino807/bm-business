@@ -1136,9 +1136,10 @@ body .share {
 body footer {
   background:
     linear-gradient(
-      135deg,
-      var(--theme-dark),
-      var(--theme-primary)
+      90deg,
+      var(--theme-dark) 0%,
+      var(--theme-primary) 52%,
+      var(--theme-secondary) 100%
     ) !important;
 }
 

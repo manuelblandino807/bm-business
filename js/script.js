@@ -170,6 +170,10 @@ if (categoriaUrl === 'hairdresser') {
   selectedTheme = 'pink-blush';
 }
 
+if (categoriaUrl === 'beauty') {
+  selectedTheme = 'beauty';
+}
+
 document.body.classList.add(
   `theme-${selectedTheme}`
 );
@@ -188,6 +192,7 @@ const categoryHeroMap = {
   hospitality: 'hospitality',
   medical: 'medical',
   nature: 'nature',
+  beauty: 'beauty',
 };
 
 let heroStyle =
@@ -474,6 +479,20 @@ nature: {
     'Interventi personalizzati',
     'Cura professionale del verde',
     'Soluzioni per ogni spazio'
+  ]
+},
+
+beauty: {
+  subtitle:
+    'Bellezza, benessere e cura dedicata a te.',
+  title:
+    'Il tuo momento di bellezza e relax',
+  description:
+    'Trattamenti estetici personalizzati, eseguiti con professionalità e attenzione in un ambiente elegante e accogliente.',
+  benefits: [
+    'Trattamenti personalizzati',
+    'Prodotti professionali',
+    'Benessere e cura dei dettagli'
   ]
 },
 

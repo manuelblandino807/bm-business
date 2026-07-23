@@ -1355,3 +1355,37 @@ body.nature-theme footer {
       #9CAF72 100%
     ) !important;
 }
+
+/* Tema Beauty: Estetista */
+body.theme-beauty,
+body.beauty-theme {
+  --theme-primary:#8E3A8C;
+  --theme-secondary:#D58AC8;
+  --theme-light:#F7E8F3;
+  --theme-dark:#4B2148;
+  --theme-glow:rgba(142,58,140,.36);
+}
+
+body.theme-beauty .about-card,
+body.theme-beauty .share,
+body.beauty-theme .about-card,
+body.beauty-theme .share {
+  background:
+    linear-gradient(
+      135deg,
+      #FFF4FA 0%,
+      #F1DCEC 52%,
+      #DCB4D5 100%
+    ) !important;
+}
+
+body.theme-beauty footer,
+body.beauty-theme footer {
+  background:
+    linear-gradient(
+      90deg,
+      #4B2148 0%,
+      #8E3A8C 52%,
+      #D58AC8 100%
+    ) !important;
+}

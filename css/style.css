@@ -1423,3 +1423,37 @@ body.fitness-theme footer {
       #B6FF00 100%
     ) !important;
 }
+
+/* Tema Retail: Negozio */
+body.theme-retail,
+body.retail-theme {
+  --theme-primary:#176B70;
+  --theme-secondary:#C97845;
+  --theme-light:#F7EEE6;
+  --theme-dark:#12383B;
+  --theme-glow:rgba(201,120,69,.36);
+}
+
+body.theme-retail .about-card,
+body.theme-retail .share,
+body.retail-theme .about-card,
+body.retail-theme .share {
+  background:
+    linear-gradient(
+      135deg,
+      #F8F2EC 0%,
+      #E7F0ED 50%,
+      #EBC8AF 100%
+    ) !important;
+}
+
+body.theme-retail footer,
+body.retail-theme footer {
+  background:
+    linear-gradient(
+      90deg,
+      #12383B 0%,
+      #176B70 52%,
+      #C97845 100%
+    ) !important;
+}

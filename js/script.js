@@ -178,6 +178,26 @@ if (categoriaUrl === 'fitness') {
   selectedTheme = 'fitness';
 }
 
+if (categoriaUrl === 'retail') {
+  selectedTheme = 'retail';
+}
+
+if (categoriaUrl === 'generic-1') {
+  selectedTheme = 'ocean';
+}
+
+if (categoriaUrl === 'generic-2') {
+  selectedTheme = 'pink-blush';
+}
+
+if (categoriaUrl === 'generic-3') {
+  selectedTheme = 'graphite';
+}
+
+if (categoriaUrl === 'generic-4') {
+  selectedTheme = 'green-sage';
+}
+
 document.body.classList.add(
   `theme-${selectedTheme}`
 );
@@ -198,6 +218,11 @@ const categoryHeroMap = {
   nature: 'nature',
   beauty: 'beauty',
   fitness: 'fitness',
+  retail: 'retail',
+  'generic-1': 'generic-1',
+  'generic-2': 'generic-2',
+  'generic-3': 'generic-3',
+  'generic-4': 'generic-4',
 };
 
 let heroStyle =
@@ -515,6 +540,20 @@ fitness: {
   ]
 },
 
+retail: {
+  subtitle:
+    'Qualità, scelta e attenzione per ogni cliente.',
+  title:
+    'Tutto ciò che cerchi, con un servizio in più',
+  description:
+    'Un punto di riferimento accogliente e professionale, dove trovare prodotti selezionati e un servizio attento alle tue esigenze.',
+  benefits: [
+    'Prodotti selezionati',
+    'Assistenza personalizzata',
+    'Qualità e cortesia'
+  ]
+},
+
   generic: {
     subtitle:
       'Servizi professionali pensati per ogni esigenza.',
@@ -725,6 +764,7 @@ if (
       reviewsSection.style.display = 'none';
     }
   } else {
+    
     // Pagina dimostrativa
     if (reviews.enabled) {
       reviewsScore.textContent =

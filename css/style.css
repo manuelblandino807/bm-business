@@ -1389,3 +1389,37 @@ body.beauty-theme footer {
       #D58AC8 100%
     ) !important;
 }
+
+/* Tema Fitness: Palestra */
+body.theme-fitness,
+body.fitness-theme {
+  --theme-primary:#39D353;
+  --theme-secondary:#B6FF00;
+  --theme-light:#EEFFD9;
+  --theme-dark:#080B0C;
+  --theme-glow:rgba(182,255,0,.42);
+}
+
+body.theme-fitness .about-card,
+body.theme-fitness .share,
+body.fitness-theme .about-card,
+body.fitness-theme .share {
+  background:
+    linear-gradient(
+      135deg,
+      #F7FFEE 0%,
+      #E5F8D3 52%,
+      #CFF59A 100%
+    ) !important;
+}
+
+body.theme-fitness footer,
+body.fitness-theme footer {
+  background:
+    linear-gradient(
+      90deg,
+      #080B0C 0%,
+      #216E32 52%,
+      #B6FF00 100%
+    ) !important;
+}

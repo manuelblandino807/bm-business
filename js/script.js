@@ -174,6 +174,10 @@ if (categoriaUrl === 'beauty') {
   selectedTheme = 'beauty';
 }
 
+if (categoriaUrl === 'fitness') {
+  selectedTheme = 'fitness';
+}
+
 document.body.classList.add(
   `theme-${selectedTheme}`
 );
@@ -193,6 +197,7 @@ const categoryHeroMap = {
   medical: 'medical',
   nature: 'nature',
   beauty: 'beauty',
+  fitness: 'fitness',
 };
 
 let heroStyle =
@@ -493,6 +498,20 @@ beauty: {
     'Trattamenti personalizzati',
     'Prodotti professionali',
     'Benessere e cura dei dettagli'
+  ]
+},
+
+fitness: {
+  subtitle:
+    'Energia, allenamento e risultati.',
+  title:
+    'Supera i tuoi limiti',
+  description:
+    'Un ambiente moderno e attrezzato, pensato per accompagnarti nel tuo percorso di allenamento e aiutarti a raggiungere i tuoi obiettivi.',
+  benefits: [
+    'Attrezzature moderne',
+    'Allenamenti personalizzati',
+    'Ambiente energico e motivante'
   ]
 },
 

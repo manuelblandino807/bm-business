@@ -95,7 +95,7 @@ async function loadBusinessFromSupabase(slug) {
     .from('businesses')
     .select('*')
     .eq('slug', slug)
-    .eq('is_published', true)
+    
     .single();
   if (error) {
     console.error(

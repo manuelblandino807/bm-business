@@ -2,6 +2,19 @@
 
 const params = new URLSearchParams(window.location.search);
 
+const SUPABASE_URL =
+  'https://zsnalortmeuhxwiimwsp.supabase.co';
+
+const SUPABASE_PUBLISHABLE_KEY =
+  'sb_publishable_MfwDSdwXEMtqKy4aFwu2Iw_jIHMhnY4';
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
+const businessSlug = params.get('slug') || '';
+
 const demoType = params.get('demo') || 'hairdresser';
 
 const categoriaUrl =
@@ -77,19 +90,80 @@ const servicesJsonUrl =
 const galleryJsonUrl =
   params.get('galleryJson') || '';
 
+async function loadBusinessFromSupabase(slug) {
+  const { data, error } = await supabaseClient
+    .from('businesses')
+    .select('*')
+    .eq('slug', slug)
+    .eq('is_published', true)
+    .single();
+  if (error) {
+    console.error(
+      'Errore Supabase:',
+      error
+    );
+
+    throw new Error(
+      'Attività non trovata oppure non pubblicata'
+    );
+  }
+
+  console.log(
+    'ATTIVITÀ CARICATA DA SUPABASE:',
+    data
+  );
+
+  return data;
+} 
+
 async function loadBusinessData() {
   try {
 
-    const response = await fetch(
-  `${demoFile}?v=5`
-);
-    if (!response.ok) {
-      throw new Error(
-        'Impossibile caricare il file JSON'
-      );
-    }
+let data;
 
-    const data = await response.json();
+if (businessSlug) {
+  const businessRow =
+    await loadBusinessFromSupabase(
+      businessSlug
+    );
+
+  data = businessRow.profile_data || {};
+
+  data.business = {
+    ...(data.business || {}),
+    name:
+      data.business?.name ||
+      businessRow.business_name ||
+      '',
+  };
+
+  data.category =
+    data.category ||
+    businessRow.category ||
+    '';
+
+  console.log(
+    'DATI PROFILO SUPABASE:',
+    data
+  );
+} else {
+  const response = await fetch(
+    `${demoFile}?v=5`
+  );
+
+  if (!response.ok) {
+    throw new Error(
+      'Impossibile caricare il file JSON'
+    );
+  }
+
+  data = await response.json();
+
+  console.log(
+    'DATI DEMO O URL:',
+    data
+  );
+}
 
   // Rimuove eventuali temi precedenti
 document.body.classList.remove(

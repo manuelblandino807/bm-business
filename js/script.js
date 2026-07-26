@@ -200,7 +200,7 @@ async function loadBusinessData() {
           .toLowerCase()}-theme`
       );
     }
-    
+
 // Rimuove eventuali temi colore già presenti
 document.body.classList.remove(
   'theme-ocean',
@@ -318,7 +318,6 @@ const categoryHeroMap = {
   'generic-4': 'generic-4',
 };
 
-console.log('CATEGORIA HERO:', categoriaUrl);
 
 let heroStyle =
   categoryHeroMap[categoriaUrl] ||

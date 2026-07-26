@@ -180,7 +180,8 @@ document.body.classList.remove(
 
 // Applica automaticamente il tema corretto
 if (data.category) {
-  document.body.classList.add(`${data.category}-theme`);
+  document.body.classList.add(`${String(themeId).replace(/\s+/g, '-').toLowerCase()}-theme`);
+  
 }
 
 // Rimuove eventuali temi colore già presenti

@@ -293,6 +293,7 @@ const heroElement =
   document.getElementById('hero');
 
 const categoryHeroMap = {
+  altro: 'generic-1',
   hairdresser: 'elegance',
   barber: 'barber-ocean',
   professional: 'office',

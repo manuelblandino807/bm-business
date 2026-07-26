@@ -17,7 +17,7 @@ const businessSlug = params.get('slug') || '';
 
 const demoType = params.get('demo') || 'hairdresser';
 
-const categoriaUrl =
+let categoriaUrl =
   (params.get('categoria') || '').toLowerCase();
 
 const themeIdUrl =
@@ -130,7 +130,15 @@ if (businessSlug) {
   data = businessRow.profile_data || {};
 
   console.log('DATI PROFILO SUPABASE:', data);
-  
+
+  if (businessSlug && data.category) {
+  categoriaUrl = data.category
+    .split('-')[0]
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-');
+}
+
   data.business = {
     ...(data.business || {}),
     name:

@@ -95,8 +95,8 @@ async function loadBusinessFromSupabase(slug) {
     .from('businesses')
     .select('*')
     .eq('slug', slug)
-    
     .single();
+
   if (error) {
     console.error(
       'Errore Supabase:',
@@ -114,87 +114,93 @@ async function loadBusinessFromSupabase(slug) {
   );
 
   return data;
-} 
+}
 
 async function loadBusinessData() {
   try {
 
-let data;
+    let data;
 
-if (businessSlug) {
-  const businessRow =
-    await loadBusinessFromSupabase(
-      businessSlug
+    if (businessSlug) {
+      const businessRow =
+        await loadBusinessFromSupabase(
+          businessSlug
+        );
+
+      data = businessRow.profile_data || {};
+
+      console.log(
+        'DATI PROFILO SUPABASE:',
+        data
+      );
+
+      data.business = {
+        ...(data.business || {}),
+        name:
+          data.business?.name ||
+          businessRow.business_name ||
+          '',
+      };
+
+      data.category =
+        data.category ||
+        businessRow.category ||
+        '';
+
+      if (businessSlug && data.category) {
+        categoriaUrl = data.category
+          .split('-')[0]
+          .trim()
+          .toLowerCase()
+          .replace(/\s+/g, '-');
+      }
+
+      console.log(
+        'DATI PROFILO SUPABASE:',
+        data
+      );
+
+    } else {
+      const response = await fetch(
+        `${demoFile}?v=5`
+      );
+
+      if (!response.ok) {
+        throw new Error(
+          'Impossibile caricare il file JSON'
+        );
+      }
+
+      data = await response.json();
+
+      console.log(
+        'DATI DEMO O URL:',
+        data
+      );
+    }
+
+    // Rimuove eventuali temi precedenti
+    document.body.classList.remove(
+      'hairdresser-theme',
+      'accountant-theme',
+      'artisan-theme',
+      'restaurant-theme',
+      'hotel-theme',
+      'beauty-theme',
+      'fitness-theme',
+      'retail-theme',
+      'nature-theme'
     );
 
-  data = businessRow.profile_data || {};
-
-  console.log('DATI PROFILO SUPABASE:', data);
-
-  if (businessSlug && data.category) {
-  categoriaUrl = data.category
-    .split('-')[0]
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, '-');
-}
-
-  data.business = {
-    ...(data.business || {}),
-    name:
-      data.business?.name ||
-      businessRow.business_name ||
-      '',
-  };
-
-  data.category =
-    data.category ||
-    businessRow.category ||
-    '';
-
-  console.log(
-    'DATI PROFILO SUPABASE:',
-    data
-  );
-} else {
-  const response = await fetch(
-    `${demoFile}?v=5`
-  );
-
-  if (!response.ok) {
-    throw new Error(
-      'Impossibile caricare il file JSON'
-    );
-  }
-
-  data = await response.json();
-
-  console.log(
-    'DATI DEMO O URL:',
-    data
-  );
-}
-
-  // Rimuove eventuali temi precedenti
-document.body.classList.remove(
-  'hairdresser-theme',
-  'accountant-theme',
-  'artisan-theme',
-  'restaurant-theme',
-  'hotel-theme',
-  'beauty-theme',
-  'fitness-theme',
-  'retail-theme',
-  'nature-theme'
-);
-
-// Applica automaticamente il tema corretto
-if (data.category) {
-  document.body.classList.add(`${String(data.category).replace(/\s+/g, '-').toLowerCase()}-theme`);
-  
-
-}
-
+    // Applica automaticamente il tema corretto
+    if (data.category) {
+      document.body.classList.add(
+        `${String(data.category)
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-theme`
+      );
+    }
+    
 // Rimuove eventuali temi colore già presenti
 document.body.classList.remove(
   'theme-ocean',

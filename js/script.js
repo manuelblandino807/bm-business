@@ -129,6 +129,8 @@ if (businessSlug) {
 
   data = businessRow.profile_data || {};
 
+  console.log('DATI PROFILO SUPABASE:', data);
+  
   data.business = {
     ...(data.business || {}),
     name:

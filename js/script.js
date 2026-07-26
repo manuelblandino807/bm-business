@@ -312,6 +312,8 @@ const categoryHeroMap = {
   'generic-4': 'generic-4',
 };
 
+console.log('CATEGORIA HERO:', categoriaUrl);
+
 let heroStyle =
   categoryHeroMap[categoriaUrl] ||
   data.heroStyle ||

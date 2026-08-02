@@ -147,13 +147,53 @@ async function loadBusinessData() {
         businessRow.category ||
         '';
 
-      if (businessSlug && data.category) {
-        categoriaUrl = data.category
-          .split('-')[0]
-          .trim()
-          .toLowerCase()
-          .replace(/\s+/g, '-');
-      }
+        data.theme =
+  data.theme ||
+  businessRow.theme_id ||
+  '';
+
+    if (businessSlug && data.category) {
+  const categoryMap = {
+    'Artigiano': 'artisan',
+    'Idraulico': 'artisan',
+    'Elettricista': 'artisan',
+    'Falegname': 'artisan',
+    'Serramentista': 'artisan',
+    'Imbianchino': 'artisan',
+    'Muratore': 'artisan',
+    'Giardiniere': 'nature',
+
+    'Ristorante': 'food',
+    'Pizzeria': 'food',
+    'Bar': 'food',
+
+    'Hotel': 'hospitality',
+    'B&B': 'hospitality',
+
+    'Negozio': 'retail',
+
+    'Studio medico': 'medical',
+    'Studio dentistico': 'medical',
+
+    'Avvocato': 'professional',
+    'Commercialista': 'professional',
+    'Agenzia immobiliare': 'real-estate',
+
+    'Parrucchiere': 'hairdresser',
+    'Barbiere': 'barber',
+    'Estetista': 'beauty',
+    'Palestra': 'fitness',
+
+    'Altro - Blu dinamico': 'generic-1',
+    'Altro - Rosa elegante': 'generic-2',
+    'Altro - Neutro minimal': 'generic-3',
+    'Altro - Verde moderno': 'generic-4',
+  };
+
+  categoriaUrl =
+    categoryMap[data.category] ||
+    'generic-3';
+}
 
       console.log(
         'DATI PROFILO SUPABASE:',
@@ -776,7 +816,7 @@ if (isGeneratedProfile) {
        data.email?.trim() ||
        data.contacts?.email?.trim() ||
        '';
-       
+
     if (emailCard && emailText) {
       if (email) {
         emailText.textContent = email;

@@ -711,6 +711,42 @@ const categoryContent =
   categoryContentMap.generic;
 
 // HERO
+
+if (businessNameElement) {
+  businessNameElement.textContent =
+    nomeUrl.trim() ||
+    data.business?.name?.trim() ||
+    '';
+}
+
+if (businessTaglineElement) {
+  const tagline =
+    businessSlug || isGeneratedProfile
+      ? ''
+      : data.business?.tagline?.trim() || '';
+
+  businessTaglineElement.textContent =
+    tagline;
+
+  businessTaglineElement.style.display =
+    tagline ? '' : 'none';
+}
+
+if (businessSubtitleElement) {
+  const subtitle =
+    descrizioneUrl.trim() ||
+    data.description?.trim() ||
+    data.business?.subtitle?.trim() ||
+    categoryContent.subtitle ||
+    '';
+
+  businessSubtitleElement.textContent =
+    subtitle;
+
+  businessSubtitleElement.style.display =
+    subtitle ? '' : 'none';
+}
+
 if (isGeneratedProfile || businessSlug) {
   if (aboutTitle) {
     aboutTitle.textContent =

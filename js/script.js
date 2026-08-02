@@ -722,10 +722,9 @@ if (isGeneratedProfile) {
 }
 
 // TELEFONO
-    const phone =
-  isGeneratedProfile
-    ? telefonoUrl.trim()
-    : telefonoUrl ||
+      const phone =
+      telefonoUrl.trim() ||
+      data.phone?.trim() ||
       data.contacts?.phone?.trim() ||
       '';
 
@@ -772,13 +771,12 @@ if (isGeneratedProfile) {
     }
 
     // EMAIL
-    const email =
-  isGeneratedProfile
-    ? emailUrl.trim()
-    : emailUrl ||
-      data.contacts?.email?.trim() ||
-      '';
-
+       const email =
+       emailUrl.trim() ||
+       data.email?.trim() ||
+       data.contacts?.email?.trim() ||
+       '';
+       
     if (emailCard && emailText) {
       if (email) {
         emailText.textContent = email;

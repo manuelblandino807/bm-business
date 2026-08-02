@@ -733,12 +733,12 @@ if (businessTaglineElement) {
 }
 
 if (businessSubtitleElement) {
+
   const subtitle =
-    descrizioneUrl.trim() ||
-    data.description?.trim() ||
-    data.business?.subtitle?.trim() ||
-    categoryContent.subtitle ||
-    '';
+  descrizioneUrl.trim() ||
+  data.business?.subtitle?.trim() ||
+  categoryContent.subtitle ||
+  '';
 
   businessSubtitleElement.textContent =
     subtitle;

@@ -934,12 +934,11 @@ const businessLocationName =
   '';
 
 const address =
-  isGeneratedProfile
-    ? mapsUrl.trim()
-    : mapsUrl ||
-      location.address?.trim() ||
-      '';
-
+  mapsUrl.trim() ||
+  data.googleMaps?.trim() ||
+  location.address?.trim() ||
+  '';
+  
 const googleMapsLink =
   address
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
@@ -1313,10 +1312,31 @@ if (gallerySection && galleryGrid) {
 const hoursJsonUrl =
   params.get('hoursJson') || '';
 
-let hours =
-  isGeneratedProfile
-    ? {}
-    : data.hours || {};
+let hours = {};
+
+if (
+  data.hours &&
+  typeof data.hours === 'object'
+) {
+  hours = data.hours;
+} else if (data.hoursJson) {
+  try {
+    const decodedHours =
+      JSON.parse(data.hoursJson);
+
+    if (
+      decodedHours &&
+      typeof decodedHours === 'object'
+    ) {
+      hours = decodedHours;
+    }
+  } catch (error) {
+    console.error(
+      'Errore nella lettura degli orari Supabase:',
+      error
+    );
+  }
+}
 
 if (hoursJsonUrl) {
   try {

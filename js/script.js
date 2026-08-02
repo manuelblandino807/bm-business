@@ -938,7 +938,7 @@ const address =
   data.googleMaps?.trim() ||
   location.address?.trim() ||
   '';
-  
+
 const googleMapsLink =
   address
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
@@ -1016,25 +1016,92 @@ const social = {
     '',
 };
 
-function setSocialLink(element, url) {
+function setSocialLink(
+  element,
+  value,
+  platform = ''
+) {
   if (!element) return;
 
-  if (url && url.trim() !== '') {
-    element.href = url;
-    element.target = '_blank';
-    element.rel = 'noopener noreferrer';
-    element.style.display = '';
-  } else {
+  const text =
+    (value || '').trim();
+
+  if (!text) {
     element.style.display = 'none';
+    return;
   }
+
+  let url = text;
+
+  if (
+    !url.startsWith('http://') &&
+    !url.startsWith('https://')
+  ) {
+    const username =
+      url.replace(/^@/, '');
+
+    const platformUrls = {
+      instagram:
+        `https://www.instagram.com/${username}`,
+      facebook:
+        `https://www.facebook.com/${username}`,
+      tiktok:
+        `https://www.tiktok.com/@${username}`,
+      youtube:
+        `https://www.youtube.com/@${username}`,
+      linkedin:
+        `https://www.linkedin.com/in/${username}`,
+      x:
+        `https://x.com/${username}`,
+    };
+
+    url =
+      platformUrls[platform] ||
+      `https://${username}`;
+  }
+
+  element.href = url;
+  element.target = '_blank';
+  element.rel = 'noopener noreferrer';
+  element.style.display = '';
 }
 
-setSocialLink(instagramLink, social.instagram);
-setSocialLink(facebookLink, social.facebook);
-setSocialLink(tiktokLink, social.tiktok);
-setSocialLink(youtubeLink, social.youtube);
-setSocialLink(linkedinLink, social.linkedin);
-setSocialLink(xLink, social.x);
+setSocialLink(
+  instagramLink,
+  social.instagram,
+  'instagram'
+);
+
+setSocialLink(
+  facebookLink,
+  social.facebook,
+  'facebook'
+);
+
+setSocialLink(
+  tiktokLink,
+  social.tiktok,
+  'tiktok'
+);
+
+setSocialLink(
+  youtubeLink,
+  social.youtube,
+  'youtube'
+);
+
+setSocialLink(
+  linkedinLink,
+  social.linkedin,
+  'linkedin'
+);
+
+setSocialLink(
+  xLink,
+  social.x,
+  'x'
+);
+
 const hasSocialLinks =
   Object.values(social).some(
     (value) => value.trim() !== ''

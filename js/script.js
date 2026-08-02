@@ -979,30 +979,42 @@ if (locationSection) {
     address ? '' : 'none';
 }
 
-   const social = {
-  instagram: isGeneratedProfile
-    ? instagramUrl
-    : instagramUrl || data.social?.instagram || '',
+const social = {
+  instagram:
+    instagramUrl.trim() ||
+    data.instagram?.trim() ||
+    data.social?.instagram?.trim() ||
+    '',
 
-  facebook: isGeneratedProfile
-    ? facebookUrl
-    : facebookUrl || data.social?.facebook || '',
+  facebook:
+    facebookUrl.trim() ||
+    data.facebook?.trim() ||
+    data.social?.facebook?.trim() ||
+    '',
 
-  tiktok: isGeneratedProfile
-    ? tiktokUrl
-    : tiktokUrl || data.social?.tiktok || '',
+  tiktok:
+    tiktokUrl.trim() ||
+    data.tiktok?.trim() ||
+    data.social?.tiktok?.trim() ||
+    '',
 
-  youtube: isGeneratedProfile
-    ? youtubeUrl
-    : youtubeUrl || data.social?.youtube || '',
+  youtube:
+    youtubeUrl.trim() ||
+    data.youtube?.trim() ||
+    data.social?.youtube?.trim() ||
+    '',
 
-  linkedin: isGeneratedProfile
-    ? linkedinUrl
-    : linkedinUrl || data.social?.linkedin || '',
+  linkedin:
+    linkedinUrl.trim() ||
+    data.linkedin?.trim() ||
+    data.social?.linkedin?.trim() ||
+    '',
 
-  x: isGeneratedProfile
-    ? xUrl
-    : xUrl || data.social?.x || '',
+  x:
+    xUrl.trim() ||
+    data.x?.trim() ||
+    data.social?.x?.trim() ||
+    '',
 };
 
 function setSocialLink(element, url) {
@@ -1040,18 +1052,17 @@ if (socialLinksContainer) {
 }
 
 const platforms = {
-  booking: isGeneratedProfile
-    ? bookingUrl
-    : bookingUrl ||
-      data.platforms?.booking ||
-      '',
+  booking:
+    bookingUrl.trim() ||
+    data.booking?.trim() ||
+    data.platforms?.booking?.trim() ||
+    '',
 
-  tripadvisor: isGeneratedProfile
-    ? tripadvisorUrl
-    : tripadvisorUrl ||
-      data.platforms?.tripadvisor ||
-      '',
-
+  tripadvisor:
+    tripadvisorUrl.trim() ||
+    data.tripadvisor?.trim() ||
+    data.platforms?.tripadvisor?.trim() ||
+    '',
 };
 
 setSocialLink(
@@ -1084,13 +1095,25 @@ if (onlineSection) {
 const servicesJsonUrl =
   params.get('servicesJson') || '';
 
-let services =
-  isGeneratedProfile
-    ? []
-    : Array.isArray(data.services)
-      ? data.services
-      : [];
+let services = [];
 
+if (Array.isArray(data.services)) {
+  services = data.services;
+} else if (data.servicesJson) {
+  try {
+    const decodedServices =
+      JSON.parse(data.servicesJson);
+
+    if (Array.isArray(decodedServices)) {
+      services = decodedServices;
+    }
+  } catch (error) {
+    console.error(
+      'Errore nella lettura dei servizi Supabase:',
+      error
+    );
+  }
+}
 
 if (servicesJsonUrl) {
   try {
@@ -1215,13 +1238,25 @@ if (servicesSection) {
     services.length > 0 ? '' : 'none';
 }
 
-let gallery =
-  isGeneratedProfile
-    ? []
-    : Array.isArray(data.gallery)
-      ? data.gallery
-      : [];
+let gallery = [];
 
+if (Array.isArray(data.gallery)) {
+  gallery = data.gallery;
+} else if (data.galleryJson) {
+  try {
+    const decodedGallery =
+      JSON.parse(data.galleryJson);
+
+    if (Array.isArray(decodedGallery)) {
+      gallery = decodedGallery;
+    }
+  } catch (error) {
+    console.error(
+      'Errore nella lettura della gallery Supabase:',
+      error
+    );
+  }
+}
 if (galleryJsonUrl) {
   try {
     const decodedGallery =

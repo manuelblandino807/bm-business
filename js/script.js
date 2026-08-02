@@ -1620,10 +1620,11 @@ if (saveContactButton) {
     address;
 
   if (
-    isGeneratedProfile &&
-    contactName &&
-    hasContactData
-  ) {
+  (isGeneratedProfile || businessSlug) &&
+  contactName &&
+  hasContactData
+) {
+  
     saveContactButton.style.display = '';
 
     saveContactButton.addEventListener(

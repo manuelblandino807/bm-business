@@ -708,33 +708,7 @@ const categoryContent =
   categoryContentMap.generic;
 
 // HERO
-if (businessNameElement) {
-  businessNameElement.textContent =
-    nomeUrl || data.business?.name || '';
-}
-
-if (businessTaglineElement) {
-  const tagline =
-    isGeneratedProfile
-      ? ''
-      : data.business?.tagline || '';
-
-  businessTaglineElement.textContent =
-    tagline;
-
-  businessTaglineElement.style.display =
-    tagline ? '' : 'none';
-}
-
-if (businessSubtitleElement) {
-  businessSubtitleElement.textContent =
-    isGeneratedProfile
-      ? descrizioneUrl ||
-        categoryContent.subtitle
-      : data.business?.subtitle || '';
-}
-
-if (isGeneratedProfile) {
+if (isGeneratedProfile || businessSlug) {
   if (aboutTitle) {
     aboutTitle.textContent =
       categoryContent.title;
@@ -742,6 +716,7 @@ if (isGeneratedProfile) {
 
   if (aboutDescription) {
     aboutDescription.textContent =
+      data.description?.trim() ||
       categoryContent.description;
   }
 

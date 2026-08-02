@@ -455,6 +455,9 @@ if (heroElement) {
     const mapsLink =
       document.getElementById('maps-link');
 
+    const googleMapFrame =
+      document.getElementById('google-map-frame');
+
     const onlineSection =
       document.getElementById('online-section');
 
@@ -948,6 +951,18 @@ if (mapsLink) {
     mapsLink.style.display = 'none';
   }
 }
+
+if (googleMapFrame) {
+  if (address) {
+    googleMapFrame.src =
+      `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+
+    googleMapFrame.style.display = '';
+  } else {
+    googleMapFrame.style.display = 'none';
+  }
+}
+
 if (locationSection) {
   locationSection.style.display =
     address ? '' : 'none';

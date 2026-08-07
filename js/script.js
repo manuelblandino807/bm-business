@@ -846,7 +846,7 @@ if (isGeneratedProfile || businessSlug) {
     data.website?.trim() ||
     data.contacts?.website?.trim() ||
     '';
-    
+
     if (websiteCard && websiteText) {
       if (website) {
         const websiteUrl =
@@ -890,10 +890,16 @@ if (
   reviewsCount &&
   reviewsProvider
 ) {
-  if (isGeneratedProfile) {
+  if (isGeneratedProfile || businessSlug) {
+
     // Pagina reale generata dalla app
-    if (reviewsUrl) {
-      reviewsCard.href = reviewsUrl;
+   const reviewsLink =
+  reviewsUrl.trim() ||
+  data.googleReviews?.trim() ||
+  '';
+
+   if (reviewsLink) {
+      reviewsCard.href = reviewsLink;
       reviewsCard.target = '_blank';
       reviewsCard.rel = 'noopener noreferrer';
 

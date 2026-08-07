@@ -796,12 +796,11 @@ if (isGeneratedProfile || businessSlug) {
     }
 
     // WHATSAPP
-   const whatsapp =
-  isGeneratedProfile
-    ? whatsappUrl.trim()
-    : whatsappUrl ||
-      data.contacts?.whatsapp?.trim() ||
-      '';
+     const whatsapp =
+     whatsappUrl.trim() ||
+     data.whatsapp?.trim() ||
+     data.contacts?.whatsapp?.trim() ||
+     '';
 
     if (whatsappCard && whatsappText) {
       if (whatsapp) {

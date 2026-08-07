@@ -496,6 +496,9 @@ if (heroElement) {
     const tripadvisorLink =
       document.getElementById('tripadvisor-link');
 
+    const mioDottoreLink =
+      document.getElementById('miodottore-link');
+
     const servicesSection =
       document.getElementById('services-section');
 
@@ -1159,6 +1162,11 @@ const platforms = {
     data.tripadvisor?.trim() ||
     data.platforms?.tripadvisor?.trim() ||
     '',
+
+  mioDottore:
+    data.mioDottore?.trim() ||
+    '',
+    
 };
 
 setSocialLink(
@@ -1169,6 +1177,11 @@ setSocialLink(
 setSocialLink(
   tripadvisorLink,
   platforms.tripadvisor
+);
+
+setSocialLink(
+  mioDottoreLink,
+  platforms.mioDottore
 );
 
 const hasPlatforms =

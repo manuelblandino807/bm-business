@@ -1253,29 +1253,126 @@ if (servicesGrid) {
     serviceDescription.textContent =
       service.description || '';
 
-    let mainAction =
+let mainAction =
   data.mainAction || {};
 
-if (isGeneratedProfile) {
+if (isGeneratedProfile || businessSlug) {
+  const selectedAction =
+    data.primaryAction?.trim() ||
+    'Prenota ora';
+
   const whatsappNumber =
     whatsapp.replace(/\D/g, '');
 
   const phoneNumber =
     phone.replace(/\s+/g, '');
 
-  if (whatsappNumber) {
-    mainAction = {
-      text: 'Prenota ora',
-      link:
-        `https://wa.me/${whatsappNumber}`,
-    };
-  } else if (phoneNumber) {
-    mainAction = {
-      text: 'Chiama ora',
-      link: `tel:${phoneNumber}`,
-    };
-  } else {
-    mainAction = {};
+  const websiteUrl =
+    website
+      ? (
+          website.startsWith('http://') ||
+          website.startsWith('https://')
+            ? website
+            : `https://${website}`
+        )
+      : '';
+
+  switch (selectedAction) {
+    case 'Chiama ora':
+      mainAction = phoneNumber
+        ? {
+            text: 'Chiama ora',
+            link: `tel:${phoneNumber}`,
+          }
+        : {};
+      break;
+
+    case 'WhatsApp':
+      mainAction = whatsappNumber
+        ? {
+            text: 'WhatsApp',
+            link:
+              `https://wa.me/${whatsappNumber}`,
+          }
+        : {};
+      break;
+
+    case 'Visita il sito':
+      mainAction = websiteUrl
+        ? {
+            text: 'Visita il sito',
+            link: websiteUrl,
+          }
+        : {};
+      break;
+
+    case 'Richiedi preventivo':
+      mainAction = whatsappNumber
+        ? {
+            text: 'Richiedi preventivo',
+            link:
+              `https://wa.me/${whatsappNumber}`,
+          }
+        : phoneNumber
+          ? {
+              text: 'Richiedi preventivo',
+              link: `tel:${phoneNumber}`,
+            }
+          : {};
+      break;
+
+    case 'Richiedi appuntamento':
+      mainAction = whatsappNumber
+        ? {
+            text: 'Richiedi appuntamento',
+            link:
+              `https://wa.me/${whatsappNumber}`,
+          }
+        : phoneNumber
+          ? {
+              text: 'Richiedi appuntamento',
+              link: `tel:${phoneNumber}`,
+            }
+          : {};
+      break;
+
+    case 'Contattaci':
+      mainAction = whatsappNumber
+        ? {
+            text: 'Contattaci',
+            link:
+              `https://wa.me/${whatsappNumber}`,
+          }
+        : phoneNumber
+          ? {
+              text: 'Contattaci',
+              link: `tel:${phoneNumber}`,
+            }
+          : {};
+      break;
+
+    case 'Scopri di più':
+      mainAction = websiteUrl
+        ? {
+            text: 'Scopri di più',
+            link: websiteUrl,
+          }
+        : {};
+      break;
+
+    default:
+      mainAction = whatsappNumber
+        ? {
+            text: selectedAction,
+            link:
+              `https://wa.me/${whatsappNumber}`,
+          }
+        : phoneNumber
+          ? {
+              text: selectedAction,
+              link: `tel:${phoneNumber}`,
+            }
+          : {};
   }
 }
 

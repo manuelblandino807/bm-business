@@ -841,13 +841,12 @@ if (isGeneratedProfile || businessSlug) {
     }
 
     // SITO WEB
-   const website =
-  isGeneratedProfile
-    ? sitoUrl.trim()
-    : sitoUrl ||
-      data.contacts?.website?.trim() ||
-      '';
-
+    const website =
+    sitoUrl.trim() ||
+    data.website?.trim() ||
+    data.contacts?.website?.trim() ||
+    '';
+    
     if (websiteCard && websiteText) {
       if (website) {
         const websiteUrl =

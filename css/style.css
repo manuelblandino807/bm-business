@@ -744,6 +744,16 @@ footer small{
   margin-top:45px;
 }
 
+.platforms-group h2{
+  margin-bottom:14px;
+}
+
+.platforms-group h3{
+  margin-bottom:22px;
+  font-size:22px;
+  color:#8E24AA;
+}
+
 .platforms-group h3{
   margin-bottom:22px;
   font-size:22px;
@@ -782,8 +792,8 @@ footer small{
 =========================== */
 
 .share{
-    padding:80px 20px;
-    background:white;
+  padding:120px 20px 80px;
+  background:white;
 }
 
 .share-container{

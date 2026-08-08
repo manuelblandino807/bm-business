@@ -499,6 +499,12 @@ if (heroElement) {
     const mioDottoreLink =
       document.getElementById('miodottore-link');
 
+    const glovoLink =
+      document.getElementById('glovo-link');
+
+    const justEatLink =
+      document.getElementById('justeat-link');
+
     const servicesSection =
       document.getElementById('services-section');
 
@@ -1166,6 +1172,14 @@ const platforms = {
   mioDottore:
     data.mioDottore?.trim() ||
     '',
+
+  glovo:
+    data.glovo?.trim() ||
+    '',
+
+  justEat:
+    data.justEat?.trim() ||
+    '',
     
 };
 
@@ -1182,6 +1196,16 @@ setSocialLink(
 setSocialLink(
   mioDottoreLink,
   platforms.mioDottore
+);
+
+setSocialLink(
+  glovoLink,
+  platforms.glovo
+);
+
+setSocialLink(
+  justEatLink,
+  platforms.justEat
 );
 
 const hasPlatforms =

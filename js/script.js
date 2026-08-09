@@ -490,6 +490,9 @@ if (heroElement) {
     const xLink =
       document.getElementById('x-link');
 
+    const platformsTitle =
+      document.getElementById('platforms-title');
+
     const bookingLink =
       document.getElementById('booking-link');
 
@@ -1227,6 +1230,15 @@ const hasPlatforms =
   Object.values(platforms).some(
     (value) => value.trim() !== ''
   );
+
+if (platformsTitle) {
+  const hasDelivery =
+    platforms.glovo.trim() !== '' ||
+    platforms.justEat.trim() !== '';
+
+  platformsTitle.textContent =
+    hasDelivery ? 'Delivery' : 'Portali';
+} 
 
 if (platformsGroup) {
   platformsGroup.style.display =

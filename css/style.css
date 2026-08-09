@@ -754,11 +754,6 @@ footer small{
   color:#8E24AA;
 }
 
-.platforms-group h3{
-  margin-bottom:22px;
-  font-size:22px;
-  color:#8E24AA;
-}
 
 .platform-links{
   display:flex;
@@ -792,7 +787,7 @@ footer small{
 =========================== */
 
 .share{
-  padding:120px 20px 80px;
+  padding:30px 20px 80px;
   background:white;
 }
 

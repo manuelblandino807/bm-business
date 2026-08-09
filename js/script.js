@@ -496,6 +496,9 @@ if (heroElement) {
     const tripadvisorLink =
       document.getElementById('tripadvisor-link');
 
+     const trivagoLink =
+      document.getElementById('trivago-link');
+
     const mioDottoreLink =
       document.getElementById('miodottore-link');
 
@@ -1169,6 +1172,11 @@ const platforms = {
     data.platforms?.tripadvisor?.trim() ||
     '',
 
+  trivago:
+    data.trivago?.trim() ||
+    '',
+
+
   mioDottore:
     data.mioDottore?.trim() ||
     '',
@@ -1181,6 +1189,7 @@ const platforms = {
     data.justEat?.trim() ||
     '',
     
+ 
 };
 
 setSocialLink(
@@ -1191,6 +1200,11 @@ setSocialLink(
 setSocialLink(
   tripadvisorLink,
   platforms.tripadvisor
+);
+
+setSocialLink(
+  trivagoLink,
+  platforms.trivago
 );
 
 setSocialLink(
@@ -1207,6 +1221,7 @@ setSocialLink(
   justEatLink,
   platforms.justEat
 );
+
 
 const hasPlatforms =
   Object.values(platforms).some(

@@ -1307,8 +1307,59 @@ if (servicesGrid) {
     serviceIcon.className =
       'service-icon';
 
-    serviceIcon.textContent =
-      service.icon || '🛠️';
+    const category =
+  (data.category || '').toLowerCase();
+
+let defaultServiceIcon = '🛠️';
+
+if (
+  category.includes('ristorante') ||
+  category.includes('pizzeria') ||
+  category.includes('bar')
+) {
+  defaultServiceIcon = '🍽️';
+} else if (
+  category.includes('hotel') ||
+  category.includes('b&b')
+) {
+  defaultServiceIcon = '🏨';
+} else if (
+  category.includes('studio medico') ||
+  category.includes('studio dentistico')
+) {
+  defaultServiceIcon = '🩺';
+} else if (
+  category.includes('parrucchiere') ||
+  category.includes('barbiere') ||
+  category.includes('beauty')
+) {
+  defaultServiceIcon = '✂️';
+} else if (
+  category.includes('palestra') ||
+  category.includes('fitness')
+) {
+  defaultServiceIcon = '🏋️';
+} else if (
+  category.includes('giardin')
+) {
+  defaultServiceIcon = '🌿';
+} else if (
+  category.includes('avvocato') ||
+  category.includes('notaio')
+) {
+  defaultServiceIcon = '⚖️';
+} else if (
+  category.includes('commercialista')
+) {
+  defaultServiceIcon = '📊';
+} else if (
+  category.includes('immobiliar')
+) {
+  defaultServiceIcon = '🏠';
+}
+
+serviceIcon.textContent =
+  service.icon || defaultServiceIcon;
 
     const serviceTitle =
       document.createElement('h3');

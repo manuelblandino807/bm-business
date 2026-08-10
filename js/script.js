@@ -1307,55 +1307,80 @@ if (servicesGrid) {
     serviceIcon.className =
       'service-icon';
 
-    const category =
+const category =
   (data.category || '').toLowerCase();
 
 let defaultServiceIcon = '🛠️';
 
 if (
-  category.includes('ristorante') ||
-  category.includes('pizzeria') ||
-  category.includes('bar')
+  category === 'ristorante' ||
+  category === 'pizzeria' ||
+  category === 'bar'
 ) {
   defaultServiceIcon = '🍽️';
+
 } else if (
-  category.includes('hotel') ||
-  category.includes('b&b')
+  category === 'hotel' ||
+  category === 'b&b'
 ) {
   defaultServiceIcon = '🏨';
+
 } else if (
-  category.includes('studio medico') ||
-  category.includes('studio dentistico')
+  category === 'studio dentistico'
+) {
+  defaultServiceIcon = '🦷';
+
+} else if (
+  category === 'studio medico'
 ) {
   defaultServiceIcon = '🩺';
+
 } else if (
-  category.includes('parrucchiere') ||
-  category.includes('barbiere') ||
-  category.includes('beauty')
+  category === 'parrucchiere' ||
+  category === 'barbiere'
 ) {
   defaultServiceIcon = '✂️';
+
 } else if (
-  category.includes('palestra') ||
-  category.includes('fitness')
+  category === 'estetista'
+) {
+  defaultServiceIcon = '✨';
+
+} else if (
+  category === 'palestra'
 ) {
   defaultServiceIcon = '🏋️';
+
 } else if (
-  category.includes('giardin')
+  category === 'giardiniere'
 ) {
   defaultServiceIcon = '🌿';
+
 } else if (
-  category.includes('avvocato') ||
-  category.includes('notaio')
+  category === 'avvocato' ||
+  category === 'notaio'
 ) {
   defaultServiceIcon = '⚖️';
+
 } else if (
-  category.includes('commercialista')
+  category === 'commercialista'
 ) {
   defaultServiceIcon = '📊';
+
 } else if (
-  category.includes('immobiliar')
+  category === 'agenzia immobiliare'
 ) {
   defaultServiceIcon = '🏠';
+
+} else if (
+  category === 'negozio'
+) {
+  defaultServiceIcon = '🛍️';
+
+} else if (
+  category.startsWith('altro -')
+) {
+  defaultServiceIcon = '⭐';
 }
 
 serviceIcon.textContent =

@@ -1,6 +1,252 @@
 // B-M Business Scripts
 
 const params = new URLSearchParams(window.location.search);
+const supportedLangs = ['it', 'en', 'es', 'fr', 'de'];
+
+const requestedLang = params.get('lang') || 'it';
+
+const currentLang = supportedLangs.includes(requestedLang)
+  ? requestedLang
+  : 'it';
+
+const translations = {
+  it: {
+    about: 'Chi siamo',
+    whyChooseUs: 'Perché sceglierci',
+    services: 'I nostri servizi',
+    servicesSubtitle: 'Trattamenti pensati per ogni esigenza',
+    gallery: 'I nostri lavori',
+    gallerySubtitle: 'Alcuni dei nostri risultati',
+    reviews: 'Google Reviews',
+    reviewsSubtitle: 'La fiducia dei nostri clienti',
+    readGoogleReviews: 'Leggi le recensioni su Google',
+    reviewsWord: 'recensioni',
+    hours: 'Orari',
+    hoursSubtitle: 'Quando puoi trovarci',
+    monday: 'Lunedì',
+    tuesday: 'Martedì',
+    wednesday: 'Mercoledì',
+    thursday: 'Giovedì',
+    friday: 'Venerdì',
+    saturday: 'Sabato',
+    sunday: 'Domenica',
+    closed: 'Chiuso',
+    location: 'Dove siamo',
+    locationSubtitle: 'Vieni a trovarci',
+    openMaps: 'Apri in Google Maps',
+    contacts: 'Contatti',
+    phone: 'Telefono',
+    whatsappWrite: 'Scrivici ora',
+    email: 'Email',
+    website: 'Sito Web',
+    onlinePresence: 'Presenza online',
+    social: 'Social',
+    platforms: 'Portali',
+    delivery: 'Delivery',
+    share: 'Condividi',
+    shareTitle: 'Ti è piaciuta questa attività?',
+    shareText:
+      'Aiutaci a farci conoscere. Condividi questa pagina con amici e familiari.',
+    sharePage: '📤 Condividi la pagina',
+    discover: 'Scopri',
+    linkCopied: '✅ Link copiato',
+    saveContact: '👤 Salva contatto',
+    bookNow: 'Prenota ora',
+    photo: 'Foto',
+    of: 'di',
+    rights: 'Tutti i diritti riservati.'
+  },
+
+  en: {
+    about: 'About us',
+    whyChooseUs: 'Why choose us',
+    services: 'Our services',
+    servicesSubtitle: 'Treatments designed for every need',
+    gallery: 'Our work',
+    gallerySubtitle: 'Some of our results',
+    reviews: 'Google Reviews',
+    reviewsSubtitle: 'The trust of our customers',
+    readGoogleReviews: 'Read reviews on Google',
+    reviewsWord: 'reviews',
+    hours: 'Opening hours',
+    hoursSubtitle: 'When you can find us',
+    monday: 'Monday',
+    tuesday: 'Tuesday',
+    wednesday: 'Wednesday',
+    thursday: 'Thursday',
+    friday: 'Friday',
+    saturday: 'Saturday',
+    sunday: 'Sunday',
+    closed: 'Closed',
+    location: 'Where we are',
+    locationSubtitle: 'Come and visit us',
+    openMaps: 'Open in Google Maps',
+    contacts: 'Contacts',
+    phone: 'Phone',
+    whatsappWrite: 'Message us now',
+    email: 'Email',
+    website: 'Website',
+    onlinePresence: 'Online presence',
+    social: 'Social',
+    platforms: 'Platforms',
+    delivery: 'Delivery',
+    share: 'Share',
+    shareTitle: 'Did you like this business?',
+    shareText:
+      'Help us spread the word. Share this page with friends and family.',
+    sharePage: '📤 Share this page',
+    discover: 'Discover',
+    linkCopied: '✅ Link copied',
+    saveContact: '👤 Save contact',
+    bookNow: 'Book now',
+    photo: 'Photo',
+    of: 'of',
+    rights: 'All rights reserved.'
+  },
+
+  es: {
+    about: 'Quiénes somos',
+    whyChooseUs: 'Por qué elegirnos',
+    services: 'Nuestros servicios',
+    servicesSubtitle: 'Tratamientos pensados para cada necesidad',
+    gallery: 'Nuestros trabajos',
+    gallerySubtitle: 'Algunos de nuestros resultados',
+    reviews: 'Reseñas de Google',
+    reviewsSubtitle: 'La confianza de nuestros clientes',
+    readGoogleReviews: 'Lee las reseñas en Google',
+    reviewsWord: 'reseñas',
+    hours: 'Horarios',
+    hoursSubtitle: 'Cuándo puedes encontrarnos',
+    monday: 'Lunes',
+    tuesday: 'Martes',
+    wednesday: 'Miércoles',
+    thursday: 'Jueves',
+    friday: 'Viernes',
+    saturday: 'Sábado',
+    sunday: 'Domingo',
+    closed: 'Cerrado',
+    location: 'Dónde estamos',
+    locationSubtitle: 'Ven a visitarnos',
+    openMaps: 'Abrir en Google Maps',
+    contacts: 'Contactos',
+    phone: 'Teléfono',
+    whatsappWrite: 'Escríbenos ahora',
+    email: 'Correo electrónico',
+    website: 'Sitio web',
+    onlinePresence: 'Presencia online',
+    social: 'Redes sociales',
+    platforms: 'Portales',
+    delivery: 'Delivery',
+    share: 'Compartir',
+    shareTitle: '¿Te ha gustado esta actividad?',
+    shareText:
+      'Ayúdanos a darnos a conocer. Comparte esta página con amigos y familiares.',
+    sharePage: '📤 Compartir la página',
+    discover: 'Descubre',
+    linkCopied: '✅ Enlace copiado',
+    saveContact: '👤 Guardar contacto',
+    bookNow: 'Reservar ahora',
+    photo: 'Foto',
+    of: 'de',
+    rights: 'Todos los derechos reservados.'
+  },
+
+  fr: {
+    about: 'À propos de nous',
+    whyChooseUs: 'Pourquoi nous choisir',
+    services: 'Nos services',
+    servicesSubtitle: 'Des prestations pensées pour chaque besoin',
+    gallery: 'Nos réalisations',
+    gallerySubtitle: 'Quelques-uns de nos résultats',
+    reviews: 'Avis Google',
+    reviewsSubtitle: 'La confiance de nos clients',
+    readGoogleReviews: 'Lire les avis sur Google',
+    reviewsWord: 'avis',
+    hours: 'Horaires',
+    hoursSubtitle: 'Quand nous trouver',
+    monday: 'Lundi',
+    tuesday: 'Mardi',
+    wednesday: 'Mercredi',
+    thursday: 'Jeudi',
+    friday: 'Vendredi',
+    saturday: 'Samedi',
+    sunday: 'Dimanche',
+    closed: 'Fermé',
+    location: 'Où nous sommes',
+    locationSubtitle: 'Venez nous rendre visite',
+    openMaps: 'Ouvrir dans Google Maps',
+    contacts: 'Contacts',
+    phone: 'Téléphone',
+    whatsappWrite: 'Écrivez-nous maintenant',
+    email: 'E-mail',
+    website: 'Site web',
+    onlinePresence: 'Présence en ligne',
+    social: 'Réseaux sociaux',
+    platforms: 'Portails',
+    delivery: 'Livraison',
+    share: 'Partager',
+    shareTitle: 'Cette activité vous a plu ?',
+    shareText:
+      'Aidez-nous à nous faire connaître. Partagez cette page avec vos amis et votre famille.',
+    sharePage: '📤 Partager la page',
+    discover: 'Découvrez',
+    linkCopied: '✅ Lien copié',
+    saveContact: '👤 Enregistrer le contact',
+    bookNow: 'Réserver maintenant',
+    photo: 'Photo',
+    of: 'de',
+    rights: 'Tous droits réservés.'
+  },
+
+  de: {
+    about: 'Über uns',
+    whyChooseUs: 'Warum Sie uns wählen sollten',
+    services: 'Unsere Dienstleistungen',
+    servicesSubtitle: 'Angebote für jeden Bedarf',
+    gallery: 'Unsere Arbeiten',
+    gallerySubtitle: 'Einige unserer Ergebnisse',
+    reviews: 'Google-Bewertungen',
+    reviewsSubtitle: 'Das Vertrauen unserer Kunden',
+    readGoogleReviews: 'Bewertungen auf Google lesen',
+    reviewsWord: 'Bewertungen',
+    hours: 'Öffnungszeiten',
+    hoursSubtitle: 'Wann Sie uns erreichen können',
+    monday: 'Montag',
+    tuesday: 'Dienstag',
+    wednesday: 'Mittwoch',
+    thursday: 'Donnerstag',
+    friday: 'Freitag',
+    saturday: 'Samstag',
+    sunday: 'Sonntag',
+    closed: 'Geschlossen',
+    location: 'Wo Sie uns finden',
+    locationSubtitle: 'Besuchen Sie uns',
+    openMaps: 'In Google Maps öffnen',
+    contacts: 'Kontakte',
+    phone: 'Telefon',
+    whatsappWrite: 'Schreiben Sie uns jetzt',
+    email: 'E-Mail',
+    website: 'Webseite',
+    onlinePresence: 'Online-Präsenz',
+    social: 'Soziale Netzwerke',
+    platforms: 'Portale',
+    delivery: 'Lieferung',
+    share: 'Teilen',
+    shareTitle: 'Hat Ihnen dieses Unternehmen gefallen?',
+    shareText:
+      'Helfen Sie uns, bekannter zu werden. Teilen Sie diese Seite mit Freunden und Familie.',
+    sharePage: '📤 Seite teilen',
+    discover: 'Entdecken Sie',
+    linkCopied: '✅ Link kopiert',
+    saveContact: '👤 Kontakt speichern',
+    bookNow: 'Jetzt buchen',
+    photo: 'Foto',
+    of: 'von',
+    rights: 'Alle Rechte vorbehalten.'
+  }
+};
+
+const t = translations[currentLang];
 
 const SUPABASE_URL =
   'https://zsnalortmeuhxwiimwsp.supabase.co';
@@ -379,6 +625,42 @@ if (heroElement) {
     const businessSubtitleElement =
       document.getElementById('business-subtitle');
 
+    const aboutLabel =
+      document.getElementById('about-label');
+
+    const whyChooseUsTitle =
+      document.getElementById('why-choose-us-title'); 
+      
+    const servicesLabel =
+      document.getElementById('services-label');
+
+    const servicesSubtitle =
+      document.getElementById('services-subtitle');
+
+    const galleryLabel =
+      document.getElementById('gallery-label');
+
+    const gallerySubtitle =
+      document.getElementById('gallery-subtitle');
+
+    const reviewsLabel =
+      document.getElementById('reviews-label');
+
+    const reviewsSubtitle =
+      document.getElementById('reviews-subtitle');
+
+    const hoursLabel =
+     document.getElementById('hours-label');
+
+    const hoursSubtitle =
+     document.getElementById('hours-subtitle');
+
+    const locationLabel =
+     document.getElementById('location-label');
+
+    const locationSubtitle =
+     document.getElementById('location-subtitle'); 
+
     const aboutTitle =
       document.getElementById('about-title');
 
@@ -391,6 +673,19 @@ if (heroElement) {
       document.getElementById(
       'about-benefits'
    );
+
+   const contactsLabel =
+     document.getElementById('contacts-label');
+
+   const phoneTitle =
+     document.getElementById('phone-title');
+
+   const emailTitle =
+     document.getElementById('email-title');
+
+   const websiteTitle =
+     document.getElementById('website-title');
+
 
     // CONTATTI
 
@@ -461,6 +756,9 @@ if (heroElement) {
     const onlineSection =
       document.getElementById('online-section');
 
+    const onlineLabel =
+      document.getElementById('online-label');
+
     const socialTitle =
       document.getElementById('social-title');
 
@@ -529,6 +827,15 @@ if (heroElement) {
     const hoursCard =
       document.getElementById('hours-card');
 
+    const shareLabel =
+      document.getElementById('share-label');
+
+    const shareTitle =
+      document.getElementById('share-title');
+
+    const shareText =
+      document.getElementById('share-text');  
+
     const shareButton =
       document.getElementById('share-button');
 
@@ -537,8 +844,12 @@ if (heroElement) {
       'save-contact-button'
     ); 
 
+    const footerRights =
+      document.getElementById('footer-rights');
+
     const categoryContentMap = {
-  hairdresser: {
+ hairdresser: {
+  it: {
     subtitle:
       'Parrucchiere professionale per tagli, colore e trattamenti su misura.',
     title:
@@ -552,7 +863,65 @@ if (heroElement) {
     ],
   },
 
-  barber: {
+  en: {
+    subtitle:
+      'Professional hair salon for cuts, color and customized treatments.',
+    title:
+      'Elegance, style and attention to detail',
+    description:
+      'A modern salon designed to offer personalized and professional services.',
+    benefits: [
+      'Personalized consultation',
+      'Professional products',
+      'Elegant and relaxing environment',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Peluquería profesional para cortes, color y tratamientos personalizados.',
+    title:
+      'Elegancia, estilo y atención al detalle',
+    description:
+      'Un salón moderno pensado para ofrecer servicios personalizados y profesionales.',
+    benefits: [
+      'Asesoramiento personalizado',
+      'Productos profesionales',
+      'Ambiente elegante y relajante',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Salon de coiffure professionnel pour coupes, couleur et soins personnalisés.',
+    title:
+      'Élégance, style et souci du détail',
+    description:
+      'Un salon moderne conçu pour offrir des services personnalisés et professionnels.',
+    benefits: [
+      'Conseils personnalisés',
+      'Produits professionnels',
+      'Ambiance élégante et relaxante',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Professioneller Friseursalon für Schnitte, Farbe und individuelle Behandlungen.',
+    title:
+      'Eleganz, Stil und Liebe zum Detail',
+    description:
+      'Ein moderner Salon für individuelle und professionelle Dienstleistungen.',
+    benefits: [
+      'Individuelle Beratung',
+      'Professionelle Produkte',
+      'Elegantes und entspannendes Ambiente',
+    ],
+  },
+},
+
+ barber: {
+  it: {
     subtitle:
       'Tagli, barba e stile per uomo e bambino.',
     title:
@@ -566,7 +935,65 @@ if (heroElement) {
     ],
   },
 
-  professional: {
+  en: {
+    subtitle:
+      'Haircuts, beard care and style for men and children.',
+    title:
+      'Style, precision and personal care',
+    description:
+      'A modern environment dedicated to hair, beard care and men’s style.',
+    benefits: [
+      'Personalized haircuts',
+      'Beard and hair care',
+      'Modern and welcoming environment',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Cortes, cuidado de la barba y estilo para hombres y niños.',
+    title:
+      'Estilo, precisión y cuidado personal',
+    description:
+      'Un ambiente moderno dedicado al cuidado del cabello, la barba y el estilo masculino.',
+    benefits: [
+      'Cortes personalizados',
+      'Cuidado de barba y cabello',
+      'Ambiente moderno y acogedor',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Coupes, entretien de la barbe et style pour hommes et enfants.',
+    title:
+      'Style, précision et soin personnel',
+    description:
+      'Un espace moderne dédié aux cheveux, à la barbe et au style masculin.',
+    benefits: [
+      'Coupes personnalisées',
+      'Soin de la barbe et des cheveux',
+      'Ambiance moderne et accueillante',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Haarschnitte, Bartpflege und Styling für Männer und Kinder.',
+    title:
+      'Stil, Präzision und persönliche Pflege',
+    description:
+      'Ein modernes Ambiente rund um Haarpflege, Bartpflege und Herrenstyling.',
+    benefits: [
+      'Individuelle Haarschnitte',
+      'Bart- und Haarpflege',
+      'Modernes und einladendes Ambiente',
+    ],
+  },
+},
+
+ professional: {
+  it: {
     subtitle:
       'Consulenza professionale e assistenza su misura.',
     title:
@@ -580,7 +1007,65 @@ if (heroElement) {
     ],
   },
 
+  en: {
+    subtitle:
+      'Professional consulting and tailored assistance.',
+    title:
+      'Expertise, reliability and attention',
+    description:
+      'A professional service designed to support every client with precision and availability.',
+    benefits: [
+      'Personalized consulting',
+      'Expertise and reliability',
+      'Ongoing assistance',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Asesoramiento profesional y asistencia personalizada.',
+    title:
+      'Competencia, fiabilidad y atención',
+    description:
+      'Un servicio profesional pensado para acompañar a cada cliente con precisión y disponibilidad.',
+    benefits: [
+      'Asesoramiento personalizado',
+      'Competencia y fiabilidad',
+      'Asistencia continua',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Conseil professionnel et accompagnement sur mesure.',
+    title:
+      'Compétence, fiabilité et attention',
+    description:
+      'Un service professionnel conçu pour accompagner chaque client avec précision et disponibilité.',
+    benefits: [
+      'Conseil personnalisé',
+      'Compétence et fiabilité',
+      'Accompagnement continu',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Professionelle Beratung und individuelle Betreuung.',
+    title:
+      'Kompetenz, Zuverlässigkeit und Aufmerksamkeit',
+    description:
+      'Ein professioneller Service, der jeden Kunden präzise und zuverlässig begleitet.',
+    benefits: [
+      'Individuelle Beratung',
+      'Kompetenz und Zuverlässigkeit',
+      'Kontinuierliche Betreuung',
+    ],
+  },
+},
+
   'real-estate': {
+  it: {
     subtitle:
       'Consulenza immobiliare per vendere, acquistare e valorizzare ogni immobile.',
     title:
@@ -594,119 +1079,641 @@ if (heroElement) {
     ],
   },
 
-  artisan: {
-  subtitle:
-    'Soluzioni artigianali e interventi professionali eseguiti con cura.',
-  title:
-    'Esperienza, precisione e qualità',
-  description:
-    'Competenza artigianale, attrezzature professionali e attenzione ai dettagli per offrire soluzioni affidabili e personalizzate.',
-  benefits: [
-    'Interventi su misura',
-    'Attrezzature professionali',
-    'Affidabilità e cura dei dettagli',
-  ],
+  en: {
+    subtitle:
+      'Real estate consulting to sell, buy and enhance every property.',
+    title:
+      'The right solution for every property',
+    description:
+      'A complete real estate service to support every client through selling, buying and property valuation.',
+    benefits: [
+      'Personalized consulting',
+      'Valuation and assistance',
+      'Support at every stage',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Asesoramiento inmobiliario para vender, comprar y valorizar cada inmueble.',
+    title:
+      'La solución adecuada para cada inmueble',
+    description:
+      'Un servicio inmobiliario completo para acompañar a cada cliente en la venta, compra y valoración de su propiedad.',
+    benefits: [
+      'Asesoramiento personalizado',
+      'Valoración y asistencia',
+      'Apoyo en cada etapa',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Conseil immobilier pour vendre, acheter et valoriser chaque bien.',
+    title:
+      'La solution adaptée à chaque bien immobilier',
+    description:
+      'Un service immobilier complet pour accompagner chaque client dans la vente, l’achat et l’évaluation de son bien.',
+    benefits: [
+      'Conseil personnalisé',
+      'Évaluation et assistance',
+      'Accompagnement à chaque étape',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Immobilienberatung für Verkauf, Kauf und optimale Bewertung jeder Immobilie.',
+    title:
+      'Die richtige Lösung für jede Immobilie',
+    description:
+      'Ein umfassender Immobilienservice, der jeden Kunden beim Verkauf, Kauf und bei der Bewertung seiner Immobilie begleitet.',
+    benefits: [
+      'Individuelle Beratung',
+      'Bewertung und Unterstützung',
+      'Begleitung in jeder Phase',
+    ],
+  },
+},
+
+ artisan: {
+  it: {
+    subtitle:
+      'Soluzioni artigianali e interventi professionali eseguiti con cura.',
+    title:
+      'Esperienza, precisione e qualità',
+    description:
+      'Competenza artigianale, attrezzature professionali e attenzione ai dettagli per offrire soluzioni affidabili e personalizzate.',
+    benefits: [
+      'Interventi su misura',
+      'Attrezzature professionali',
+      'Affidabilità e cura dei dettagli',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Craftsmanship solutions and professional services carried out with care.',
+    title:
+      'Experience, precision and quality',
+    description:
+      'Skilled craftsmanship, professional equipment and attention to detail to provide reliable and customized solutions.',
+    benefits: [
+      'Tailored services',
+      'Professional equipment',
+      'Reliability and attention to detail',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Soluciones artesanales y servicios profesionales realizados con cuidado.',
+    title:
+      'Experiencia, precisión y calidad',
+    description:
+      'Experiencia artesanal, equipos profesionales y atención al detalle para ofrecer soluciones fiables y personalizadas.',
+    benefits: [
+      'Servicios a medida',
+      'Equipos profesionales',
+      'Fiabilidad y atención al detalle',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Solutions artisanales et interventions professionnelles réalisées avec soin.',
+    title:
+      'Expérience, précision et qualité',
+    description:
+      'Savoir-faire artisanal, équipements professionnels et souci du détail pour offrir des solutions fiables et personnalisées.',
+    benefits: [
+      'Interventions sur mesure',
+      'Équipements professionnels',
+      'Fiabilité et souci du détail',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Handwerkliche Lösungen und professionelle Arbeiten mit größter Sorgfalt.',
+    title:
+      'Erfahrung, Präzision und Qualität',
+    description:
+      'Handwerkliches Können, professionelle Ausrüstung und Liebe zum Detail für zuverlässige und individuelle Lösungen.',
+    benefits: [
+      'Individuelle Lösungen',
+      'Professionelle Ausrüstung',
+      'Zuverlässigkeit und Liebe zum Detail',
+    ],
+  },
 },
 
 food: {
-  subtitle:
-    'Sapori autentici, qualità e accoglienza.',
-  title:
-    'Gusto, qualità e passione',
-  description:
-    'Un ambiente accogliente dove ingredienti selezionati e cura del servizio creano un’esperienza da ricordare.',
-  benefits: [
-    'Ingredienti selezionati',
-    'Preparazioni curate',
-    'Ambiente accogliente'
-  ]
+  it: {
+    subtitle:
+      'Sapori autentici, qualità e accoglienza.',
+    title:
+      'Gusto, qualità e passione',
+    description:
+      'Un ambiente accogliente dove ingredienti selezionati e cura del servizio creano un’esperienza da ricordare.',
+    benefits: [
+      'Ingredienti selezionati',
+      'Preparazioni curate',
+      'Ambiente accogliente',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Authentic flavors, quality and hospitality.',
+    title:
+      'Taste, quality and passion',
+    description:
+      'A welcoming environment where selected ingredients and attentive service create a memorable experience.',
+    benefits: [
+      'Selected ingredients',
+      'Carefully prepared dishes',
+      'Welcoming atmosphere',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Sabores auténticos, calidad y hospitalidad.',
+    title:
+      'Sabor, calidad y pasión',
+    description:
+      'Un ambiente acogedor donde ingredientes seleccionados y un servicio cuidado crean una experiencia para recordar.',
+    benefits: [
+      'Ingredientes seleccionados',
+      'Preparaciones cuidadas',
+      'Ambiente acogedor',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Saveurs authentiques, qualité et accueil.',
+    title:
+      'Goût, qualité et passion',
+    description:
+      'Un cadre accueillant où des ingrédients sélectionnés et un service soigné créent une expérience mémorable.',
+    benefits: [
+      'Ingrédients sélectionnés',
+      'Préparations soignées',
+      'Ambiance accueillante',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Authentische Aromen, Qualität und Gastfreundschaft.',
+    title:
+      'Geschmack, Qualität und Leidenschaft',
+    description:
+      'Ein einladendes Ambiente, in dem ausgewählte Zutaten und aufmerksamer Service ein unvergessliches Erlebnis schaffen.',
+    benefits: [
+      'Ausgewählte Zutaten',
+      'Sorgfältige Zubereitung',
+      'Einladendes Ambiente',
+    ],
+  },
 },
 
 hospitality: {
-  subtitle:
-    'Accoglienza, comfort e attenzione per ogni ospite.',
-  title:
-    'Il piacere di sentirsi a casa',
-  description:
-    'Un ambiente curato e accogliente, pensato per offrire soggiorni piacevoli, comfort e un servizio attento a ogni esigenza.',
-  benefits: [
-    'Ambienti confortevoli',
-    'Accoglienza personalizzata',
-    'Cura di ogni dettaglio'
-  ]
+  it: {
+    subtitle:
+      'Accoglienza, comfort e attenzione per ogni ospite.',
+    title:
+      'Il piacere di sentirsi a casa',
+    description:
+      'Un ambiente curato e accogliente, pensato per offrire soggiorni piacevoli, comfort e un servizio attento a ogni esigenza.',
+    benefits: [
+      'Ambienti confortevoli',
+      'Accoglienza personalizzata',
+      'Cura di ogni dettaglio',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Hospitality, comfort and attention for every guest.',
+    title:
+      'The pleasure of feeling at home',
+    description:
+      'A welcoming and carefully designed environment created to offer pleasant stays, comfort and attentive service for every need.',
+    benefits: [
+      'Comfortable spaces',
+      'Personalized hospitality',
+      'Attention to every detail',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Hospitalidad, confort y atención para cada huésped.',
+    title:
+      'El placer de sentirse como en casa',
+    description:
+      'Un ambiente cuidado y acogedor, pensado para ofrecer estancias agradables, confort y un servicio atento a cada necesidad.',
+    benefits: [
+      'Espacios confortables',
+      'Atención personalizada',
+      'Cuidado de cada detalle',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Accueil, confort et attention pour chaque hôte.',
+    title:
+      'Le plaisir de se sentir comme chez soi',
+    description:
+      'Un cadre soigné et accueillant, conçu pour offrir des séjours agréables, du confort et un service attentif à chaque besoin.',
+    benefits: [
+      'Espaces confortables',
+      'Accueil personnalisé',
+      'Souci de chaque détail',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Gastfreundschaft, Komfort und Aufmerksamkeit für jeden Gast.',
+    title:
+      'Das Gefühl, zu Hause zu sein',
+    description:
+      'Ein gepflegtes und einladendes Ambiente für angenehme Aufenthalte, hohen Komfort und einen aufmerksamen Service für jeden Bedarf.',
+    benefits: [
+      'Komfortable Räumlichkeiten',
+      'Persönliche Betreuung',
+      'Liebe zum Detail',
+    ],
+  },
 },
 
 medical: {
-  subtitle:
-    'Professionalità, attenzione e cura della persona.',
-  title:
-    'La tua salute al centro',
-  description:
-    'Uno studio moderno e accogliente, dedicato alla prevenzione, alla cura e al benessere di ogni paziente.',
-  benefits: [
-    'Assistenza personalizzata',
-    'Ambienti moderni e curati',
-    'Attenzione a ogni esigenza'
-  ]
+  it: {
+    subtitle:
+      'Professionalità, attenzione e cura della persona.',
+    title:
+      'La tua salute al centro',
+    description:
+      'Uno studio moderno e accogliente, dedicato alla prevenzione, alla cura e al benessere di ogni paziente.',
+    benefits: [
+      'Assistenza personalizzata',
+      'Ambienti moderni e curati',
+      'Attenzione a ogni esigenza',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Professionalism, attention and personal care.',
+    title:
+      'Your health at the center',
+    description:
+      'A modern and welcoming practice dedicated to prevention, care and the well-being of every patient.',
+    benefits: [
+      'Personalized care',
+      'Modern and well-maintained facilities',
+      'Attention to every need',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Profesionalidad, atención y cuidado de la persona.',
+    title:
+      'Tu salud en el centro',
+    description:
+      'Un centro moderno y acogedor, dedicado a la prevención, el cuidado y el bienestar de cada paciente.',
+    benefits: [
+      'Atención personalizada',
+      'Espacios modernos y cuidados',
+      'Atención a cada necesidad',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Professionnalisme, attention et soin de la personne.',
+    title:
+      'Votre santé au cœur de nos priorités',
+    description:
+      'Un cabinet moderne et accueillant, dédié à la prévention, aux soins et au bien-être de chaque patient.',
+    benefits: [
+      'Prise en charge personnalisée',
+      'Espaces modernes et soignés',
+      'Attention portée à chaque besoin',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Professionalität, Aufmerksamkeit und persönliche Betreuung.',
+    title:
+      'Ihre Gesundheit im Mittelpunkt',
+    description:
+      'Eine moderne und einladende Praxis für Prävention, Behandlung und das Wohlbefinden jedes Patienten.',
+    benefits: [
+      'Individuelle Betreuung',
+      'Moderne und gepflegte Räumlichkeiten',
+      'Aufmerksamkeit für jedes Anliegen',
+    ],
+  },
 },
 
 nature: {
-  subtitle:
-    'Cura, bellezza e armonia per ogni spazio verde.',
-  title:
-    'Diamo vita ai tuoi spazi verdi',
-  description:
-    'Servizi professionali per la progettazione, la manutenzione e la valorizzazione di giardini e aree verdi.',
-  benefits: [
-    'Interventi personalizzati',
-    'Cura professionale del verde',
-    'Soluzioni per ogni spazio'
-  ]
+  it: {
+    subtitle:
+      'Cura, bellezza e armonia per ogni spazio verde.',
+    title:
+      'Diamo vita ai tuoi spazi verdi',
+    description:
+      'Servizi professionali per la progettazione, la manutenzione e la valorizzazione di giardini e aree verdi.',
+    benefits: [
+      'Interventi personalizzati',
+      'Cura professionale del verde',
+      'Soluzioni per ogni spazio',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Care, beauty and harmony for every green space.',
+    title:
+      'Bringing your green spaces to life',
+    description:
+      'Professional services for the design, maintenance and enhancement of gardens and green spaces.',
+    benefits: [
+      'Customized services',
+      'Professional garden care',
+      'Solutions for every space',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Cuidado, belleza y armonía para cada espacio verde.',
+    title:
+      'Damos vida a tus espacios verdes',
+    description:
+      'Servicios profesionales para el diseño, mantenimiento y mejora de jardines y espacios verdes.',
+    benefits: [
+      'Servicios personalizados',
+      'Cuidado profesional de zonas verdes',
+      'Soluciones para cada espacio',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Soin, beauté et harmonie pour chaque espace vert.',
+    title:
+      'Donnons vie à vos espaces verts',
+    description:
+      'Des services professionnels pour la conception, l’entretien et la mise en valeur des jardins et espaces verts.',
+    benefits: [
+      'Interventions personnalisées',
+      'Entretien professionnel des espaces verts',
+      'Solutions pour chaque espace',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Pflege, Schönheit und Harmonie für jede Grünfläche.',
+    title:
+      'Wir bringen Ihre Grünflächen zum Leben',
+    description:
+      'Professionelle Dienstleistungen für die Gestaltung, Pflege und Aufwertung von Gärten und Grünflächen.',
+    benefits: [
+      'Individuelle Lösungen',
+      'Professionelle Grünpflege',
+      'Lösungen für jede Fläche',
+    ],
+  },
 },
 
 beauty: {
-  subtitle:
-    'Bellezza, benessere e cura dedicata a te.',
-  title:
-    'Il tuo momento di bellezza e relax',
-  description:
-    'Trattamenti estetici personalizzati, eseguiti con professionalità e attenzione in un ambiente elegante e accogliente.',
-  benefits: [
-    'Trattamenti personalizzati',
-    'Prodotti professionali',
-    'Benessere e cura dei dettagli'
-  ]
+  it: {
+    subtitle:
+      'Bellezza, benessere e cura dedicata a te.',
+    title:
+      'Il tuo momento di bellezza e relax',
+    description:
+      'Trattamenti estetici personalizzati, eseguiti con professionalità e attenzione in un ambiente elegante e accogliente.',
+    benefits: [
+      'Trattamenti personalizzati',
+      'Prodotti professionali',
+      'Benessere e cura dei dettagli',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Beauty, wellness and care dedicated to you.',
+    title:
+      'Your moment of beauty and relaxation',
+    description:
+      'Personalized beauty treatments performed with professionalism and care in an elegant and welcoming environment.',
+    benefits: [
+      'Personalized treatments',
+      'Professional products',
+      'Well-being and attention to detail',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Belleza, bienestar y cuidado dedicados a ti.',
+    title:
+      'Tu momento de belleza y relajación',
+    description:
+      'Tratamientos estéticos personalizados, realizados con profesionalidad y atención en un ambiente elegante y acogedor.',
+    benefits: [
+      'Tratamientos personalizados',
+      'Productos profesionales',
+      'Bienestar y atención al detalle',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Beauté, bien-être et soins rien que pour vous.',
+    title:
+      'Votre moment de beauté et de détente',
+    description:
+      'Des soins esthétiques personnalisés, réalisés avec professionnalisme et attention dans un cadre élégant et accueillant.',
+    benefits: [
+      'Soins personnalisés',
+      'Produits professionnels',
+      'Bien-être et souci du détail',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Schönheit, Wohlbefinden und Pflege für Sie.',
+    title:
+      'Ihr Moment für Schönheit und Entspannung',
+    description:
+      'Individuelle Schönheitsbehandlungen mit Professionalität und Sorgfalt in einem eleganten und einladenden Ambiente.',
+    benefits: [
+      'Individuelle Behandlungen',
+      'Professionelle Produkte',
+      'Wohlbefinden und Liebe zum Detail',
+    ],
+  },
 },
 
 fitness: {
-  subtitle:
-    'Energia, allenamento e risultati.',
-  title:
-    'Supera i tuoi limiti',
-  description:
-    'Un ambiente moderno e attrezzato, pensato per accompagnarti nel tuo percorso di allenamento e aiutarti a raggiungere i tuoi obiettivi.',
-  benefits: [
-    'Attrezzature moderne',
-    'Allenamenti personalizzati',
-    'Ambiente energico e motivante'
-  ]
+  it: {
+    subtitle:
+      'Energia, allenamento e risultati.',
+    title:
+      'Supera i tuoi limiti',
+    description:
+      'Un ambiente moderno e attrezzato, pensato per accompagnarti nel tuo percorso di allenamento e aiutarti a raggiungere i tuoi obiettivi.',
+    benefits: [
+      'Attrezzature moderne',
+      'Allenamenti personalizzati',
+      'Ambiente energico e motivante',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Energy, training and results.',
+    title:
+      'Push beyond your limits',
+    description:
+      'A modern and well-equipped environment designed to support your training journey and help you achieve your goals.',
+    benefits: [
+      'Modern equipment',
+      'Personalized training',
+      'Energetic and motivating environment',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Energía, entrenamiento y resultados.',
+    title:
+      'Supera tus límites',
+    description:
+      'Un ambiente moderno y equipado, pensado para acompañarte en tu entrenamiento y ayudarte a alcanzar tus objetivos.',
+    benefits: [
+      'Equipamiento moderno',
+      'Entrenamientos personalizados',
+      'Ambiente enérgico y motivador',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Énergie, entraînement et résultats.',
+    title:
+      'Dépassez vos limites',
+    description:
+      'Un espace moderne et équipé, conçu pour vous accompagner dans votre entraînement et vous aider à atteindre vos objectifs.',
+    benefits: [
+      'Équipements modernes',
+      'Entraînements personnalisés',
+      'Ambiance dynamique et motivante',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Energie, Training und Ergebnisse.',
+    title:
+      'Überwinden Sie Ihre Grenzen',
+    description:
+      'Ein modernes und gut ausgestattetes Umfeld, das Sie auf Ihrem Trainingsweg begleitet und Ihnen hilft, Ihre Ziele zu erreichen.',
+    benefits: [
+      'Moderne Ausstattung',
+      'Individuelles Training',
+      'Energiegeladene und motivierende Atmosphäre',
+    ],
+  },
 },
 
 retail: {
-  subtitle:
-    'Qualità, scelta e attenzione per ogni cliente.',
-  title:
-    'Tutto ciò che cerchi, con un servizio in più',
-  description:
-    'Un punto di riferimento accogliente e professionale, dove trovare prodotti selezionati e un servizio attento alle tue esigenze.',
-  benefits: [
-    'Prodotti selezionati',
-    'Assistenza personalizzata',
-    'Qualità e cortesia'
-  ]
+  it: {
+    subtitle:
+      'Qualità, scelta e attenzione per ogni cliente.',
+    title:
+      'Tutto ciò che cerchi, con un servizio in più',
+    description:
+      'Un punto di riferimento accogliente e professionale, dove trovare prodotti selezionati e un servizio attento alle tue esigenze.',
+    benefits: [
+      'Prodotti selezionati',
+      'Assistenza personalizzata',
+      'Qualità e cortesia',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Quality, choice and attention for every customer.',
+    title:
+      'Everything you are looking for, with something more',
+    description:
+      'A welcoming and professional place where you can find selected products and attentive service tailored to your needs.',
+    benefits: [
+      'Selected products',
+      'Personalized assistance',
+      'Quality and courtesy',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Calidad, variedad y atención para cada cliente.',
+    title:
+      'Todo lo que buscas, con un servicio adicional',
+    description:
+      'Un espacio acogedor y profesional donde encontrarás productos seleccionados y un servicio atento a tus necesidades.',
+    benefits: [
+      'Productos seleccionados',
+      'Atención personalizada',
+      'Calidad y amabilidad',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Qualité, choix et attention pour chaque client.',
+    title:
+      'Tout ce que vous recherchez, avec un service en plus',
+    description:
+      'Un espace accueillant et professionnel où vous trouverez des produits sélectionnés et un service attentif à vos besoins.',
+    benefits: [
+      'Produits sélectionnés',
+      'Service personnalisé',
+      'Qualité et courtoisie',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Qualität, Auswahl und Aufmerksamkeit für jeden Kunden.',
+    title:
+      'Alles, was Sie suchen, mit einem besonderen Service',
+    description:
+      'Ein einladender und professioneller Ort mit ausgewählten Produkten und einem auf Ihre Bedürfnisse abgestimmten Service.',
+    benefits: [
+      'Ausgewählte Produkte',
+      'Individuelle Beratung',
+      'Qualität und Freundlichkeit',
+    ],
+  },
 },
 
-  generic: {
+ generic: {
+  it: {
     subtitle:
       'Servizi professionali pensati per ogni esigenza.',
     title:
@@ -719,11 +1726,78 @@ retail: {
       'Assistenza al cliente',
     ],
   },
+
+  en: {
+    subtitle:
+      'Professional services designed for every need.',
+    title:
+      'Professionalism and customer care',
+    description:
+      'Customized solutions and attentive, reliable and professional service.',
+    benefits: [
+      'Personalized service',
+      'Professionalism',
+      'Customer support',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Servicios profesionales pensados para cada necesidad.',
+    title:
+      'Profesionalidad y atención al cliente',
+    description:
+      'Soluciones personalizadas y un servicio atento, fiable y profesional.',
+    benefits: [
+      'Servicio personalizado',
+      'Profesionalidad',
+      'Atención al cliente',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Des services professionnels adaptés à chaque besoin.',
+    title:
+      'Professionnalisme et attention au client',
+    description:
+      'Des solutions personnalisées et un service attentif, fiable et professionnel.',
+    benefits: [
+      'Service personnalisé',
+      'Professionnalisme',
+      'Accompagnement client',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Professionelle Dienstleistungen für jeden Bedarf.',
+    title:
+      'Professionalität und Kundenorientierung',
+    description:
+      'Individuelle Lösungen und ein aufmerksamer, zuverlässiger und professioneller Service.',
+    benefits: [
+      'Individueller Service',
+      'Professionalität',
+      'Kundenbetreuung',
+    ],
+  },
+},
 };
 
-const categoryContent =
-  categoryContentMap[categoriaUrl] ||
+const effectiveCategory =
+  categoriaUrl ||
+  data.category ||
+  'generic';
+
+const categoryGroup =
+  categoryContentMap[effectiveCategory] ||
   categoryContentMap.generic;
+
+const categoryContent =
+  categoryGroup[currentLang] ||
+  categoryGroup.it ||
+  categoryGroup;
 
 // HERO
 
@@ -748,12 +1822,18 @@ if (businessTaglineElement) {
 }
 
 if (businessSubtitleElement) {
-
   const subtitle =
-  descrizioneUrl.trim() ||
-  data.business?.subtitle?.trim() ||
-  categoryContent.subtitle ||
-  '';
+    (isGeneratedProfile || businessSlug)
+      ? (
+          descrizioneUrl.trim() ||
+          data.business?.subtitle?.trim() ||
+          categoryContent.subtitle ||
+          ''
+        )
+      : (
+          categoryContent.subtitle ||
+          ''
+        );
 
   businessSubtitleElement.textContent =
     subtitle;
@@ -762,32 +1842,139 @@ if (businessSubtitleElement) {
     subtitle ? '' : 'none';
 }
 
-if (isGeneratedProfile || businessSlug) {
-  if (aboutTitle) {
-    aboutTitle.textContent =
-      categoryContent.title;
-  }
+if (aboutLabel) {
+  aboutLabel.textContent = t.about;
+}
 
-  if (aboutDescription) {
-    aboutDescription.textContent =
-      data.description?.trim() ||
-      categoryContent.description;
-  }
+if (whyChooseUsTitle) {
+  whyChooseUsTitle.textContent = t.whyChooseUs;
+}
 
-  if (aboutBenefits) {
-    aboutBenefits.innerHTML = '';
+if (servicesLabel) {
+  servicesLabel.textContent = t.services;
+}
 
-    categoryContent.benefits.forEach(
-      (benefit) => {
-        const item =
-          document.createElement('li');
+if (servicesSubtitle) {
+  servicesSubtitle.textContent = t.servicesSubtitle;
+}
 
-        item.textContent = benefit;
+if (galleryLabel) {
+  galleryLabel.textContent = t.gallery;
+}
 
-        aboutBenefits.appendChild(item);
-      }
-    );
-  }
+if (gallerySubtitle) {
+  gallerySubtitle.textContent = t.gallerySubtitle;
+}
+
+if (reviewsLabel) {
+  reviewsLabel.textContent = t.reviews;
+}
+
+if (reviewsSubtitle) {
+  reviewsSubtitle.textContent = t.reviewsSubtitle;
+}
+
+if (hoursLabel) {
+  hoursLabel.textContent = t.hours;
+}
+
+if (hoursSubtitle) {
+  hoursSubtitle.textContent = t.hoursSubtitle;
+}
+
+if (locationLabel) {
+  locationLabel.textContent = t.location;
+}
+
+if (locationSubtitle) {
+  locationSubtitle.textContent = t.locationSubtitle;
+}
+
+if (mapsLink) {
+  mapsLink.textContent = t.openMaps;
+}
+
+if (contactsLabel) {
+  contactsLabel.textContent = t.contacts;
+}
+
+if (phoneTitle) {
+  phoneTitle.textContent = t.phone;
+}
+
+if (whatsappText) {
+  whatsappText.textContent = t.whatsappWrite;
+}
+
+if (emailTitle) {
+  emailTitle.textContent = t.email;
+}
+
+if (websiteTitle) {
+  websiteTitle.textContent = t.website;
+}
+
+if (onlineLabel) {
+  onlineLabel.textContent = t.onlinePresence;
+}
+
+if (socialTitle) {
+  socialTitle.textContent = t.social;
+}
+
+if (platformsTitle) {
+  platformsTitle.textContent = t.platforms;
+}
+
+if (shareLabel) {
+  shareLabel.textContent = t.share;
+}
+
+if (shareTitle) {
+  shareTitle.textContent = t.shareTitle;
+}
+
+if (shareText) {
+  shareText.textContent = t.shareText;
+}
+
+if (shareButton) {
+  shareButton.textContent = t.sharePage;
+}
+
+if (saveContactButton) {
+  saveContactButton.textContent = t.saveContact;
+}
+
+if (footerRights) {
+  footerRights.textContent = t.rights;
+}
+
+if (aboutTitle) {
+  aboutTitle.textContent =
+    categoryContent.title;
+}
+
+if (aboutDescription) {
+  aboutDescription.textContent =
+    (isGeneratedProfile || businessSlug)
+      ? (data.description?.trim() || categoryContent.description)
+      : categoryContent.description;
+}
+
+if (aboutBenefits) {
+  aboutBenefits.innerHTML = '';
+
+  categoryContent.benefits.forEach(
+    (benefit) => {
+      const item =
+        document.createElement('li');
+
+      item.textContent = benefit;
+
+      aboutBenefits.appendChild(item);
+    }
+  );
 }
 
 // TELEFONO
@@ -823,7 +2010,7 @@ if (isGeneratedProfile || businessSlug) {
           whatsapp.replace(/\D/g, '');
 
         whatsappText.textContent =
-          'Scrivici ora';
+           t.whatsappWrite;
 
         whatsappCard.href =
           `https://wa.me/${whatsappNumber}`;
@@ -920,7 +2107,7 @@ if (
 
       reviewsScore.textContent = '';
       reviewsCount.textContent =
-        'Leggi le recensioni su Google';
+      t.readGoogleReviews;
       reviewsProvider.textContent = 'Google';
 
       reviewsSection.style.display = '';
@@ -936,9 +2123,9 @@ if (
         reviews.score || '';
 
       reviewsCount.textContent =
-        reviews.count
-          ? `${reviews.count} recensioni`
-          : '';
+  reviews.count
+    ? `${reviews.count} ${t.reviewsWord}`
+    : '';
 
       reviewsProvider.textContent =
         reviews.provider || 'Google';
@@ -1237,8 +2424,8 @@ if (platformsTitle) {
     platforms.justEat.trim() !== '';
 
   platformsTitle.textContent =
-    hasDelivery ? 'Delivery' : 'Portali';
-} 
+    hasDelivery ? t.delivery : t.platforms;
+}
 
 if (platformsGroup) {
   platformsGroup.style.display =
@@ -1289,6 +2476,121 @@ if (servicesJsonUrl) {
       error
     );
   }
+}
+
+    const demoServicesMap = {
+        hairdresser: {
+              it: [
+      {
+        icon: '✂️',
+        title: 'Taglio Uomo',
+        description:
+          'Tagli moderni, classici e personalizzati per ogni stile.',
+      },
+      {
+        icon: '💇‍♀️',
+        title: 'Taglio Donna',
+        description:
+          'Tagli su misura, piega e consulenza per valorizzare il viso.',
+      },
+      {
+        icon: '🎨',
+        title: 'Colore e Trattamenti',
+        description:
+          'Colorazioni professionali, trattamenti nutrienti e cura del capello.',
+      },
+     ],
+         en: [
+      {
+        icon: '✂️',
+        title: 'Men’s Haircut',
+        description:
+          'Modern, classic and personalized cuts for every style.',
+      },
+      {
+        icon: '💇‍♀️',
+        title: 'Women’s Haircut',
+        description:
+          'Tailored cuts, styling and consultation to enhance your features.',
+      },
+      {
+        icon: '🎨',
+        title: 'Color and Treatments',
+        description:
+          'Professional coloring, nourishing treatments and hair care.',
+      },
+     ],
+         es: [
+      {
+        icon: '✂️',
+        title: 'Corte de Hombre',
+        description:
+          'Cortes modernos, clásicos y personalizados para cada estilo.',
+      },
+      {
+        icon: '💇‍♀️',
+        title: 'Corte de Mujer',
+        description:
+          'Cortes a medida, peinado y asesoramiento para realzar el rostro.',
+      },
+      {
+        icon: '🎨',
+        title: 'Color y Tratamientos',
+        description:
+          'Coloraciones profesionales, tratamientos nutritivos y cuidado del cabello.',
+      },
+     ],
+         fr: [
+      {
+        icon: '✂️',
+        title: 'Coupe Homme',
+        description:
+          'Coupes modernes, classiques et personnalisées pour chaque style.',
+      },
+      {
+        icon: '💇‍♀️',
+        title: 'Coupe Femme',
+        description:
+          'Coupes sur mesure, coiffage et conseils pour mettre le visage en valeur.',
+      },
+      {
+        icon: '🎨',
+        title: 'Couleur et Soins',
+        description:
+          'Colorations professionnelles, soins nourrissants et entretien des cheveux.',
+      },
+     ],
+         de: [
+      {
+        icon: '✂️',
+        title: 'Herrenhaarschnitt',
+        description:
+          'Moderne, klassische und individuelle Schnitte für jeden Stil.',
+      },
+      {
+        icon: '💇‍♀️',
+        title: 'Damenhaarschnitt',
+        description:
+          'Individuelle Schnitte, Styling und Beratung zur Betonung der Gesichtszüge.',
+      },
+      {
+        icon: '🎨',
+        title: 'Farbe und Behandlungen',
+        description:
+          'Professionelle Colorationen, pflegende Behandlungen und Haarpflege.',
+      },
+     ],
+    },
+  };
+
+  if (
+  !isGeneratedProfile &&
+  !businessSlug &&
+  demoServicesMap[effectiveCategory]
+) {
+  services =
+    demoServicesMap[effectiveCategory][currentLang] ||
+    demoServicesMap[effectiveCategory].it;
 }
 
 if (servicesGrid) {
@@ -1401,10 +2703,21 @@ serviceIcon.textContent =
 let mainAction =
   data.mainAction || {};
 
+  if (
+  !isGeneratedProfile &&
+  !businessSlug &&
+  mainAction.text === 'Prenota ora'
+) {
+  mainAction = {
+    ...mainAction,
+    text: t.bookNow,
+  };
+}
+
 if (isGeneratedProfile || businessSlug) {
   const selectedAction =
     data.primaryAction?.trim() ||
-    'Prenota ora';
+    t.bookNow;
 
   const whatsappNumber =
     whatsapp.replace(/\D/g, '');
@@ -1623,7 +2936,7 @@ if (gallerySection && galleryGrid) {
       galleryImage.src = imagePath;
 
       galleryImage.alt =
-        `Foto ${index + 1} di ${data.business?.name || 'attività'}`;
+        `${t.photo} ${index + 1} ${t.of} ${data.business?.name || ''}`;
 
       galleryImage.loading =
         'lazy';
@@ -1692,13 +3005,13 @@ if (hoursJsonUrl) {
 }
 
 const days = [
-  ['monday', 'Lunedì'],
-  ['tuesday', 'Martedì'],
-  ['wednesday', 'Mercoledì'],
-  ['thursday', 'Giovedì'],
-  ['friday', 'Venerdì'],
-  ['saturday', 'Sabato'],
-  ['sunday', 'Domenica'],
+  ['monday', t.monday],
+  ['tuesday', t.tuesday],
+  ['wednesday', t.wednesday],
+  ['thursday', t.thursday],
+  ['friday', t.friday],
+  ['saturday', t.saturday],
+  ['sunday', t.sunday],
 ];
 
 if (hoursSection && hoursCard) {
@@ -1729,12 +3042,22 @@ if (hoursSection && hoursCard) {
         hours[key];
 
       let value = '';
+      let isClosed = false;
 
       if (
         typeof daySchedule === 'string'
       ) {
+        const normalizedValue =
+          daySchedule.trim().toLowerCase();
+
+        isClosed =
+          normalizedValue === 'chiuso';
+
         value =
-          daySchedule.trim();
+          isClosed
+            ? t.closed
+            : daySchedule.trim();
+
       } else if (
         daySchedule &&
         typeof daySchedule === 'object'
@@ -1742,13 +3065,16 @@ if (hoursSection && hoursCard) {
         if (
           daySchedule.open === false
         ) {
-          value = 'Chiuso';
+          value = t.closed;
+          isClosed = true;
+
         } else if (
           daySchedule.type === 'split'
         ) {
           value =
             `${daySchedule.start1 || ''} - ${daySchedule.end1 || ''}` +
             ` / ${daySchedule.start2 || ''} - ${daySchedule.end2 || ''}`;
+
         } else {
           value =
             `${daySchedule.start1 || ''} - ${daySchedule.end1 || ''}`;
@@ -1758,9 +3084,7 @@ if (hoursSection && hoursCard) {
       dayHours.textContent =
         value;
 
-      if (
-        value.toLowerCase() === 'chiuso'
-      ) {
+      if (isClosed) {
         dayHours.className =
           'closed';
       }
@@ -1779,17 +3103,19 @@ if (hoursSection && hoursCard) {
     });
 
     hoursSection.style.display = '';
+
   } else {
     hoursSection.style.display = 'none';
   }
 }
 
-    console.log(
-      'Dati JSON caricati:',
-      data
-    );
+console.log(
+  'Dati JSON caricati:',
+  data
+);
 
-    // CONDIVIDI PAGINA
+   // CONDIVIDI PAGINA
+
 if (shareButton) {
   shareButton.addEventListener(
     'click',
@@ -1803,15 +3129,18 @@ if (shareButton) {
 
       const shareData = {
         title: shareTitle,
-        text:
-          `Scopri ${shareTitle}`,
+        text: `${t.discover} ${shareTitle}`,
         url: window.location.href,
       };
 
       try {
         if (navigator.share) {
-          await navigator.share(shareData);
-        } else if (navigator.clipboard) {
+          await navigator.share(
+            shareData
+          );
+        } else if (
+          navigator.clipboard
+        ) {
           await navigator.clipboard.writeText(
             window.location.href
           );
@@ -1820,12 +3149,13 @@ if (shareButton) {
             shareButton.textContent;
 
           shareButton.textContent =
-            '✅ Link copiato';
+            t.linkCopied;
 
           setTimeout(() => {
             shareButton.textContent =
               originalText;
           }, 2000);
+
         } else {
           window.prompt(
             'Copia questo link:',
@@ -1833,7 +3163,9 @@ if (shareButton) {
           );
         }
       } catch (error) {
-        if (error.name !== 'AbortError') {
+        if (
+          error.name !== 'AbortError'
+        ) {
           console.error(
             'Errore durante la condivisione:',
             error
@@ -1844,7 +3176,7 @@ if (shareButton) {
   );
 }
 
-    // SALVA CONTATTO VCARD
+// SALVA CONTATTO VCARD
 if (saveContactButton) {
   const contactName =
     nomeUrl ||

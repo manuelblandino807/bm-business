@@ -17,6 +17,8 @@ const translations = {
     servicesSubtitle: 'Trattamenti pensati per ogni esigenza',
     gallery: 'I nostri lavori',
     gallerySubtitle: 'Alcuni dei nostri risultati',
+    menu: 'Menù',
+    viewMenu: '📄 Visualizza menù',   
     reviews: 'Google Reviews',
     reviewsSubtitle: 'La fiducia dei nostri clienti',
     readGoogleReviews: 'Leggi le recensioni su Google',
@@ -64,6 +66,8 @@ const translations = {
     servicesSubtitle: 'Treatments designed for every need',
     gallery: 'Our work',
     gallerySubtitle: 'Some of our results',
+    menu: 'Menu',
+    viewMenu: '📄 View menu', 
     reviews: 'Google Reviews',
     reviewsSubtitle: 'The trust of our customers',
     readGoogleReviews: 'Read reviews on Google',
@@ -111,6 +115,8 @@ const translations = {
     servicesSubtitle: 'Tratamientos pensados para cada necesidad',
     gallery: 'Nuestros trabajos',
     gallerySubtitle: 'Algunos de nuestros resultados',
+    menu: 'Menú',
+    viewMenu: '📄 Ver menú',
     reviews: 'Reseñas de Google',
     reviewsSubtitle: 'La confianza de nuestros clientes',
     readGoogleReviews: 'Lee las reseñas en Google',
@@ -158,6 +164,8 @@ const translations = {
     servicesSubtitle: 'Des prestations pensées pour chaque besoin',
     gallery: 'Nos réalisations',
     gallerySubtitle: 'Quelques-uns de nos résultats',
+    menu: 'Menu',
+    viewMenu: '📄 Voir le menu',
     reviews: 'Avis Google',
     reviewsSubtitle: 'La confiance de nos clients',
     readGoogleReviews: 'Lire les avis sur Google',
@@ -205,6 +213,8 @@ const translations = {
     servicesSubtitle: 'Angebote für jeden Bedarf',
     gallery: 'Unsere Arbeiten',
     gallerySubtitle: 'Einige unserer Ergebnisse',
+    menu: 'Menü',
+    viewMenu: '📄 Menü ansehen',
     reviews: 'Google-Bewertungen',
     reviewsSubtitle: 'Das Vertrauen unserer Kunden',
     readGoogleReviews: 'Bewertungen auf Google lesen',
@@ -335,6 +345,9 @@ const servicesJsonUrl =
 
 const galleryJsonUrl =
   params.get('galleryJson') || '';
+
+const menuUrl =
+  params.get('menuUrl') || '';
 
 async function loadBusinessFromSupabase(slug) {
   const { data, error } = await supabaseClient
@@ -1866,6 +1879,20 @@ if (gallerySubtitle) {
   gallerySubtitle.textContent = t.gallerySubtitle;
 }
 
+const menuLabel =
+  document.getElementById('menu-label');
+
+const menuLinkText =
+  document.getElementById('menu-link');
+
+if (menuLabel) {
+  menuLabel.textContent = t.menu;
+}
+
+if (menuLinkText) {
+  menuLinkText.textContent = t.viewMenu;
+}
+
 if (reviewsLabel) {
   reviewsLabel.textContent = t.reviews;
 }
@@ -2954,6 +2981,28 @@ if (gallerySection && galleryGrid) {
   } else {
     gallerySection.style.display = 'none';
   }
+}
+
+const effectiveMenuUrl =
+  menuUrl ||
+  data.menuUrl ||
+  '';
+
+ const menuSection =
+  document.getElementById('menu-section');
+
+const menuLink =
+  document.getElementById('menu-link');
+
+if (
+  menuSection &&
+  menuLink &&
+  effectiveMenuUrl
+) {
+  menuLink.href = effectiveMenuUrl;
+  menuSection.style.display = '';
+} else if (menuSection) {
+  menuSection.style.display = 'none';
 }
 
 const hoursJsonUrl =

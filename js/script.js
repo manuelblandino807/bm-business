@@ -15,6 +15,7 @@ const translations = {
     whyChooseUs: 'Perché sceglierci',
     services: 'I nostri servizi',
     servicesSubtitle: 'Trattamenti pensati per ogni esigenza',
+    foodServicesSubtitle: 'Le nostre proposte, pensate per ogni gusto',
     gallery: 'I nostri lavori',
     gallerySubtitle: 'Alcuni dei nostri risultati',
     menu: 'Menù',
@@ -64,6 +65,7 @@ const translations = {
     whyChooseUs: 'Why choose us',
     services: 'Our services',
     servicesSubtitle: 'Treatments designed for every need',
+    foodServicesSubtitle: 'Our proposals, designed for every taste',
     gallery: 'Our work',
     gallerySubtitle: 'Some of our results',
     menu: 'Menu',
@@ -113,6 +115,7 @@ const translations = {
     whyChooseUs: 'Por qué elegirnos',
     services: 'Nuestros servicios',
     servicesSubtitle: 'Tratamientos pensados para cada necesidad',
+    foodServicesSubtitle: 'Nuestras propuestas, pensadas para todos los gustos',
     gallery: 'Nuestros trabajos',
     gallerySubtitle: 'Algunos de nuestros resultados',
     menu: 'Menú',
@@ -162,6 +165,7 @@ const translations = {
     whyChooseUs: 'Pourquoi nous choisir',
     services: 'Nos services',
     servicesSubtitle: 'Des prestations pensées pour chaque besoin',
+    foodServicesSubtitle: 'Nos propositions, pensées pour tous les goûts',
     gallery: 'Nos réalisations',
     gallerySubtitle: 'Quelques-uns de nos résultats',
     menu: 'Menu',
@@ -211,6 +215,7 @@ const translations = {
     whyChooseUs: 'Warum Sie uns wählen sollten',
     services: 'Unsere Dienstleistungen',
     servicesSubtitle: 'Angebote für jeden Bedarf',
+    foodServicesSubtitle: 'Unsere Angebote für jeden Geschmack',
     gallery: 'Unsere Arbeiten',
     gallerySubtitle: 'Einige unserer Ergebnisse',
     menu: 'Menü',
@@ -1868,7 +1873,10 @@ if (servicesLabel) {
 }
 
 if (servicesSubtitle) {
-  servicesSubtitle.textContent = t.servicesSubtitle;
+  servicesSubtitle.textContent =
+    categoryGroup === 'food'
+      ? t.foodServicesSubtitle
+      : t.servicesSubtitle;
 }
 
 if (galleryLabel) {

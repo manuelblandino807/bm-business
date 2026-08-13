@@ -1874,7 +1874,7 @@ if (servicesLabel) {
 
 if (servicesSubtitle) {
   servicesSubtitle.textContent =
-    categoryGroup === 'food'
+    effectiveCategory === 'food'
       ? t.foodServicesSubtitle
       : t.servicesSubtitle;
 }

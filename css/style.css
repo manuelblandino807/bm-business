@@ -423,6 +423,7 @@ footer small{
 .hours h2{
     font-size:40px;
     margin-bottom:40px;
+    color:#222;
 }
 
 .hours-card{
@@ -519,6 +520,7 @@ footer small{
 .location h2{
   font-size:40px;
   margin-bottom:40px;
+  color:#222;
 }
 
 .location-card{
@@ -1461,4 +1463,44 @@ body.retail-theme footer {
       #176B70 52%,
       #C97845 100%
     ) !important;
+}
+
+/* ===========================
+   MENU
+=========================== */
+
+.menu{
+  padding:90px 20px;
+  background:white;
+}
+
+.menu .services-container{
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
+}
+
+.menu #menu-link{
+  display:inline-block;
+  background:none;
+  color:#222;
+  padding:0;
+  border:none;
+  border-radius:0;
+  box-shadow:none;
+  text-decoration:none;
+  font-size:40px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.menu #menu-link:hover{
+  color:#222;
+  transform:none;
+}
+
+@media(max-width:800px){
+  .menu #menu-link{
+    font-size:30px;
+  }
 }

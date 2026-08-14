@@ -16,6 +16,13 @@ const translations = {
     services: 'I nostri servizi',
     servicesSubtitle: 'Trattamenti pensati per ogni esigenza',
     foodServicesSubtitle: 'Le nostre proposte, pensate per ogni gusto',
+    artisanServicesSubtitle: 'Soluzioni professionali per ogni esigenza',
+    professionalServicesSubtitle: 'Soluzioni professionali pensate per ogni esigenza',
+    fitnessServicesSubtitle: 'Servizi pensati per ogni obiettivo',
+    natureServicesSubtitle: 'Soluzioni professionali per la cura dei tuoi spazi verdi',
+    hospitalityServicesSubtitle: 'Servizi pensati per rendere speciale ogni soggiorno',
+    retailServicesSubtitle: 'Prodotti e servizi pensati per ogni esigenza',
+    genericServicesSubtitle: 'Soluzioni pensate per ogni esigenza',   
     gallery: 'I nostri lavori',
     gallerySubtitle: 'Alcuni dei nostri risultati',
     menu: 'Menù',
@@ -66,6 +73,13 @@ const translations = {
     services: 'Our services',
     servicesSubtitle: 'Treatments designed for every need',
     foodServicesSubtitle: 'Our proposals, designed for every taste',
+    artisanServicesSubtitle: 'Professional solutions for every need',
+    professionalServicesSubtitle: 'Professional solutions tailored to every need',
+    fitnessServicesSubtitle: 'Services designed for every goal',
+    natureServicesSubtitle: 'Professional solutions for the care of your green spaces',
+    hospitalityServicesSubtitle: 'Services designed to make every stay special',
+    retailServicesSubtitle: 'Products and services for every need',
+    genericServicesSubtitle: 'Solutions designed for every need',
     gallery: 'Our work',
     gallerySubtitle: 'Some of our results',
     menu: 'Menu',
@@ -116,6 +130,13 @@ const translations = {
     services: 'Nuestros servicios',
     servicesSubtitle: 'Tratamientos pensados para cada necesidad',
     foodServicesSubtitle: 'Nuestras propuestas, pensadas para todos los gustos',
+    artisanServicesSubtitle: 'Soluciones profesionales para cada necesidad',
+    professionalServicesSubtitle: 'Soluciones profesionales pensadas para cada necesidad',
+    fitnessServicesSubtitle: 'Servicios pensados para cada objetivo',
+    natureServicesSubtitle: 'Soluciones profesionales para el cuidado de tus espacios verdes',
+    hospitalityServicesSubtitle: 'Servicios pensados para hacer especial cada estancia',
+    retailServicesSubtitle: 'Productos y servicios pensados para cada necesidad',
+    genericServicesSubtitle: 'Soluciones pensadas para cada necesidad',
     gallery: 'Nuestros trabajos',
     gallerySubtitle: 'Algunos de nuestros resultados',
     menu: 'Menú',
@@ -166,6 +187,13 @@ const translations = {
     services: 'Nos services',
     servicesSubtitle: 'Des prestations pensées pour chaque besoin',
     foodServicesSubtitle: 'Nos propositions, pensées pour tous les goûts',
+    artisanServicesSubtitle: 'Des solutions professionnelles pour chaque besoin',
+    professionalServicesSubtitle: 'Des solutions professionnelles pensées pour chaque besoin',
+    fitnessServicesSubtitle: 'Des services pensés pour chaque objectif',
+    natureServicesSubtitle: 'Des solutions professionnelles pour l’entretien de vos espaces verts',
+    hospitalityServicesSubtitle: 'Des services pensés pour rendre chaque séjour spécial',
+    retailServicesSubtitle: 'Des produits et services pensés pour chaque besoin',
+    genericServicesSubtitle: 'Des solutions pensées pour chaque besoin',   
     gallery: 'Nos réalisations',
     gallerySubtitle: 'Quelques-uns de nos résultats',
     menu: 'Menu',
@@ -216,6 +244,13 @@ const translations = {
     services: 'Unsere Dienstleistungen',
     servicesSubtitle: 'Angebote für jeden Bedarf',
     foodServicesSubtitle: 'Unsere Angebote für jeden Geschmack',
+    artisanServicesSubtitle: 'Professionelle Lösungen für jeden Bedarf',
+    professionalServicesSubtitle: 'Professionelle Lösungen für jeden Bedarf',
+    fitnessServicesSubtitle: 'Angebote für jedes Ziel',
+    natureServicesSubtitle: 'Professionelle Lösungen für die Pflege Ihrer Grünflächen',
+    hospitalityServicesSubtitle: 'Services für einen besonderen Aufenthalt',
+    retailServicesSubtitle: 'Produkte und Services für jeden Bedarf',
+    genericServicesSubtitle: 'Lösungen für jeden Bedarf',
     gallery: 'Unsere Arbeiten',
     gallerySubtitle: 'Einige unserer Ergebnisse',
     menu: 'Menü',
@@ -1873,10 +1908,33 @@ if (servicesLabel) {
 }
 
 if (servicesSubtitle) {
-  servicesSubtitle.textContent =
-    effectiveCategory === 'food'
-      ? t.foodServicesSubtitle
-      : t.servicesSubtitle;
+  let subtitleText = t.servicesSubtitle;
+
+  if (effectiveCategory === 'food') {
+    subtitleText = t.foodServicesSubtitle;
+  } else if (effectiveCategory === 'artisan') {
+    subtitleText = t.artisanServicesSubtitle;
+  } else if (effectiveCategory === 'professional' ||
+             effectiveCategory === 'real-estate') {
+    subtitleText = t.professionalServicesSubtitle;
+  } else if (effectiveCategory === 'fitness') {
+    subtitleText = t.fitnessServicesSubtitle;
+  } else if (effectiveCategory === 'nature') {
+    subtitleText = t.natureServicesSubtitle;
+  } else if (effectiveCategory === 'hospitality') {
+    subtitleText = t.hospitalityServicesSubtitle;
+  } else if (effectiveCategory === 'retail') {
+    subtitleText = t.retailServicesSubtitle;
+  } else if (
+    effectiveCategory === 'generic-1' ||
+    effectiveCategory === 'generic-2' ||
+    effectiveCategory === 'generic-3' ||
+    effectiveCategory === 'generic-4'
+  ) {
+    subtitleText = t.genericServicesSubtitle;
+  }
+
+  servicesSubtitle.textContent = subtitleText;
 }
 
 if (galleryLabel) {

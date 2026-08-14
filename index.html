@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" href="/icons/Icon-192.png"> 
   <title>B-M Business</title>
 
  <link rel="stylesheet" href="css/style.css?v=1032">
@@ -328,6 +331,21 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/script.js?v=1057"></script>
+
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .catch((error) => {
+          console.error(
+            'Service Worker registration failed:',
+            error
+          );
+        });
+    });
+  }
+</script>
 
 </body>
 </html>

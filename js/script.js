@@ -2996,7 +2996,7 @@ const effectiveMenuUrl =
   data.menuUrl ||
   '';
 
- const menuSection =
+const menuSection =
   document.getElementById('menu-section');
 
 const menuLink =
@@ -3005,6 +3005,7 @@ const menuLink =
 if (
   menuSection &&
   menuLink &&
+  effectiveCategory === 'food' &&
   effectiveMenuUrl
 ) {
   menuLink.href = effectiveMenuUrl;
@@ -3012,7 +3013,6 @@ if (
 } else if (menuSection) {
   menuSection.style.display = 'none';
 }
-
 const hoursJsonUrl =
   params.get('hoursJson') || '';
 

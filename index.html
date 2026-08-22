@@ -3,11 +3,40 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="apple-touch-icon" href="/icons/Icon-192.png"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>B-M Business</title>
+  <meta
+    name="description"
+    content="La pagina digitale professionale per presentare attività, servizi, contatti, orari e social."
+  >
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="icon" type="image/png" href="/images/logo-bm.png">
+  <link rel="apple-touch-icon" href="/images/logo-bm.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="B-M Business">
+  <meta property="og:title" content="B-M Business">
+  <meta
+    property="og:description"
+    content="Scopri questa attività, i suoi servizi, gli orari e tutti i contatti."
+  >
+  <meta
+    property="og:image"
+    content="https://business.bm-app.it/images/logo-bm.png"
+  >
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="B-M Business">
+  <meta
+    name="twitter:description"
+    content="Scopri questa attività, i suoi servizi, gli orari e tutti i contatti."
+  >
+  <meta
+    name="twitter:image"
+    content="https://business.bm-app.it/images/logo-bm.png"
+  >
 
  <link rel="stylesheet" href="css/style.css?v=1032">
 
@@ -332,17 +361,27 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/script.js?v=1057"></script>
 
-  <script>
+<script>
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker
-        .register('/service-worker.js')
-        .catch((error) => {
-          console.error(
-            'Service Worker registration failed:',
-            error
-          );
-        });
+    window.addEventListener('load', async () => {
+      const registrations =
+          await navigator.serviceWorker.getRegistrations();
+
+      await Promise.all(
+        registrations.map(
+          (registration) => registration.unregister()
+        )
+      );
+
+      if ('caches' in window) {
+        const cacheNames = await caches.keys();
+
+        await Promise.all(
+          cacheNames
+            .filter((name) => name.startsWith('bm-business'))
+            .map((name) => caches.delete(name))
+        );
+      }
     });
   }
 </script>

@@ -485,7 +485,7 @@ async function loadBusinessData() {
 
     'Ambulante / Mercato': 'market',
     'Trasporti leggeri / Padroncino': 'transport',
-    'Ferramenta': 'retail',
+    'Ferramenta': 'hardware',
     'Assistenza tecnica / Informatica': 'professional',
 
     'Altro - Blu dinamico': 'generic-1',
@@ -625,6 +625,10 @@ if (categoriaUrl === 'market') {
   selectedTheme = 'green-sage';
 }
 
+if (categoriaUrl === 'hardware') {
+  selectedTheme = 'graphite';
+}
+
 if (categoriaUrl === 'generic-1') {
   selectedTheme = 'ocean';
 }
@@ -665,6 +669,7 @@ const categoryHeroMap = {
   retail: 'retail',
   transport: 'transport',
   market: 'market',
+  hardware: 'hardware',
   'generic-1': 'generic-1',
   'generic-2': 'generic-2',
   'generic-3': 'generic-3',

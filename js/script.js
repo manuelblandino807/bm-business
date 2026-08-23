@@ -25,6 +25,8 @@ const translations = {
     genericServicesSubtitle: 'Soluzioni pensate per ogni esigenza',   
     gallery: 'I nostri lavori',
     gallerySubtitle: 'Alcuni dei nostri risultati',
+    productsGallery: 'I nostri prodotti',
+    productsGallerySubtitle: 'Ecco alcuni dei nostri prodotti',
     menu: 'Menù',
     viewMenu: '📄 Visualizza menù',   
     reviews: 'Google Reviews',
@@ -82,6 +84,8 @@ const translations = {
     genericServicesSubtitle: 'Solutions designed for every need',
     gallery: 'Our work',
     gallerySubtitle: 'Some of our results',
+    productsGallery: 'Our products',
+    productsGallerySubtitle: 'Discover some of our products',
     menu: 'Menu',
     viewMenu: '📄 View menu', 
     reviews: 'Google Reviews',
@@ -139,6 +143,8 @@ const translations = {
     genericServicesSubtitle: 'Soluciones pensadas para cada necesidad',
     gallery: 'Nuestros trabajos',
     gallerySubtitle: 'Algunos de nuestros resultados',
+    productsGallery: 'Nuestros productos',
+    productsGallerySubtitle: 'Descubre algunos de nuestros productos',
     menu: 'Menú',
     viewMenu: '📄 Ver menú',
     reviews: 'Reseñas de Google',
@@ -196,6 +202,8 @@ const translations = {
     genericServicesSubtitle: 'Des solutions pensées pour chaque besoin',   
     gallery: 'Nos réalisations',
     gallerySubtitle: 'Quelques-uns de nos résultats',
+    productsGallery: 'Nos produits',
+    productsGallerySubtitle: 'Découvrez quelques-uns de nos produits',
     menu: 'Menu',
     viewMenu: '📄 Voir le menu',
     reviews: 'Avis Google',
@@ -253,6 +261,8 @@ const translations = {
     genericServicesSubtitle: 'Lösungen für jeden Bedarf',
     gallery: 'Unsere Arbeiten',
     gallerySubtitle: 'Einige unserer Ergebnisse',
+    productsGallery: 'Unsere Produkte',
+    productsGallerySubtitle: 'Entdecken Sie einige unserer Produkte',
     menu: 'Menü',
     viewMenu: '📄 Menü ansehen',
     reviews: 'Google-Bewertungen',
@@ -1942,8 +1952,12 @@ if (servicesSubtitle) {
     subtitleText = t.natureServicesSubtitle;
   } else if (effectiveCategory === 'hospitality') {
     subtitleText = t.hospitalityServicesSubtitle;
-  } else if (effectiveCategory === 'retail') {
-    subtitleText = t.retailServicesSubtitle;
+  } else if (
+    effectiveCategory === 'retail' ||
+    effectiveCategory === 'market' ||
+    effectiveCategory === 'hardware'
+  ) {
+  subtitleText = t.retailServicesSubtitle;
   } else if (
     effectiveCategory === 'generic-1' ||
     effectiveCategory === 'generic-2' ||
@@ -1956,12 +1970,20 @@ if (servicesSubtitle) {
   servicesSubtitle.textContent = subtitleText;
 }
 
+const usesProductGallery =
+  effectiveCategory === 'market' ||
+  effectiveCategory === 'hardware';
+
 if (galleryLabel) {
-  galleryLabel.textContent = t.gallery;
+  galleryLabel.textContent = usesProductGallery
+      ? t.productsGallery
+      : t.gallery;
 }
 
 if (gallerySubtitle) {
-  gallerySubtitle.textContent = t.gallerySubtitle;
+  gallerySubtitle.textContent = usesProductGallery
+      ? t.productsGallerySubtitle
+      : t.gallerySubtitle;
 }
 
 const menuLabel =

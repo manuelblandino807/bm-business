@@ -484,7 +484,7 @@ async function loadBusinessData() {
     'Palestra': 'fitness',
 
     'Ambulante / Mercato': 'retail',
-    'Trasporti leggeri / Padroncino': 'generic-1',
+    'Trasporti leggeri / Padroncino': 'transport',
     'Ferramenta': 'retail',
     'Assistenza tecnica / Informatica': 'professional',
 
@@ -614,7 +614,10 @@ if (categoriaUrl === 'fitness') {
   selectedTheme = 'fitness';
 }
 
-if (categoriaUrl === 'retail') {
+if (
+  categoriaUrl === 'retail' ||
+  categoriaUrl === 'transport'
+) {
   selectedTheme = 'retail';
 }
 
@@ -656,6 +659,7 @@ const categoryHeroMap = {
   beauty: 'beauty',
   fitness: 'fitness',
   retail: 'retail',
+  transport: 'transport',
   'generic-1': 'generic-1',
   'generic-2': 'generic-2',
   'generic-3': 'generic-3',

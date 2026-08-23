@@ -483,7 +483,7 @@ async function loadBusinessData() {
     'Estetista': 'beauty',
     'Palestra': 'fitness',
 
-    'Ambulante / Mercato': 'retail',
+    'Ambulante / Mercato': 'market',
     'Trasporti leggeri / Padroncino': 'transport',
     'Ferramenta': 'retail',
     'Assistenza tecnica / Informatica': 'professional',
@@ -621,6 +621,10 @@ if (
   selectedTheme = 'retail';
 }
 
+if (categoriaUrl === 'market') {
+  selectedTheme = 'green-sage';
+}
+
 if (categoriaUrl === 'generic-1') {
   selectedTheme = 'ocean';
 }
@@ -660,6 +664,7 @@ const categoryHeroMap = {
   fitness: 'fitness',
   retail: 'retail',
   transport: 'transport',
+  market: 'market',
   'generic-1': 'generic-1',
   'generic-2': 'generic-2',
   'generic-3': 'generic-3',

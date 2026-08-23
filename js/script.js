@@ -483,6 +483,11 @@ async function loadBusinessData() {
     'Estetista': 'beauty',
     'Palestra': 'fitness',
 
+    'Ambulante / Mercato': 'retail',
+    'Trasporti leggeri / Padroncino': 'generic-1',
+    'Ferramenta': 'retail',
+    'Assistenza tecnica / Informatica': 'professional',
+
     'Altro - Blu dinamico': 'generic-1',
     'Altro - Rosa elegante': 'generic-2',
     'Altro - Neutro minimal': 'generic-3',
@@ -2771,6 +2776,26 @@ if (
   category === 'negozio'
 ) {
   defaultServiceIcon = '🛍️';
+
+} else if (
+  category === 'ambulante / mercato'
+) {
+  defaultServiceIcon = '🏪';
+
+} else if (
+  category === 'trasporti leggeri / padroncino'
+) {
+  defaultServiceIcon = '🚚';
+
+} else if (
+  category === 'ferramenta'
+) {
+  defaultServiceIcon = '🔧';
+
+} else if (
+  category === 'assistenza tecnica / informatica'
+) {
+  defaultServiceIcon = '💻';
 
 } else if (
   category.startsWith('altro -')

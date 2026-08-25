@@ -304,6 +304,25 @@ body{
   }
 
 }
+
+@media(max-width:600px){
+
+  .gallery-grid{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .gallery-item{
+    height:auto;
+  }
+
+  .gallery-item img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+  }
+
+}
 /* ===========================
    GOOGLE REVIEWS
 =========================== */

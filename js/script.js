@@ -496,7 +496,7 @@ async function loadBusinessData() {
     'Ambulante / Mercato': 'market',
     'Trasporti leggeri / Padroncino': 'transport',
     'Ferramenta': 'hardware',
-    'Assistenza tecnica / Informatica': 'professional',
+    'Assistenza tecnica / Informatica': 'technology',
 
     'Altro - Blu dinamico': 'generic-1',
     'Altro - Rosa elegante': 'generic-2',
@@ -639,6 +639,10 @@ if (categoriaUrl === 'hardware') {
   selectedTheme = 'graphite';
 }
 
+if (categoriaUrl === 'technology') {
+  selectedTheme = 'ocean';
+}
+
 if (categoriaUrl === 'generic-1') {
   selectedTheme = 'ocean';
 }
@@ -680,6 +684,7 @@ const categoryHeroMap = {
   transport: 'transport',
   market: 'market',
   hardware: 'hardware',
+  technology: 'technology',
   'generic-1': 'generic-1',
   'generic-2': 'generic-2',
   'generic-3': 'generic-3',
@@ -1943,9 +1948,12 @@ if (servicesSubtitle) {
     subtitleText = t.foodServicesSubtitle;
   } else if (effectiveCategory === 'artisan') {
     subtitleText = t.artisanServicesSubtitle;
-  } else if (effectiveCategory === 'professional' ||
-             effectiveCategory === 'real-estate') {
-    subtitleText = t.professionalServicesSubtitle;
+  } else if (
+   effectiveCategory === 'professional' ||
+   effectiveCategory === 'real-estate' ||
+   effectiveCategory === 'technology'
+) {
+  subtitleText = t.professionalServicesSubtitle;
   } else if (effectiveCategory === 'fitness') {
     subtitleText = t.fitnessServicesSubtitle;
   } else if (effectiveCategory === 'nature') {

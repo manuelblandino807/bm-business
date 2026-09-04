@@ -464,12 +464,12 @@ async function loadBusinessData() {
     if (businessSlug && data.category) {
   const categoryMap = {
     'Artigiano': 'artisan',
-    'Idraulico': 'artisan',
-    'Elettricista': 'artisan',
+    'Idraulico': 'plumber',
+    'Elettricista': 'electrician',
     'Falegname': 'artisan',
-    'Serramentista': 'artisan',
-    'Imbianchino': 'artisan',
-    'Muratore': 'artisan',
+    'Serramentista': 'window-installer',
+    'Imbianchino': 'painter',
+    'Muratore': 'bricklayer',
     'Giardiniere': 'nature',
 
     'Ristorante': 'food',
@@ -595,6 +595,24 @@ if (categoriaUrl === 'artisan') {
   selectedTheme = 'artisan';
 }
 
+if (
+  categoriaUrl === 'plumber' ||
+  categoriaUrl === 'painter'
+) {
+  selectedTheme = 'medical';
+}
+
+if (
+  categoriaUrl === 'electrician' ||
+  categoriaUrl === 'window-installer'
+) {
+  selectedTheme = 'ocean';
+}
+
+if (categoriaUrl === 'bricklayer') {
+  selectedTheme = 'artisan';
+}
+
 if (categoriaUrl === 'food') {
   selectedTheme = 'food';
 }
@@ -674,6 +692,11 @@ const categoryHeroMap = {
   professional: 'office',
   'real-estate': 'real-estate',
   artisan: 'artisan',
+  plumber: 'plumber',
+  electrician: 'electrician',
+  painter: 'painter',
+  'window-installer': 'window-installer',
+  bricklayer: 'bricklayer',
   food: 'food',
   hospitality: 'hospitality',
   medical: 'medical',
@@ -1877,10 +1900,21 @@ const effectiveCategory =
   data.category ||
   'generic';
 
+const artisanSubcategories = [
+  'plumber',
+  'electrician',
+  'painter',
+  'window-installer',
+  'bricklayer',
+];
+
 const categoryGroup =
   categoryContentMap[effectiveCategory] ||
-  categoryContentMap.generic;
-
+  (
+    artisanSubcategories.includes(effectiveCategory)
+      ? categoryContentMap.artisan
+      : categoryContentMap.generic
+  );
 const categoryContent =
   categoryGroup[currentLang] ||
   categoryGroup.it ||
@@ -1946,8 +1980,11 @@ if (servicesSubtitle) {
 
   if (effectiveCategory === 'food') {
     subtitleText = t.foodServicesSubtitle;
-  } else if (effectiveCategory === 'artisan') {
-    subtitleText = t.artisanServicesSubtitle;
+  } else if (
+  effectiveCategory === 'artisan' ||
+  artisanSubcategories.includes(effectiveCategory)
+) {
+  subtitleText = t.artisanServicesSubtitle;
   } else if (
    effectiveCategory === 'professional' ||
    effectiveCategory === 'real-estate' ||

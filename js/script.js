@@ -476,6 +476,10 @@ async function loadBusinessData() {
     'Pizzeria': 'food',
     'Bar': 'food',
 
+    'Officina': 'workshop',
+    'Meccanico': 'workshop',
+    'Officina / Meccanico': 'workshop',
+
     'Hotel': 'hospitality',
     'B&B': 'hospitality',
 
@@ -483,6 +487,7 @@ async function loadBusinessData() {
 
     'Studio medico': 'medical',
     'Studio dentistico': 'medical',
+    'Farmacia': 'pharmacy',
 
     'Avvocato': 'professional',
     'Commercialista': 'professional',
@@ -497,6 +502,10 @@ async function loadBusinessData() {
     'Trasporti leggeri / Padroncino': 'transport',
     'Ferramenta': 'hardware',
     'Assistenza tecnica / Informatica': 'technology',
+
+    'Associazione': 'association',
+    'Impresa di pulizie': 'cleaning',
+    'Fotografo': 'photographer',
 
     'Altro - Blu dinamico': 'generic-1',
     'Altro - Rosa elegante': 'generic-2',
@@ -661,6 +670,26 @@ if (categoriaUrl === 'technology') {
   selectedTheme = 'ocean';
 }
 
+if (categoriaUrl === 'pharmacy') {
+  selectedTheme = 'medical';
+}
+
+if (categoriaUrl === 'workshop') {
+  selectedTheme = 'food';
+}
+
+if (categoriaUrl === 'association') {
+  selectedTheme = 'ocean';
+}
+
+if (categoriaUrl === 'cleaning') {
+  selectedTheme = 'beauty';
+}
+
+if (categoriaUrl === 'photographer') {
+  selectedTheme = 'graphite';
+}
+
 if (categoriaUrl === 'generic-1') {
   selectedTheme = 'ocean';
 }
@@ -697,6 +726,11 @@ const categoryHeroMap = {
   painter: 'painter',
   'window-installer': 'window-installer',
   bricklayer: 'bricklayer',
+  pharmacy: 'pharmacy',
+  workshop: 'workshop',
+  association: 'association',
+  cleaning: 'cleaning',
+  photographer: 'photographer',
   food: 'food',
   hospitality: 'hospitality',
   medical: 'medical',
@@ -1242,6 +1276,252 @@ if (heroElement) {
       'Individuelle Beratung',
       'Bewertung und Unterstützung',
       'Begleitung in jeder Phase',
+    ],
+  },
+},
+
+pharmacy: {
+  it: {
+    subtitle:
+      'Salute, benessere e consulenza ogni giorno.',
+    title:
+      'La tua salute, la nostra attenzione',
+    description:
+      'Farmaci, prodotti per il benessere e consulenza professionale per accompagnarti nella cura e nella prevenzione quotidiana.',
+    servicesSubtitle:
+      'Servizi dedicati alla salute e al benessere',
+    benefits: [
+      'Consulenza professionale',
+      'Prodotti selezionati',
+      'Attenzione alle tue esigenze',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Health, wellness and advice every day.',
+    title:
+      'Your health, our priority',
+    description:
+      'Medicines, wellness products and professional advice to support your everyday care and prevention needs.',
+    servicesSubtitle:
+      'Services dedicated to health and wellness',
+    benefits: [
+      'Professional advice',
+      'Selected products',
+      'Attention to your needs',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Salud, bienestar y asesoramiento cada día.',
+    title:
+      'Tu salud, nuestra prioridad',
+    description:
+      'Medicamentos, productos para el bienestar y asesoramiento profesional para acompañarte en el cuidado y la prevención diaria.',
+    servicesSubtitle:
+      'Servicios dedicados a la salud y al bienestar',
+    benefits: [
+      'Asesoramiento profesional',
+      'Productos seleccionados',
+      'Atención a tus necesidades',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Santé, bien-être et conseils au quotidien.',
+    title:
+      'Votre santé, notre priorité',
+    description:
+      'Médicaments, produits de bien-être et conseils professionnels pour vous accompagner dans vos soins et votre prévention au quotidien.',
+    servicesSubtitle:
+      'Des services dédiés à la santé et au bien-être',
+    benefits: [
+      'Conseils professionnels',
+      'Produits sélectionnés',
+      'Attention à vos besoins',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Gesundheit, Wohlbefinden und Beratung jeden Tag.',
+    title:
+      'Ihre Gesundheit, unsere Priorität',
+    description:
+      'Arzneimittel, Gesundheitsprodukte und professionelle Beratung für Ihre tägliche Vorsorge und Ihr Wohlbefinden.',
+    servicesSubtitle:
+      'Leistungen für Gesundheit und Wohlbefinden',
+    benefits: [
+      'Professionelle Beratung',
+      'Ausgewählte Produkte',
+      'Aufmerksamkeit für Ihre Bedürfnisse',
+    ],
+  },
+},
+
+association: {
+  it: {
+    subtitle:
+      'Insieme per creare valore e nuove opportunità.',
+    title:
+      'Persone, idee e partecipazione',
+    description:
+      'Un punto di incontro aperto e accogliente, dove condividere esperienze, sviluppare progetti e costruire nuove opportunità per la comunità.',
+    servicesSubtitle:
+      'Attività e iniziative per soci e comunità',
+    benefits: [
+      'Accoglienza e partecipazione',
+      'Attività e progetti condivisi',
+      'Impegno per la comunità',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Together to create value and new opportunities.',
+    title:
+      'People, ideas and participation',
+    description:
+      'An open and welcoming meeting place where people can share experiences, develop projects and create new opportunities for the community.',
+    servicesSubtitle:
+      'Activities and initiatives for members and the community',
+    benefits: [
+      'Welcome and participation',
+      'Shared activities and projects',
+      'Commitment to the community',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Juntos para crear valor y nuevas oportunidades.',
+    title:
+      'Personas, ideas y participación',
+    description:
+      'Un punto de encuentro abierto y acogedor donde compartir experiencias, desarrollar proyectos y crear nuevas oportunidades para la comunidad.',
+    servicesSubtitle:
+      'Actividades e iniciativas para socios y comunidad',
+    benefits: [
+      'Acogida y participación',
+      'Actividades y proyectos compartidos',
+      'Compromiso con la comunidad',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Ensemble pour créer de la valeur et de nouvelles opportunités.',
+    title:
+      'Personnes, idées et participation',
+    description:
+      'Un lieu de rencontre ouvert et accueillant pour partager des expériences, développer des projets et créer de nouvelles opportunités pour la communauté.',
+    servicesSubtitle:
+      'Activités et initiatives pour les membres et la communauté',
+    benefits: [
+      'Accueil et participation',
+      'Activités et projets partagés',
+      'Engagement pour la communauté',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Gemeinsam Werte und neue Möglichkeiten schaffen.',
+    title:
+      'Menschen, Ideen und Beteiligung',
+    description:
+      'Ein offener und einladender Treffpunkt, um Erfahrungen auszutauschen, Projekte zu entwickeln und neue Möglichkeiten für die Gemeinschaft zu schaffen.',
+    servicesSubtitle:
+      'Aktivitäten und Initiativen für Mitglieder und Gemeinschaft',
+    benefits: [
+      'Willkommen und Beteiligung',
+      'Gemeinsame Aktivitäten und Projekte',
+      'Engagement für die Gemeinschaft',
+    ],
+  },
+},
+
+workshop: {
+  it: {
+    subtitle:
+      'Manutenzione, riparazioni e assistenza professionale per il tuo veicolo.',
+    title:
+      'Competenza e sicurezza su strada',
+    description:
+      'Esperienza, attrezzature professionali e attenzione ai dettagli per mantenere ogni veicolo efficiente, affidabile e sicuro.',
+    servicesSubtitle:
+      'Servizi professionali per la cura del tuo veicolo',
+    benefits: [
+      'Diagnosi accurate',
+      'Interventi professionali',
+      'Affidabilità e puntualità',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Professional maintenance, repairs and assistance for your vehicle.',
+    title:
+      'Expertise and safety on the road',
+    description:
+      'Experience, professional equipment and attention to detail to keep every vehicle efficient, reliable and safe.',
+    servicesSubtitle:
+      'Professional services for your vehicle',
+    benefits: [
+      'Accurate diagnostics',
+      'Professional repairs',
+      'Reliability and punctuality',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Mantenimiento, reparaciones y asistencia profesional para tu vehículo.',
+    title:
+      'Experiencia y seguridad en la carretera',
+    description:
+      'Experiencia, equipos profesionales y atención al detalle para mantener cada vehículo eficiente, fiable y seguro.',
+    servicesSubtitle:
+      'Servicios profesionales para el cuidado de tu vehículo',
+    benefits: [
+      'Diagnósticos precisos',
+      'Intervenciones profesionales',
+      'Fiabilidad y puntualidad',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Entretien, réparations et assistance professionnelle pour votre véhicule.',
+    title:
+      'Expertise et sécurité sur la route',
+    description:
+      'Expérience, équipements professionnels et souci du détail pour maintenir chaque véhicule performant, fiable et sûr.',
+    servicesSubtitle:
+      'Des services professionnels pour votre véhicule',
+    benefits: [
+      'Diagnostics précis',
+      'Interventions professionnelles',
+      'Fiabilité et ponctualité',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Professionelle Wartung, Reparaturen und Unterstützung für Ihr Fahrzeug.',
+    title:
+      'Kompetenz und Sicherheit auf der Straße',
+    description:
+      'Erfahrung, professionelle Ausrüstung und Sorgfalt für ein leistungsfähiges, zuverlässiges und sicheres Fahrzeug.',
+    servicesSubtitle:
+      'Professionelle Leistungen für Ihr Fahrzeug',
+    benefits: [
+      'Präzise Diagnose',
+      'Professionelle Reparaturen',
+      'Zuverlässigkeit und Pünktlichkeit',
     ],
   },
 },
@@ -1900,16 +2180,25 @@ const effectiveCategory =
   data.category ||
   'generic';
 
+const categoryContentAliases = {
+  photographer: 'professional',
+};
+
+const contentCategory =
+  categoryContentAliases[effectiveCategory] ||
+  effectiveCategory;
+
 const artisanSubcategories = [
   'plumber',
   'electrician',
   'painter',
   'window-installer',
   'bricklayer',
+  'workshop',
 ];
 
 const categoryGroup =
-  categoryContentMap[effectiveCategory] ||
+  categoryContentMap[contentCategory] ||
   (
     artisanSubcategories.includes(effectiveCategory)
       ? categoryContentMap.artisan
@@ -1976,9 +2265,17 @@ if (servicesLabel) {
 }
 
 if (servicesSubtitle) {
-  let subtitleText = t.servicesSubtitle;
+let subtitleText = t.servicesSubtitle;
 
-  if (effectiveCategory === 'food') {
+if (
+  effectiveCategory === 'pharmacy' ||
+  effectiveCategory === 'workshop' ||
+  effectiveCategory === 'association'
+) {
+  subtitleText =
+    categoryContent.servicesSubtitle ||
+    t.servicesSubtitle;
+} else if (effectiveCategory === 'food') {
     subtitleText = t.foodServicesSubtitle;
   } else if (
   effectiveCategory === 'artisan' ||
@@ -2758,10 +3055,420 @@ if (servicesJsonUrl) {
         description:
           'Professionelle Colorationen, pflegende Behandlungen und Haarpflege.',
       },
-     ],
+        ],
+    },
+
+    pharmacy: {
+      it: [
+        {
+          icon: '🩺',
+          title: 'Misurazione della pressione',
+          description:
+            'Controllo della pressione arteriosa eseguito direttamente in farmacia.',
+        },
+        {
+          icon: '🧪',
+          title: 'Test e servizi di prevenzione',
+          description:
+            'Servizi e controlli dedicati alla prevenzione e al monitoraggio della salute.',
+        },
+        {
+          icon: '💊',
+          title: 'Prodotti per salute e benessere',
+          description:
+            'Una selezione di prodotti farmaceutici, integratori e articoli per il benessere.',
+        },
+        {
+          icon: '⚕️',
+          title: 'Consulenza farmaceutica',
+          description:
+            'Consigli professionali e assistenza nella scelta dei prodotti più adatti.',
+        },
+      ],
+
+      en: [
+        {
+          icon: '🩺',
+          title: 'Blood pressure measurement',
+          description:
+            'Blood pressure checks carried out directly at the pharmacy.',
+        },
+        {
+          icon: '🧪',
+          title: 'Prevention tests and services',
+          description:
+            'Services and checks dedicated to prevention and health monitoring.',
+        },
+        {
+          icon: '💊',
+          title: 'Health and wellness products',
+          description:
+            'A selection of medicines, supplements and wellness products.',
+        },
+        {
+          icon: '⚕️',
+          title: 'Pharmaceutical advice',
+          description:
+            'Professional advice and assistance in choosing the most suitable products.',
+        },
+      ],
+
+      es: [
+        {
+          icon: '🩺',
+          title: 'Medición de la presión arterial',
+          description:
+            'Control de la presión arterial realizado directamente en la farmacia.',
+        },
+        {
+          icon: '🧪',
+          title: 'Pruebas y servicios de prevención',
+          description:
+            'Servicios y controles dedicados a la prevención y al seguimiento de la salud.',
+        },
+        {
+          icon: '💊',
+          title: 'Productos para la salud y el bienestar',
+          description:
+            'Una selección de medicamentos, suplementos y productos para el bienestar.',
+        },
+        {
+          icon: '⚕️',
+          title: 'Asesoramiento farmacéutico',
+          description:
+            'Asesoramiento profesional para elegir los productos más adecuados.',
+        },
+      ],
+
+      fr: [
+        {
+          icon: '🩺',
+          title: 'Mesure de la tension artérielle',
+          description:
+            'Contrôle de la tension artérielle effectué directement en pharmacie.',
+        },
+        {
+          icon: '🧪',
+          title: 'Tests et services de prévention',
+          description:
+            'Services et contrôles consacrés à la prévention et au suivi de la santé.',
+        },
+        {
+          icon: '💊',
+          title: 'Produits de santé et de bien-être',
+          description:
+            'Une sélection de médicaments, compléments et produits de bien-être.',
+        },
+        {
+          icon: '⚕️',
+          title: 'Conseils pharmaceutiques',
+          description:
+            'Conseils professionnels pour choisir les produits les mieux adaptés.',
+        },
+      ],
+
+      de: [
+        {
+          icon: '🩺',
+          title: 'Blutdruckmessung',
+          description:
+            'Blutdruckkontrolle direkt in der Apotheke.',
+        },
+        {
+          icon: '🧪',
+          title: 'Tests und Vorsorgeleistungen',
+          description:
+            'Leistungen und Kontrollen zur Vorsorge und Überwachung der Gesundheit.',
+        },
+        {
+          icon: '💊',
+          title: 'Gesundheits- und Wellnessprodukte',
+          description:
+            'Eine Auswahl an Arzneimitteln, Nahrungsergänzungsmitteln und Wellnessprodukten.',
+        },
+        {
+          icon: '⚕️',
+          title: 'Pharmazeutische Beratung',
+          description:
+            'Professionelle Beratung bei der Auswahl der passenden Produkte.',
+        },
+            ],
+    },
+
+    workshop: {
+      it: [
+        {
+          icon: '🔧',
+          title: 'Tagliando e manutenzione',
+          description:
+            'Controlli periodici e manutenzione per mantenere il veicolo efficiente e sicuro.',
+        },
+        {
+          icon: '💻',
+          title: 'Diagnosi elettronica',
+          description:
+            'Controllo elettronico professionale per individuare guasti e anomalie.',
+        },
+        {
+          icon: '🚗',
+          title: 'Freni e pneumatici',
+          description:
+            'Controllo e sostituzione di freni e pneumatici per una guida più sicura.',
+        },
+        {
+          icon: '⚙️',
+          title: 'Riparazioni meccaniche',
+          description:
+            'Interventi professionali sul motore e sui principali componenti del veicolo.',
+        },
+      ],
+
+      en: [
+        {
+          icon: '🔧',
+          title: 'Servicing and maintenance',
+          description:
+            'Regular checks and maintenance to keep your vehicle efficient and safe.',
+        },
+        {
+          icon: '💻',
+          title: 'Electronic diagnostics',
+          description:
+            'Professional electronic checks to identify faults and malfunctions.',
+        },
+        {
+          icon: '🚗',
+          title: 'Brakes and tyres',
+          description:
+            'Inspection and replacement of brakes and tyres for safer driving.',
+        },
+        {
+          icon: '⚙️',
+          title: 'Mechanical repairs',
+          description:
+            'Professional repairs for the engine and the main vehicle components.',
+        },
+      ],
+
+      es: [
+        {
+          icon: '🔧',
+          title: 'Revisión y mantenimiento',
+          description:
+            'Controles periódicos y mantenimiento para mantener el vehículo eficiente y seguro.',
+        },
+        {
+          icon: '💻',
+          title: 'Diagnóstico electrónico',
+          description:
+            'Control electrónico profesional para detectar averías y anomalías.',
+        },
+        {
+          icon: '🚗',
+          title: 'Frenos y neumáticos',
+          description:
+            'Control y sustitución de frenos y neumáticos para una conducción más segura.',
+        },
+        {
+          icon: '⚙️',
+          title: 'Reparaciones mecánicas',
+          description:
+            'Intervenciones profesionales en el motor y los principales componentes del vehículo.',
+        },
+      ],
+
+      fr: [
+        {
+          icon: '🔧',
+          title: 'Révision et entretien',
+          description:
+            'Contrôles périodiques et entretien pour maintenir le véhicule performant et sûr.',
+        },
+        {
+          icon: '💻',
+          title: 'Diagnostic électronique',
+          description:
+            'Contrôle électronique professionnel pour identifier les pannes et anomalies.',
+        },
+        {
+          icon: '🚗',
+          title: 'Freins et pneumatiques',
+          description:
+            'Contrôle et remplacement des freins et pneumatiques pour une conduite plus sûre.',
+        },
+        {
+          icon: '⚙️',
+          title: 'Réparations mécaniques',
+          description:
+            'Interventions professionnelles sur le moteur et les principaux composants du véhicule.',
+        },
+      ],
+
+      de: [
+        {
+          icon: '🔧',
+          title: 'Inspektion und Wartung',
+          description:
+            'Regelmäßige Kontrollen und Wartung für ein leistungsfähiges und sicheres Fahrzeug.',
+        },
+        {
+          icon: '💻',
+          title: 'Elektronische Diagnose',
+          description:
+            'Professionelle elektronische Prüfung zur Erkennung von Fehlern und Störungen.',
+        },
+        {
+          icon: '🚗',
+          title: 'Bremsen und Reifen',
+          description:
+            'Kontrolle und Austausch von Bremsen und Reifen für mehr Sicherheit.',
+        },
+        {
+          icon: '⚙️',
+          title: 'Mechanische Reparaturen',
+          description:
+            'Professionelle Reparaturen am Motor und an den wichtigsten Fahrzeugkomponenten.',
+        },
+            ],
+    },
+
+    association: {
+      it: [
+        {
+          icon: '📅',
+          title: 'Eventi e incontri',
+          description:
+            'Incontri, appuntamenti e occasioni di partecipazione aperti ai soci e alla comunità.',
+        },
+        {
+          icon: '🤝',
+          title: 'Progetti e iniziative',
+          description:
+            'Attività condivise per sviluppare idee, collaborazioni e nuove opportunità.',
+        },
+        {
+          icon: '👥',
+          title: 'Supporto ai soci',
+          description:
+            'Informazioni, assistenza e servizi dedicati alle esigenze degli associati.',
+        },
+        {
+          icon: '❤️',
+          title: 'Volontariato e comunità',
+          description:
+            'Iniziative solidali e attività concrete a sostegno del territorio e delle persone.',
+        },
+      ],
+
+      en: [
+        {
+          icon: '📅',
+          title: 'Events and meetings',
+          description:
+            'Meetings, appointments and opportunities for members and the community to participate.',
+        },
+        {
+          icon: '🤝',
+          title: 'Projects and initiatives',
+          description:
+            'Shared activities to develop ideas, collaborations and new opportunities.',
+        },
+        {
+          icon: '👥',
+          title: 'Member support',
+          description:
+            'Information, assistance and services dedicated to the needs of members.',
+        },
+        {
+          icon: '❤️',
+          title: 'Volunteering and community',
+          description:
+            'Charitable initiatives and practical activities supporting people and the local area.',
+        },
+      ],
+
+      es: [
+        {
+          icon: '📅',
+          title: 'Eventos y encuentros',
+          description:
+            'Encuentros, citas y oportunidades de participación para socios y comunidad.',
+        },
+        {
+          icon: '🤝',
+          title: 'Proyectos e iniciativas',
+          description:
+            'Actividades compartidas para desarrollar ideas, colaboraciones y nuevas oportunidades.',
+        },
+        {
+          icon: '👥',
+          title: 'Apoyo a los socios',
+          description:
+            'Información, asistencia y servicios dedicados a las necesidades de los asociados.',
+        },
+        {
+          icon: '❤️',
+          title: 'Voluntariado y comunidad',
+          description:
+            'Iniciativas solidarias y actividades de apoyo al territorio y a las personas.',
+        },
+      ],
+
+      fr: [
+        {
+          icon: '📅',
+          title: 'Événements et rencontres',
+          description:
+            'Rencontres, rendez-vous et occasions de participation pour les membres et la communauté.',
+        },
+        {
+          icon: '🤝',
+          title: 'Projets et initiatives',
+          description:
+            'Activités partagées pour développer des idées, des collaborations et de nouvelles opportunités.',
+        },
+        {
+          icon: '👥',
+          title: 'Soutien aux membres',
+          description:
+            'Informations, assistance et services consacrés aux besoins des adhérents.',
+        },
+        {
+          icon: '❤️',
+          title: 'Bénévolat et communauté',
+          description:
+            'Initiatives solidaires et activités concrètes au service du territoire et des personnes.',
+        },
+      ],
+
+      de: [
+        {
+          icon: '📅',
+          title: 'Veranstaltungen und Treffen',
+          description:
+            'Treffen, Termine und Möglichkeiten zur Beteiligung für Mitglieder und Gemeinschaft.',
+        },
+        {
+          icon: '🤝',
+          title: 'Projekte und Initiativen',
+          description:
+            'Gemeinsame Aktivitäten zur Entwicklung von Ideen, Kooperationen und neuen Möglichkeiten.',
+        },
+        {
+          icon: '👥',
+          title: 'Unterstützung für Mitglieder',
+          description:
+            'Informationen, Unterstützung und Leistungen für die Bedürfnisse der Mitglieder.',
+        },
+        {
+          icon: '❤️',
+          title: 'Ehrenamt und Gemeinschaft',
+          description:
+            'Solidarische Initiativen und konkrete Aktivitäten für Menschen und die Region.',
+        },
+      ],
     },
   };
-
   if (
   !isGeneratedProfile &&
   !businessSlug &&
@@ -2788,9 +3495,12 @@ if (servicesGrid) {
     serviceIcon.className =
       'service-icon';
 
-const category =
-  (data.category || '').toLowerCase();
-
+    const category =
+  (
+      categoriaUrl ||
+      data.category ||
+      ''
+    ).toLowerCase();
 let defaultServiceIcon = '🛠️';
 
 if (
@@ -2815,6 +3525,26 @@ if (
   category === 'studio medico'
 ) {
   defaultServiceIcon = '🩺';
+
+} else if (
+  category === 'farmacia' ||
+  category === 'pharmacy'
+) {
+    defaultServiceIcon = '⚕️';
+
+} else if (
+  category === 'officina' ||
+  category === 'meccanico' ||
+  category === 'officina / meccanico' ||
+  category === 'workshop'
+) {
+  defaultServiceIcon = '🔧';
+
+} else if (
+  category === 'associazione' ||
+  category === 'association'
+) {
+  defaultServiceIcon = '🤝';
 
 } else if (
   category === 'parrucchiere' ||

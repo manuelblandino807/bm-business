@@ -556,13 +556,16 @@ async function loadBusinessData() {
     );
 
     // Applica automaticamente il tema corretto
-    if (data.category) {
-      document.body.classList.add(
-        `${String(data.category)
-          .replace(/\s+/g, '-')
-          .toLowerCase()}-theme`
-      );
-    }
+    if (
+  data.category &&
+  !params.get('categoria')
+) {
+  document.body.classList.add(
+    `${String(data.category)
+      .replace(/\s+/g, '-')
+      .toLowerCase()}-theme`
+  );
+}
 
 // Rimuove eventuali temi colore già presenti
 document.body.classList.remove(
@@ -1444,6 +1447,170 @@ association: {
   },
 },
 
+cleaning: {
+  it: {
+    subtitle:
+      'Pulizie professionali per ambienti curati, igienizzati e accoglienti.',
+    title:
+      'Pulizia, igiene e attenzione ai dettagli',
+    description:
+      'Servizi di pulizia affidabili e personalizzati per case, uffici, condomini e attività commerciali.',
+    servicesSubtitle:
+      'Servizi di pulizia per ogni ambiente',
+    benefits: [
+      'Interventi personalizzati',
+      'Prodotti e attrezzature professionali',
+      'Puntualità e affidabilità',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Professional cleaning for tidy, sanitized and welcoming spaces.',
+    title:
+      'Cleanliness, hygiene and attention to detail',
+    description:
+      'Reliable and customized cleaning services for homes, offices, apartment buildings and businesses.',
+    servicesSubtitle:
+      'Cleaning services for every environment',
+    benefits: [
+      'Customized services',
+      'Professional products and equipment',
+      'Punctuality and reliability',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Limpieza profesional para espacios cuidados, higienizados y acogedores.',
+    title:
+      'Limpieza, higiene y atención al detalle',
+    description:
+      'Servicios de limpieza fiables y personalizados para hogares, oficinas, comunidades y actividades comerciales.',
+    servicesSubtitle:
+      'Servicios de limpieza para cada espacio',
+    benefits: [
+      'Servicios personalizados',
+      'Productos y equipos profesionales',
+      'Puntualidad y fiabilidad',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Nettoyage professionnel pour des espaces soignés, assainis et accueillants.',
+    title:
+      'Propreté, hygiène et souci du détail',
+    description:
+      'Des services de nettoyage fiables et personnalisés pour les maisons, bureaux, copropriétés et locaux commerciaux.',
+    servicesSubtitle:
+      'Services de nettoyage pour chaque environnement',
+    benefits: [
+      'Services personnalisés',
+      'Produits et équipements professionnels',
+      'Ponctualité et fiabilité',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Professionelle Reinigung für gepflegte, hygienische und einladende Räume.',
+    title:
+      'Sauberkeit, Hygiene und Liebe zum Detail',
+    description:
+      'Zuverlässige und individuelle Reinigungsleistungen für Wohnungen, Büros, Wohnanlagen und Gewerberäume.',
+    servicesSubtitle:
+      'Reinigungsleistungen für jeden Bereich',
+    benefits: [
+      'Individuelle Leistungen',
+      'Professionelle Produkte und Ausrüstung',
+      'Pünktlichkeit und Zuverlässigkeit',
+    ],
+  },
+},
+
+photographer: {
+  it: {
+    subtitle:
+      'Fotografia professionale per raccontare persone, eventi e attività.',
+    title:
+      'Immagini autentiche, emozioni da ricordare',
+    description:
+      'Servizi fotografici personalizzati per ritratti, eventi, aziende e prodotti, curati in ogni dettaglio.',
+    servicesSubtitle:
+      'Servizi fotografici per ogni occasione',
+    benefits: [
+      'Stile personalizzato',
+      'Attrezzatura professionale',
+      'Cura di ogni dettaglio',
+    ],
+  },
+
+  en: {
+    subtitle:
+      'Professional photography to tell the story of people, events and businesses.',
+    title:
+      'Authentic images, emotions to remember',
+    description:
+      'Customized photography services for portraits, events, businesses and products, with attention to every detail.',
+    servicesSubtitle:
+      'Photography services for every occasion',
+    benefits: [
+      'Personalized style',
+      'Professional equipment',
+      'Attention to every detail',
+    ],
+  },
+
+  es: {
+    subtitle:
+      'Fotografía profesional para contar historias de personas, eventos y actividades.',
+    title:
+      'Imágenes auténticas, emociones para recordar',
+    description:
+      'Servicios fotográficos personalizados para retratos, eventos, empresas y productos, cuidados en cada detalle.',
+    servicesSubtitle:
+      'Servicios fotográficos para cada ocasión',
+    benefits: [
+      'Estilo personalizado',
+      'Equipo profesional',
+      'Atención a cada detalle',
+    ],
+  },
+
+  fr: {
+    subtitle:
+      'Photographie professionnelle pour raconter les personnes, les événements et les activités.',
+    title:
+      'Des images authentiques, des émotions à retenir',
+    description:
+      'Des services photographiques personnalisés pour les portraits, événements, entreprises et produits, avec une attention portée à chaque détail.',
+    servicesSubtitle:
+      'Services photographiques pour chaque occasion',
+    benefits: [
+      'Style personnalisé',
+      'Équipement professionnel',
+      'Souci de chaque détail',
+    ],
+  },
+
+  de: {
+    subtitle:
+      'Professionelle Fotografie für Menschen, Veranstaltungen und Unternehmen.',
+    title:
+      'Authentische Bilder, unvergessliche Emotionen',
+    description:
+      'Individuelle Fotoservices für Porträts, Veranstaltungen, Unternehmen und Produkte mit Liebe zum Detail.',
+    servicesSubtitle:
+      'Fotoservices für jeden Anlass',
+    benefits: [
+      'Individueller Stil',
+      'Professionelle Ausrüstung',
+      'Liebe zum Detail',
+    ],
+  },
+},
+
 workshop: {
   it: {
     subtitle:
@@ -2180,9 +2347,7 @@ const effectiveCategory =
   data.category ||
   'generic';
 
-const categoryContentAliases = {
-  photographer: 'professional',
-};
+const categoryContentAliases = {};
 
 const contentCategory =
   categoryContentAliases[effectiveCategory] ||
@@ -2270,7 +2435,9 @@ let subtitleText = t.servicesSubtitle;
 if (
   effectiveCategory === 'pharmacy' ||
   effectiveCategory === 'workshop' ||
-  effectiveCategory === 'association'
+  effectiveCategory === 'association' ||
+  effectiveCategory === 'cleaning' ||
+  effectiveCategory === 'photographer'
 ) {
   subtitleText =
     categoryContent.servicesSubtitle ||
@@ -3465,6 +3632,278 @@ if (servicesJsonUrl) {
           title: 'Ehrenamt und Gemeinschaft',
           description:
             'Solidarische Initiativen und konkrete Aktivitäten für Menschen und die Region.',
+        },
+      ],
+    },
+        cleaning: {
+      it: [
+        {
+          icon: '🏠',
+          title: 'Pulizia di case e appartamenti',
+          description:
+            'Servizi accurati e personalizzati per mantenere ogni ambiente domestico pulito e accogliente.',
+        },
+        {
+          icon: '🏢',
+          title: 'Pulizia di uffici e negozi',
+          description:
+            'Interventi professionali per uffici, negozi e attività commerciali.',
+        },
+        {
+          icon: '🧹',
+          title: 'Pulizia di condomini',
+          description:
+            'Pulizia periodica di scale, ingressi e spazi comuni condominiali.',
+        },
+        {
+          icon: '✨',
+          title: 'Pulizie straordinarie',
+          description:
+            'Pulizie approfondite dopo lavori, traslochi o per esigenze particolari.',
+        },
+      ],
+
+      en: [
+        {
+          icon: '🏠',
+          title: 'Home and apartment cleaning',
+          description:
+            'Accurate and customized services to keep every home clean and welcoming.',
+        },
+        {
+          icon: '🏢',
+          title: 'Office and shop cleaning',
+          description:
+            'Professional cleaning services for offices, shops and businesses.',
+        },
+        {
+          icon: '🧹',
+          title: 'Apartment building cleaning',
+          description:
+            'Regular cleaning of stairs, entrances and shared areas.',
+        },
+        {
+          icon: '✨',
+          title: 'Deep cleaning',
+          description:
+            'Thorough cleaning after renovation work, moving or for special requirements.',
+        },
+      ],
+
+      es: [
+        {
+          icon: '🏠',
+          title: 'Limpieza de casas y apartamentos',
+          description:
+            'Servicios cuidadosos y personalizados para mantener cada hogar limpio y acogedor.',
+        },
+        {
+          icon: '🏢',
+          title: 'Limpieza de oficinas y tiendas',
+          description:
+            'Servicios profesionales para oficinas, tiendas y actividades comerciales.',
+        },
+        {
+          icon: '🧹',
+          title: 'Limpieza de comunidades',
+          description:
+            'Limpieza periódica de escaleras, entradas y zonas comunes.',
+        },
+        {
+          icon: '✨',
+          title: 'Limpiezas extraordinarias',
+          description:
+            'Limpiezas profundas después de obras, mudanzas o para necesidades especiales.',
+        },
+      ],
+
+      fr: [
+        {
+          icon: '🏠',
+          title: 'Nettoyage de maisons et appartements',
+          description:
+            'Des services soignés et personnalisés pour garder chaque logement propre et accueillant.',
+        },
+        {
+          icon: '🏢',
+          title: 'Nettoyage de bureaux et commerces',
+          description:
+            'Des interventions professionnelles pour les bureaux, commerces et locaux professionnels.',
+        },
+        {
+          icon: '🧹',
+          title: 'Nettoyage de copropriétés',
+          description:
+            'Nettoyage régulier des escaliers, entrées et parties communes.',
+        },
+        {
+          icon: '✨',
+          title: 'Nettoyages exceptionnels',
+          description:
+            'Nettoyage approfondi après des travaux, un déménagement ou pour des besoins particuliers.',
+        },
+      ],
+
+      de: [
+        {
+          icon: '🏠',
+          title: 'Reinigung von Wohnungen und Häusern',
+          description:
+            'Gründliche und individuelle Leistungen für ein sauberes und einladendes Zuhause.',
+        },
+        {
+          icon: '🏢',
+          title: 'Reinigung von Büros und Geschäften',
+          description:
+            'Professionelle Reinigung für Büros, Geschäfte und Gewerberäume.',
+        },
+        {
+          icon: '🧹',
+          title: 'Reinigung von Wohnanlagen',
+          description:
+            'Regelmäßige Reinigung von Treppenhäusern, Eingängen und Gemeinschaftsbereichen.',
+        },
+        {
+          icon: '✨',
+          title: 'Sonderreinigungen',
+          description:
+            'Gründliche Reinigung nach Renovierungen, Umzügen oder für besondere Anforderungen.',
+        },
+      ],
+    },
+        photographer: {
+      it: [
+        {
+          icon: '📸',
+          title: 'Ritratti e servizi fotografici',
+          description:
+            'Servizi personalizzati per ritratti individuali, di coppia, famiglia e professionali.',
+        },
+        {
+          icon: '🎉',
+          title: 'Eventi e cerimonie',
+          description:
+            'Fotografie autentiche per raccontare matrimoni, cerimonie, feste ed eventi speciali.',
+        },
+        {
+          icon: '🏢',
+          title: 'Fotografia aziendale',
+          description:
+            'Immagini professionali per aziende, attività, collaboratori e comunicazione online.',
+        },
+        {
+          icon: '🛍️',
+          title: 'Fotografia di prodotto',
+          description:
+            'Fotografie curate per valorizzare prodotti, cataloghi, menu e contenuti promozionali.',
+        },
+      ],
+
+      en: [
+        {
+          icon: '📸',
+          title: 'Portraits and photo shoots',
+          description:
+            'Customized photography for individual, couple, family and professional portraits.',
+        },
+        {
+          icon: '🎉',
+          title: 'Events and ceremonies',
+          description:
+            'Authentic photography to capture weddings, ceremonies, parties and special events.',
+        },
+        {
+          icon: '🏢',
+          title: 'Business photography',
+          description:
+            'Professional images for businesses, teams and online communication.',
+        },
+        {
+          icon: '🛍️',
+          title: 'Product photography',
+          description:
+            'Carefully crafted images to showcase products, catalogues, menus and promotional content.',
+        },
+      ],
+
+      es: [
+        {
+          icon: '📸',
+          title: 'Retratos y sesiones fotográficas',
+          description:
+            'Servicios personalizados para retratos individuales, de pareja, familiares y profesionales.',
+        },
+        {
+          icon: '🎉',
+          title: 'Eventos y ceremonias',
+          description:
+            'Fotografías auténticas para contar bodas, ceremonias, fiestas y eventos especiales.',
+        },
+        {
+          icon: '🏢',
+          title: 'Fotografía corporativa',
+          description:
+            'Imágenes profesionales para empresas, equipos y comunicación digital.',
+        },
+        {
+          icon: '🛍️',
+          title: 'Fotografía de producto',
+          description:
+            'Imágenes cuidadas para valorizar productos, catálogos, menús y contenidos promocionales.',
+        },
+      ],
+
+      fr: [
+        {
+          icon: '📸',
+          title: 'Portraits et séances photo',
+          description:
+            'Des services personnalisés pour les portraits individuels, de couple, de famille et professionnels.',
+        },
+        {
+          icon: '🎉',
+          title: 'Événements et cérémonies',
+          description:
+            'Des photographies authentiques pour raconter mariages, cérémonies, fêtes et événements spéciaux.',
+        },
+        {
+          icon: '🏢',
+          title: 'Photographie d’entreprise',
+          description:
+            'Des images professionnelles pour les entreprises, les équipes et la communication numérique.',
+        },
+        {
+          icon: '🛍️',
+          title: 'Photographie de produits',
+          description:
+            'Des images soignées pour valoriser produits, catalogues, menus et contenus promotionnels.',
+        },
+      ],
+
+      de: [
+        {
+          icon: '📸',
+          title: 'Porträts und Fotoshootings',
+          description:
+            'Individuelle Fotoshootings für Einzelpersonen, Paare, Familien und berufliche Porträts.',
+        },
+        {
+          icon: '🎉',
+          title: 'Veranstaltungen und Feiern',
+          description:
+            'Authentische Fotografie für Hochzeiten, Feiern, Feste und besondere Ereignisse.',
+        },
+        {
+          icon: '🏢',
+          title: 'Unternehmensfotografie',
+          description:
+            'Professionelle Bilder für Unternehmen, Teams und die digitale Kommunikation.',
+        },
+        {
+          icon: '🛍️',
+          title: 'Produktfotografie',
+          description:
+            'Sorgfältig gestaltete Bilder für Produkte, Kataloge, Speisekarten und Werbeinhalte.',
         },
       ],
     },

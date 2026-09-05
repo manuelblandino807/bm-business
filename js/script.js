@@ -474,7 +474,7 @@ async function loadBusinessData() {
 
     'Ristorante': 'food',
     'Pizzeria': 'food',
-    'Bar': 'food',
+    'Bar': 'bar',
 
     'Officina': 'workshop',
     'Meccanico': 'workshop',
@@ -625,7 +625,10 @@ if (categoriaUrl === 'bricklayer') {
   selectedTheme = 'artisan';
 }
 
-if (categoriaUrl === 'food') {
+if (
+  categoriaUrl === 'food' ||
+  categoriaUrl === 'bar'
+) {
   selectedTheme = 'food';
 }
 
@@ -735,6 +738,7 @@ const categoryHeroMap = {
   cleaning: 'cleaning',
   photographer: 'photographer',
   food: 'food',
+  bar: 'bar',
   hospitality: 'hospitality',
   medical: 'medical',
   nature: 'nature',
@@ -3934,20 +3938,22 @@ if (servicesGrid) {
     serviceIcon.className =
       'service-icon';
 
-    const category =
-  (
-      categoriaUrl ||
-      data.category ||
-      ''
+      const category = (
+      businessSlug && data.category
+        ? data.category
+        : categoriaUrl || data.category || ''
     ).toLowerCase();
-let defaultServiceIcon = '🛠️';
+
+    let defaultServiceIcon = '🛠️';
 
 if (
   category === 'ristorante' ||
-  category === 'pizzeria' ||
-  category === 'bar'
+  category === 'pizzeria'
 ) {
   defaultServiceIcon = '🍽️';
+
+} else if (category === 'bar') {
+  defaultServiceIcon = '☕';
 
 } else if (
   category === 'hotel' ||
@@ -3979,11 +3985,25 @@ if (
 ) {
   defaultServiceIcon = '🔧';
 
-} else if (
+ } else if (
   category === 'associazione' ||
   category === 'association'
 ) {
   defaultServiceIcon = '🤝';
+
+} else if (
+  category === 'impresa di pulizie' ||
+  category === 'cleaning'
+) {
+  defaultServiceIcon = '🧹';
+
+} else if (
+  category === 'fotografo' ||
+  category === 'photographer'
+) {
+  defaultServiceIcon = '📸';
+
+
 
 } else if (
   category === 'parrucchiere' ||

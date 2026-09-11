@@ -570,6 +570,52 @@ async function loadBusinessData() {
       if (appleTouchIcon) {
         appleTouchIcon.href = businessPageLogo;
       }
+
+      const pageUrl = new URL(window.location.href);
+      pageUrl.hash = '';
+
+      const manifestData = {
+        id: pageUrl.href,
+        name: businessPageName,
+        short_name: businessPageName,
+        start_url: pageUrl.href,
+        scope: `${window.location.origin}/`,
+        display: 'standalone',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: businessPageLogo,
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any'
+          }
+        ]
+      };
+
+      const previousManifest =
+        document.getElementById('page-manifest');
+
+      if (previousManifest) {
+        previousManifest.remove();
+      }
+
+      const manifestBlob = new Blob(
+        [JSON.stringify(manifestData)],
+        {
+          type: 'application/manifest+json'
+        }
+      );
+
+      const manifestLink =
+        document.createElement('link');
+
+      manifestLink.id = 'page-manifest';
+      manifestLink.rel = 'manifest';
+      manifestLink.href =
+        URL.createObjectURL(manifestBlob);
+
+      document.head.appendChild(manifestLink);
     }
 
     // Rimuove eventuali temi precedenti

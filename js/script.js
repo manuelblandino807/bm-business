@@ -541,6 +541,36 @@ async function loadBusinessData() {
         data
       );
     }
+    // Personalizza nome e icona della pagina per l'attività
+    const businessPageName =
+      nomeUrl.trim() ||
+      data.business?.name?.trim() ||
+      'B-M Business';
+
+    const businessPageLogo = String(
+      data.logoPath ||
+      data.logoUrl ||
+      data.business?.logo ||
+      ''
+    ).trim();
+
+    document.title = businessPageName;
+
+    if (businessPageLogo) {
+      const favicon =
+        document.getElementById('page-favicon');
+
+      const appleTouchIcon =
+        document.getElementById('page-apple-touch-icon');
+
+      if (favicon) {
+        favicon.href = businessPageLogo;
+      }
+
+      if (appleTouchIcon) {
+        appleTouchIcon.href = businessPageLogo;
+      }
+    }
 
     // Rimuove eventuali temi precedenti
     document.body.classList.remove(

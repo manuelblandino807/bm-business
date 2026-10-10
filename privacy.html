@@ -381,8 +381,25 @@
       privacyContent.innerHTML = buildContent(translation);
       privacyFooter.textContent = translation.footer;
 
-      const backLink = document.querySelector('[data-back-link]');
-      if (backLink && document.referrer) {
+      const backLink =
+        document.querySelector('[data-back-link]');
+
+      const openedFromApp =
+        new URLSearchParams(window.location.search)
+          .get('from') === 'app';
+
+      if (backLink && openedFromApp) {
+        const appBackLabels = {
+          it: '← Torna a B-M Business',
+          en: '← Return to B-M Business',
+          es: '← Volver a B-M Business',
+          fr: '← Retourner à B-M Business',
+          de: '← Zurück zu B-M Business'
+        };
+
+        backLink.textContent = appBackLabels[language];
+        backLink.href = 'https://app.bm-app.it/';
+      } else if (backLink && document.referrer) {
         backLink.addEventListener('click', (event) => {
           event.preventDefault();
           window.location.href = document.referrer;

@@ -424,6 +424,22 @@ footer p{
 footer small{
     color:#999;
 }
+
+.footer-privacy {
+    margin:12px 0 10px;
+    font-size:14px;
+}
+
+.footer-privacy a {
+    color:white;
+    text-decoration:underline;
+    text-underline-offset:3px;
+    opacity:0.9;
+}
+
+.footer-privacy a:hover {
+    opacity:1;
+}
 /* ===========================
    ORARI
 =========================== */

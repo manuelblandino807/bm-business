@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informativa Privacy | B-M App</title>
+  <meta id="page-description" name="description" content="Informativa sul trattamento dei dati personali dei servizi B-M App e B-M Business.">
+  <meta name="theme-color" content="#123A8C">
+  <link rel="icon" type="image/png" href="/images/logo-bm.png">
+
+  <style>
+    :root {
+      --primary: #123a8c;
+      --secondary: #1877c9;
+      --background: #f4f7fb;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --border: #dce3ed;
+      --notice: #eef5ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    .privacy-header {
+      padding: 34px 20px;
+      color: #ffffff;
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    .privacy-logo {
+      width: 76px;
+      height: 76px;
+      margin-bottom: 12px;
+      border-radius: 18px;
+      background: #ffffff;
+      object-fit: contain;
+    }
+
+    .privacy-header h1 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 42px);
+    }
+
+    .privacy-header p {
+      margin: 8px 0 0;
+      color: #ffffff;
+      opacity: 0.92;
+    }
+
+    .language-control {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .language-control label {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .language-control select {
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 10px;
+      color: var(--primary);
+      background: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .privacy-container {
+      width: min(920px, calc(100% - 28px));
+      margin: 28px auto;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: 0 12px 32px rgba(18, 58, 140, 0.08);
+    }
+
+    .privacy-notice {
+      margin-bottom: 28px;
+      padding: 18px;
+      border-left: 5px solid var(--secondary);
+      border-radius: 12px;
+      background: var(--notice);
+    }
+
+    h2 {
+      margin-top: 34px;
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 23px;
+    }
+
+    h3 {
+      margin-top: 22px;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    p, li { color: var(--text); }
+    ul { padding-left: 24px; }
+
+    a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .privacy-footer {
+      padding: 10px 20px 34px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      color: #ffffff;
+      background: var(--primary);
+    }
+
+    .back-link:hover {
+      text-decoration: none;
+      background: #0d2f75;
+    }
+
+    @media (max-width: 600px) {
+      .privacy-container {
+        padding: 22px 18px;
+        border-radius: 14px;
+      }
+
+      h2 { font-size: 21px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="privacy-header">
+    <img class="privacy-logo" src="/images/logo-bm.png" alt="Logo B-M App">
+    <h1 id="privacy-title">Informativa Privacy</h1>
+    <p id="privacy-subtitle">B-M App e B-M Business</p>
+
+    <div class="language-control">
+      <label id="language-label" for="language-select">Lingua</label>
+      <select id="language-select" aria-label="Lingua">
+        <option value="it">Italiano</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="privacy-container" id="privacy-content"></main>
+
+  <footer class="privacy-footer" id="privacy-footer">
+    © 2026 B-M App · Tutti i diritti riservati
+  </footer>
+
+  <script>
+    const commonController = {
+      it: '<strong>Manuel Blandino – progetto digitale indipendente B-M App</strong><br>Bergamo (BG), Italia<br>Email: <a href="mailto:info@bm-app.it">info@bm-app.it</a>',
+      en: '<strong>Manuel Blandino – independent digital project B-M App</strong><br>Bergamo (BG), Italy<br>Email: <a href="mailto:info@bm-app.it">info@bm-app.it</a>',
+      es: '<strong>Manuel Blandino – proyecto digital independiente B-M App</strong><br>Bérgamo (BG), Italia<br>Correo electrónico: <a href="mailto:info@bm-app.it">info@bm-app.it</a>',
+      fr: '<strong>Manuel Blandino – projet numérique indépendant B-M App</strong><br>Bergame (BG), Italie<br>E-mail : <a href="mailto:info@bm-app.it">info@bm-app.it</a>',
+      de: '<strong>Manuel Blandino – unabhängiges digitales Projekt B-M App</strong><br>Bergamo (BG), Italien<br>E-Mail: <a href="mailto:info@bm-app.it">info@bm-app.it</a>'
+    };
+
+    const privacyTranslations = {
+      it: {
+        pageTitle: 'Informativa Privacy | B-M App',
+        description: 'Informativa sul trattamento dei dati personali dei servizi B-M App e B-M Business.',
+        title: 'Informativa Privacy',
+        language: 'Lingua',
+        footer: '© 2026 B-M App · Tutti i diritti riservati',
+        updated: 'Ultimo aggiornamento:',
+        date: '10 ottobre 2026',
+        version: 'Versione:',
+        back: '← Torna alla pagina precedente',
+        sections: [
+          ['intro', '', `La presente informativa descrive come vengono trattati i dati personali attraverso B-M App, l'applicazione B-M Business e le pagine digitali pubbliche generate dagli utenti.`],
+          ['1. Titolare del trattamento', '', `Il titolare del trattamento è:<p>${commonController.it}</p>`],
+          ['2. Dati trattati', `
+            <h3>Dati dell'account</h3>
+            <ul><li>indirizzo email;</li><li>identificativo tecnico dell'utente;</li><li>credenziali di accesso, gestite in forma protetta dal fornitore del servizio di autenticazione;</li><li>data e informazioni relative all'accesso.</li></ul>
+            <h3>Dati inseriti nella pagina dell'attività</h3>
+            <ul><li>nome dell'attività o del professionista;</li><li>descrizione e categoria dell'attività;</li><li>numero di telefono e contatto WhatsApp;</li><li>indirizzo email e sito web;</li><li>profili social e collegamenti esterni;</li><li>indirizzo, posizione e orari;</li><li>servizi, immagini, logo e galleria;</li><li>altre informazioni inserite volontariamente dall'utente.</li></ul>
+            <h3>Dati tecnici</h3><p>Durante l'utilizzo possono essere trattati dati tecnici necessari al funzionamento e alla sicurezza, come indirizzo IP, tipo di dispositivo, browser, data e ora delle richieste, registri tecnici e dati di diagnostica.</p>
+            <h3>Comunicazioni</h3><p>Se l'utente contatta B-M App tramite email, possono essere trattati l'indirizzo del mittente, il contenuto del messaggio e le informazioni necessarie per fornire assistenza.</p>`, ''],
+          ['3. Finalità e basi giuridiche', '', `I dati vengono trattati per:<ul><li>creare e gestire l'account;</li><li>salvare, modificare e pubblicare la pagina digitale;</li><li>generare link, QR Code e materiali PDF;</li><li>fornire assistenza tecnica;</li><li>proteggere il servizio da accessi abusivi, frodi e utilizzi illeciti;</li><li>adempiere a eventuali obblighi di legge;</li><li>migliorare stabilità e funzionamento del servizio.</li></ul><p>Le principali basi giuridiche sono l'esecuzione del servizio richiesto dall'utente, l'adempimento di obblighi legali e il legittimo interesse alla sicurezza e al corretto funzionamento del servizio.</p><p>Un eventuale consenso separato sarà richiesto soltanto per finalità facoltative, come comunicazioni promozionali, se introdotte in futuro.</p>`],
+          ['4. Pubblicazione della pagina', '', `Quando l'utente pubblica la propria pagina digitale, le informazioni inserite diventano accessibili tramite un collegamento pubblico e un QR Code.<p>L'utente decide autonomamente quali dati pubblicare ed è responsabile della correttezza delle informazioni e dell'autorizzazione all'utilizzo di immagini, loghi, contatti e contenuti appartenenti a terzi.</p><p>Si raccomanda di non inserire dati sensibili, documenti personali, informazioni sanitarie, finanziarie o altri dati non necessari alla presentazione dell'attività.</p>`],
+          ['5. Visitatori delle pagine pubbliche', '', `I visitatori possono consultare le pagine senza creare un account. I pulsanti telefono, email, WhatsApp, social, sito web e mappe aprono servizi esterni.<p>Il contenuto delle comunicazioni inviate attraverso tali servizi non viene ricevuto da B-M App, salvo che il destinatario indicato sia direttamente info@bm-app.it.</p>`],
+          ['6. Fornitori e destinatari', '', `Per il funzionamento del servizio possono essere utilizzati fornitori tecnici, tra cui:<ul><li>Supabase, per autenticazione, database e servizi infrastrutturali;</li><li>GitHub Pages, per la pubblicazione delle applicazioni e delle pagine web;</li><li>OVHcloud/Zimbra, per la gestione dell'email;</li><li>Google Maps, quando vengono utilizzate mappe o collegamenti geografici;</li><li>Meta, WhatsApp e altri social network quando l'utente apre i relativi collegamenti.</li></ul><p>I dati non vengono venduti. Possono essere comunicati alle autorità competenti quando richiesto dalla legge.</p>`],
+          ['7. Trasferimenti internazionali', '', `Alcuni fornitori possono trattare dati anche al di fuori dello Spazio Economico Europeo. In questi casi il trattamento avviene secondo le garanzie previste dalla normativa applicabile, incluse, quando necessarie, decisioni di adeguatezza o clausole contrattuali standard.`],
+          ['8. Conservazione dei dati', '', `I dati dell'account e della pagina vengono conservati per il tempo necessario a fornire il servizio e fino alla cancellazione dell'account o della pagina, salvo ulteriori periodi richiesti dalla legge o necessari per la tutela dei diritti.<p>Copie tecniche di sicurezza possono rimanere per un periodo limitato nei sistemi di backup prima della cancellazione definitiva.</p>`],
+          ['9. Sicurezza', '', `Vengono adottate misure tecniche e organizzative ragionevoli per proteggere i dati da accessi non autorizzati, perdita, modifica o divulgazione.<p>L'utente è responsabile della protezione delle proprie credenziali e deve comunicare tempestivamente eventuali accessi sospetti.</p>`],
+          ['10. Diritti dell’interessato', '', `Nei casi previsti dalla normativa, l'utente può richiedere:<ul><li>accesso ai propri dati;</li><li>rettifica o aggiornamento;</li><li>cancellazione;</li><li>limitazione del trattamento;</li><li>portabilità dei dati;</li><li>opposizione al trattamento;</li><li>revoca del consenso, quando il trattamento si basa sul consenso.</li></ul><p>Per esercitare questi diritti o chiedere chiarimenti sul trattamento dei dati, è possibile contattare <a href="mailto:info@bm-app.it">info@bm-app.it</a>. Se ritiene che il trattamento dei propri dati personali avvenga in violazione della normativa, l'interessato ha inoltre il diritto di presentare reclamo al <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer">Garante per la protezione dei dati personali</a>.</p>`],
+          ['11. Minori', '', `B-M Business è destinato ad attività, professionisti e utenti maggiorenni. Il servizio non è progettato per raccogliere consapevolmente dati di minori.`],
+          ['12. Archiviazione tecnica e servizi esterni', '', `L'applicazione può utilizzare tecnologie di archiviazione locale strettamente necessarie per mantenere la sessione, ricordare le preferenze e garantire il funzionamento del servizio.<p>Le pagine possono contenere componenti o collegamenti di servizi esterni, che applicano le proprie informative privacy e le proprie tecnologie.</p>`],
+          ['13. Modifiche all’informativa', '', `La presente informativa può essere aggiornata in caso di modifiche tecniche, normative o funzionali. La data e il numero di versione saranno indicati all'inizio della pagina.`]
+        ]
+      },
+
+      en: {
+        pageTitle: 'Privacy Policy | B-M App',
+        description: 'Privacy policy for personal data processed through B-M App and B-M Business.',
+        title: 'Privacy Policy', language: 'Language',
+        footer: '© 2026 B-M App · All rights reserved',
+        updated: 'Last updated:', date: '10 October 2026', version: 'Version:',
+        back: '← Return to the previous page',
+        sections: [
+          ['intro', '', `This policy explains how personal data is processed through B-M App, the B-M Business application and the public digital pages generated by users.`],
+          ['1. Data controller', '', `The data controller is:<p>${commonController.en}</p>`],
+          ['2. Data processed', `<h3>Account data</h3><ul><li>email address;</li><li>technical user identifier;</li><li>login credentials, securely managed by the authentication service provider;</li><li>date and information relating to access.</li></ul><h3>Data entered on the business page</h3><ul><li>name of the business or professional;</li><li>business description and category;</li><li>telephone number and WhatsApp contact;</li><li>email address and website;</li><li>social profiles and external links;</li><li>address, location and opening hours;</li><li>services, images, logo and gallery;</li><li>other information voluntarily entered by the user.</li></ul><h3>Technical data</h3><p>Technical data necessary for operation and security may be processed during use, such as IP address, device type, browser, date and time of requests, technical logs and diagnostic data.</p><h3>Communications</h3><p>If the user contacts B-M App by email, the sender's address, the content of the message and the information needed to provide assistance may be processed.</p>`, ''],
+          ['3. Purposes and legal bases', '', `Data is processed to:<ul><li>create and manage the account;</li><li>save, edit and publish the digital page;</li><li>generate links, QR Codes and PDF materials;</li><li>provide technical support;</li><li>protect the service against unauthorised access, fraud and unlawful use;</li><li>comply with legal obligations;</li><li>improve the stability and operation of the service.</li></ul><p>The main legal bases are the performance of the service requested by the user, compliance with legal obligations and the legitimate interest in the security and proper operation of the service.</p><p>Separate consent will be requested only for optional purposes, such as promotional communications, if introduced in the future.</p>`],
+          ['4. Publication of the page', '', `When users publish their digital page, the information entered becomes accessible through a public link and a QR Code.<p>Users independently decide which data to publish and are responsible for the accuracy of the information and for having permission to use images, logos, contact details and content belonging to third parties.</p><p>Users are advised not to enter sensitive data, personal documents, health or financial information, or other data not required to present the business.</p>`],
+          ['5. Visitors to public pages', '', `Visitors can view pages without creating an account. Telephone, email, WhatsApp, social, website and map buttons open external services.<p>The content of communications sent through those services is not received by B-M App unless the specified recipient is directly info@bm-app.it.</p>`],
+          ['6. Providers and recipients', '', `Technical providers may be used to operate the service, including:<ul><li>Supabase, for authentication, databases and infrastructure services;</li><li>GitHub Pages, for publishing applications and web pages;</li><li>OVHcloud/Zimbra, for email management;</li><li>Google Maps, when maps or geographical links are used;</li><li>Meta, WhatsApp and other social networks when users open the relevant links.</li></ul><p>Data is not sold. It may be disclosed to competent authorities where required by law.</p>`],
+          ['7. International transfers', '', `Some providers may process data outside the European Economic Area. In such cases, processing takes place under the safeguards required by applicable law, including adequacy decisions or standard contractual clauses where necessary.`],
+          ['8. Data retention', '', `Account and page data is retained for as long as necessary to provide the service and until the account or page is deleted, subject to any additional periods required by law or necessary to protect legal rights.<p>Technical backup copies may remain in backup systems for a limited period before final deletion.</p>`],
+          ['9. Security', '', `Reasonable technical and organisational measures are adopted to protect data against unauthorised access, loss, alteration or disclosure.<p>Users are responsible for protecting their credentials and must promptly report any suspected unauthorised access.</p>`],
+          ['10. Data subject rights', '', `Where provided for by law, users may request:<ul><li>access to their data;</li><li>rectification or updating;</li><li>erasure;</li><li>restriction of processing;</li><li>data portability;</li><li>objection to processing;</li><li>withdrawal of consent where processing is based on consent.</li></ul><p>To exercise these rights or request clarification about data processing, contact <a href="mailto:info@bm-app.it">info@bm-app.it</a>. If a data subject believes that their personal data is being processed in breach of applicable law, they also have the right to lodge a complaint with the <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer">Italian Data Protection Authority</a>.</p>`],
+          ['11. Minors', '', `B-M Business is intended for businesses, professionals and adult users. The service is not designed to knowingly collect data from minors.`],
+          ['12. Technical storage and external services', '', `The application may use local storage technologies that are strictly necessary to maintain the session, remember preferences and ensure the operation of the service.<p>Pages may contain components or links from external services, which apply their own privacy policies and technologies.</p>`],
+          ['13. Changes to this policy', '', `This policy may be updated following technical, regulatory or functional changes. The date and version number will be shown at the beginning of the page.`]
+        ]
+      },
+
+      es: {
+        pageTitle: 'Política de privacidad | B-M App',
+        description: 'Política sobre el tratamiento de datos personales en B-M App y B-M Business.',
+        title: 'Política de privacidad', language: 'Idioma',
+        footer: '© 2026 B-M App · Todos los derechos reservados',
+        updated: 'Última actualización:', date: '10 de octubre de 2026', version: 'Versión:',
+        back: '← Volver a la página anterior',
+        sections: [
+          ['intro', '', `Esta política describe cómo se tratan los datos personales a través de B-M App, la aplicación B-M Business y las páginas digitales públicas generadas por los usuarios.`],
+          ['1. Responsable del tratamiento', '', `El responsable del tratamiento es:<p>${commonController.es}</p>`],
+          ['2. Datos tratados', `<h3>Datos de la cuenta</h3><ul><li>dirección de correo electrónico;</li><li>identificador técnico del usuario;</li><li>credenciales de acceso, gestionadas de forma protegida por el proveedor del servicio de autenticación;</li><li>fecha e información relativa al acceso.</li></ul><h3>Datos introducidos en la página de la actividad</h3><ul><li>nombre de la actividad o del profesional;</li><li>descripción y categoría de la actividad;</li><li>número de teléfono y contacto de WhatsApp;</li><li>dirección de correo electrónico y sitio web;</li><li>perfiles sociales y enlaces externos;</li><li>dirección, ubicación y horarios;</li><li>servicios, imágenes, logotipo y galería;</li><li>otra información introducida voluntariamente por el usuario.</li></ul><h3>Datos técnicos</h3><p>Durante el uso pueden tratarse datos técnicos necesarios para el funcionamiento y la seguridad, como la dirección IP, el tipo de dispositivo, el navegador, la fecha y hora de las solicitudes, los registros técnicos y los datos de diagnóstico.</p><h3>Comunicaciones</h3><p>Si el usuario contacta con B-M App por correo electrónico, podrán tratarse la dirección del remitente, el contenido del mensaje y la información necesaria para prestar asistencia.</p>`, ''],
+          ['3. Finalidades y bases jurídicas', '', `Los datos se tratan para:<ul><li>crear y gestionar la cuenta;</li><li>guardar, modificar y publicar la página digital;</li><li>generar enlaces, códigos QR y materiales PDF;</li><li>prestar asistencia técnica;</li><li>proteger el servicio contra accesos no autorizados, fraudes y usos ilícitos;</li><li>cumplir obligaciones legales;</li><li>mejorar la estabilidad y el funcionamiento del servicio.</li></ul><p>Las principales bases jurídicas son la ejecución del servicio solicitado por el usuario, el cumplimiento de obligaciones legales y el interés legítimo en la seguridad y el correcto funcionamiento del servicio.</p><p>Solo se solicitará un consentimiento independiente para finalidades opcionales, como comunicaciones promocionales, si se introducen en el futuro.</p>`],
+          ['4. Publicación de la página', '', `Cuando el usuario publica su página digital, la información introducida pasa a ser accesible mediante un enlace público y un código QR.<p>El usuario decide de forma autónoma qué datos publica y es responsable de la exactitud de la información y de contar con autorización para utilizar imágenes, logotipos, contactos y contenidos de terceros.</p><p>Se recomienda no introducir datos sensibles, documentos personales, información sanitaria o financiera ni otros datos que no sean necesarios para presentar la actividad.</p>`],
+          ['5. Visitantes de las páginas públicas', '', `Los visitantes pueden consultar las páginas sin crear una cuenta. Los botones de teléfono, correo electrónico, WhatsApp, redes sociales, sitio web y mapas abren servicios externos.<p>B-M App no recibe el contenido de las comunicaciones enviadas mediante esos servicios, salvo que el destinatario indicado sea directamente info@bm-app.it.</p>`],
+          ['6. Proveedores y destinatarios', '', `Para el funcionamiento del servicio pueden utilizarse proveedores técnicos, entre ellos:<ul><li>Supabase, para autenticación, bases de datos y servicios de infraestructura;</li><li>GitHub Pages, para publicar aplicaciones y páginas web;</li><li>OVHcloud/Zimbra, para la gestión del correo electrónico;</li><li>Google Maps, cuando se utilizan mapas o enlaces geográficos;</li><li>Meta, WhatsApp y otras redes sociales cuando el usuario abre los enlaces correspondientes.</li></ul><p>Los datos no se venden. Podrán comunicarse a las autoridades competentes cuando así lo exija la ley.</p>`],
+          ['7. Transferencias internacionales', '', `Algunos proveedores pueden tratar datos fuera del Espacio Económico Europeo. En esos casos, el tratamiento se realiza con las garantías previstas por la normativa aplicable, incluidas, cuando sean necesarias, decisiones de adecuación o cláusulas contractuales tipo.`],
+          ['8. Conservación de los datos', '', `Los datos de la cuenta y de la página se conservan durante el tiempo necesario para prestar el servicio y hasta la eliminación de la cuenta o de la página, salvo periodos adicionales exigidos por la ley o necesarios para proteger derechos.<p>Las copias técnicas de seguridad pueden permanecer durante un periodo limitado en los sistemas de copia de seguridad antes de su eliminación definitiva.</p>`],
+          ['9. Seguridad', '', `Se adoptan medidas técnicas y organizativas razonables para proteger los datos contra accesos no autorizados, pérdidas, modificaciones o divulgaciones.<p>El usuario es responsable de proteger sus credenciales y debe comunicar rápidamente cualquier acceso sospechoso.</p>`],
+          ['10. Derechos del interesado', '', `En los casos previstos por la normativa, el usuario puede solicitar:<ul><li>acceso a sus datos;</li><li>rectificación o actualización;</li><li>supresión;</li><li>limitación del tratamiento;</li><li>portabilidad de los datos;</li><li>oposición al tratamiento;</li><li>retirada del consentimiento cuando el tratamiento se base en el consentimiento.</li></ul><p>Para ejercer estos derechos o solicitar aclaraciones sobre el tratamiento, puede escribir a <a href="mailto:info@bm-app.it">info@bm-app.it</a>. Si el interesado considera que sus datos personales se tratan infringiendo la normativa, también tiene derecho a presentar una reclamación ante la <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer">Autoridad Italiana de Protección de Datos</a>.</p>`],
+          ['11. Menores', '', `B-M Business está destinado a actividades, profesionales y usuarios adultos. El servicio no está diseñado para recopilar conscientemente datos de menores.`],
+          ['12. Almacenamiento técnico y servicios externos', '', `La aplicación puede utilizar tecnologías de almacenamiento local estrictamente necesarias para mantener la sesión, recordar las preferencias y garantizar el funcionamiento del servicio.<p>Las páginas pueden contener componentes o enlaces de servicios externos, que aplican sus propias políticas de privacidad y tecnologías.</p>`],
+          ['13. Cambios en esta política', '', `Esta política puede actualizarse debido a cambios técnicos, normativos o funcionales. La fecha y el número de versión se indicarán al principio de la página.`]
+        ]
+      },
+
+      fr: {
+        pageTitle: 'Politique de confidentialité | B-M App',
+        description: 'Politique relative au traitement des données personnelles dans B-M App et B-M Business.',
+        title: 'Politique de confidentialité', language: 'Langue',
+        footer: '© 2026 B-M App · Tous droits réservés',
+        updated: 'Dernière mise à jour :', date: '10 octobre 2026', version: 'Version :',
+        back: '← Retour à la page précédente',
+        sections: [
+          ['intro', '', `La présente politique décrit la manière dont les données personnelles sont traitées par B-M App, l'application B-M Business et les pages numériques publiques générées par les utilisateurs.`],
+          ['1. Responsable du traitement', '', `Le responsable du traitement est :<p>${commonController.fr}</p>`],
+          ['2. Données traitées', `<h3>Données du compte</h3><ul><li>adresse e-mail ;</li><li>identifiant technique de l'utilisateur ;</li><li>identifiants de connexion, gérés de manière sécurisée par le fournisseur du service d'authentification ;</li><li>date et informations relatives à la connexion.</li></ul><h3>Données saisies sur la page de l'activité</h3><ul><li>nom de l'activité ou du professionnel ;</li><li>description et catégorie de l'activité ;</li><li>numéro de téléphone et contact WhatsApp ;</li><li>adresse e-mail et site web ;</li><li>profils sociaux et liens externes ;</li><li>adresse, localisation et horaires ;</li><li>services, images, logo et galerie ;</li><li>autres informations saisies volontairement par l'utilisateur.</li></ul><h3>Données techniques</h3><p>Des données techniques nécessaires au fonctionnement et à la sécurité peuvent être traitées pendant l'utilisation, telles que l'adresse IP, le type d'appareil, le navigateur, la date et l'heure des requêtes, les journaux techniques et les données de diagnostic.</p><h3>Communications</h3><p>Si l'utilisateur contacte B-M App par e-mail, l'adresse de l'expéditeur, le contenu du message et les informations nécessaires pour fournir une assistance peuvent être traités.</p>`, ''],
+          ['3. Finalités et bases juridiques', '', `Les données sont traitées afin de :<ul><li>créer et gérer le compte ;</li><li>enregistrer, modifier et publier la page numérique ;</li><li>générer des liens, des QR Codes et des documents PDF ;</li><li>fournir une assistance technique ;</li><li>protéger le service contre les accès non autorisés, la fraude et les utilisations illicites ;</li><li>respecter les obligations légales ;</li><li>améliorer la stabilité et le fonctionnement du service.</li></ul><p>Les principales bases juridiques sont l'exécution du service demandé par l'utilisateur, le respect des obligations légales et l'intérêt légitime lié à la sécurité et au bon fonctionnement du service.</p><p>Un consentement distinct ne sera demandé que pour des finalités facultatives, telles que les communications promotionnelles, si elles sont introduites à l'avenir.</p>`],
+          ['4. Publication de la page', '', `Lorsque l'utilisateur publie sa page numérique, les informations saisies deviennent accessibles au moyen d'un lien public et d'un QR Code.<p>L'utilisateur décide de manière autonome des données à publier et est responsable de l'exactitude des informations ainsi que de l'autorisation d'utiliser des images, logos, coordonnées et contenus appartenant à des tiers.</p><p>Il est recommandé de ne pas saisir de données sensibles, de documents personnels, d'informations médicales ou financières, ni d'autres données inutiles à la présentation de l'activité.</p>`],
+          ['5. Visiteurs des pages publiques', '', `Les visiteurs peuvent consulter les pages sans créer de compte. Les boutons téléphone, e-mail, WhatsApp, réseaux sociaux, site web et cartes ouvrent des services externes.<p>Le contenu des communications envoyées au moyen de ces services n'est pas reçu par B-M App, sauf si le destinataire indiqué est directement info@bm-app.it.</p>`],
+          ['6. Fournisseurs et destinataires', '', `Des fournisseurs techniques peuvent être utilisés pour le fonctionnement du service, notamment :<ul><li>Supabase, pour l'authentification, les bases de données et les services d'infrastructure ;</li><li>GitHub Pages, pour la publication des applications et des pages web ;</li><li>OVHcloud/Zimbra, pour la gestion des e-mails ;</li><li>Google Maps, lorsque des cartes ou des liens géographiques sont utilisés ;</li><li>Meta, WhatsApp et d'autres réseaux sociaux lorsque l'utilisateur ouvre les liens correspondants.</li></ul><p>Les données ne sont pas vendues. Elles peuvent être communiquées aux autorités compétentes lorsque la loi l'exige.</p>`],
+          ['7. Transferts internationaux', '', `Certains fournisseurs peuvent traiter des données en dehors de l'Espace économique européen. Dans ce cas, le traitement est effectué conformément aux garanties prévues par la législation applicable, notamment, si nécessaire, les décisions d'adéquation ou les clauses contractuelles types.`],
+          ['8. Conservation des données', '', `Les données du compte et de la page sont conservées pendant la durée nécessaire à la fourniture du service et jusqu'à la suppression du compte ou de la page, sous réserve des délais supplémentaires imposés par la loi ou nécessaires à la protection des droits.<p>Des copies techniques de sauvegarde peuvent rester dans les systèmes de sauvegarde pendant une durée limitée avant leur suppression définitive.</p>`],
+          ['9. Sécurité', '', `Des mesures techniques et organisationnelles raisonnables sont adoptées afin de protéger les données contre tout accès non autorisé, toute perte, modification ou divulgation.<p>L'utilisateur est responsable de la protection de ses identifiants et doit signaler rapidement tout accès suspect.</p>`],
+          ['10. Droits de la personne concernée', '', `Dans les cas prévus par la législation, l'utilisateur peut demander :<ul><li>l'accès à ses données ;</li><li>leur rectification ou mise à jour ;</li><li>leur effacement ;</li><li>la limitation du traitement ;</li><li>la portabilité des données ;</li><li>l'opposition au traitement ;</li><li>le retrait du consentement lorsque le traitement repose sur le consentement.</li></ul><p>Pour exercer ces droits ou demander des précisions sur le traitement, contactez <a href="mailto:info@bm-app.it">info@bm-app.it</a>. Si la personne concernée estime que ses données personnelles sont traitées en violation de la législation, elle a également le droit d'introduire une réclamation auprès de <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer">l'Autorité italienne de protection des données</a>.</p>`],
+          ['11. Mineurs', '', `B-M Business est destiné aux activités, aux professionnels et aux utilisateurs majeurs. Le service n'est pas conçu pour collecter sciemment des données de mineurs.`],
+          ['12. Stockage technique et services externes', '', `L'application peut utiliser des technologies de stockage local strictement nécessaires au maintien de la session, à la mémorisation des préférences et au fonctionnement du service.<p>Les pages peuvent contenir des composants ou des liens de services externes, qui appliquent leurs propres politiques de confidentialité et technologies.</p>`],
+          ['13. Modifications de la politique', '', `La présente politique peut être mise à jour en cas de modifications techniques, réglementaires ou fonctionnelles. La date et le numéro de version seront indiqués au début de la page.`]
+        ]
+      },
+
+      de: {
+        pageTitle: 'Datenschutzerklärung | B-M App',
+        description: 'Datenschutzerklärung zur Verarbeitung personenbezogener Daten durch B-M App und B-M Business.',
+        title: 'Datenschutzerklärung', language: 'Sprache',
+        footer: '© 2026 B-M App · Alle Rechte vorbehalten',
+        updated: 'Letzte Aktualisierung:', date: '10. Oktober 2026', version: 'Version:',
+        back: '← Zur vorherigen Seite zurückkehren',
+        sections: [
+          ['intro', '', `Diese Datenschutzerklärung erläutert, wie personenbezogene Daten über B-M App, die Anwendung B-M Business und die von Nutzern erstellten öffentlichen digitalen Seiten verarbeitet werden.`],
+          ['1. Verantwortlicher', '', `Verantwortlicher für die Datenverarbeitung ist:<p>${commonController.de}</p>`],
+          ['2. Verarbeitete Daten', `<h3>Kontodaten</h3><ul><li>E-Mail-Adresse;</li><li>technische Benutzerkennung;</li><li>Anmeldedaten, die vom Anbieter des Authentifizierungsdienstes geschützt verwaltet werden;</li><li>Datum und Informationen zur Anmeldung.</li></ul><h3>Auf der Unternehmensseite eingegebene Daten</h3><ul><li>Name des Unternehmens oder der Fachkraft;</li><li>Beschreibung und Kategorie der Tätigkeit;</li><li>Telefonnummer und WhatsApp-Kontakt;</li><li>E-Mail-Adresse und Website;</li><li>Social-Media-Profile und externe Links;</li><li>Adresse, Standort und Öffnungszeiten;</li><li>Dienstleistungen, Bilder, Logo und Galerie;</li><li>weitere vom Benutzer freiwillig eingegebene Informationen.</li></ul><h3>Technische Daten</h3><p>Während der Nutzung können technische Daten verarbeitet werden, die für den Betrieb und die Sicherheit erforderlich sind, wie IP-Adresse, Gerätetyp, Browser, Datum und Uhrzeit der Anfragen, technische Protokolle und Diagnosedaten.</p><h3>Kommunikation</h3><p>Wenn der Benutzer B-M App per E-Mail kontaktiert, können die Adresse des Absenders, der Inhalt der Nachricht und die für die Unterstützung erforderlichen Informationen verarbeitet werden.</p>`, ''],
+          ['3. Zwecke und Rechtsgrundlagen', '', `Die Daten werden verarbeitet, um:<ul><li>das Konto zu erstellen und zu verwalten;</li><li>die digitale Seite zu speichern, zu bearbeiten und zu veröffentlichen;</li><li>Links, QR-Codes und PDF-Materialien zu erstellen;</li><li>technischen Support bereitzustellen;</li><li>den Dienst vor unbefugtem Zugriff, Betrug und rechtswidriger Nutzung zu schützen;</li><li>gesetzliche Verpflichtungen zu erfüllen;</li><li>Stabilität und Funktionsfähigkeit des Dienstes zu verbessern.</li></ul><p>Die wichtigsten Rechtsgrundlagen sind die Erbringung des vom Benutzer angeforderten Dienstes, die Erfüllung gesetzlicher Verpflichtungen und das berechtigte Interesse an der Sicherheit und ordnungsgemäßen Funktionsfähigkeit des Dienstes.</p><p>Eine gesonderte Einwilligung wird nur für optionale Zwecke eingeholt, etwa für Werbemitteilungen, falls diese künftig eingeführt werden.</p>`],
+          ['4. Veröffentlichung der Seite', '', `Wenn der Benutzer seine digitale Seite veröffentlicht, werden die eingegebenen Informationen über einen öffentlichen Link und einen QR-Code zugänglich.<p>Der Benutzer entscheidet selbstständig, welche Daten veröffentlicht werden, und ist für die Richtigkeit der Informationen sowie für die Erlaubnis zur Nutzung von Bildern, Logos, Kontaktdaten und Inhalten Dritter verantwortlich.</p><p>Es wird empfohlen, keine sensiblen Daten, persönlichen Dokumente, Gesundheits- oder Finanzinformationen oder andere Daten einzugeben, die für die Darstellung der Tätigkeit nicht erforderlich sind.</p>`],
+          ['5. Besucher öffentlicher Seiten', '', `Besucher können die Seiten ohne Erstellung eines Kontos aufrufen. Schaltflächen für Telefon, E-Mail, WhatsApp, soziale Netzwerke, Website und Karten öffnen externe Dienste.<p>Der Inhalt der über diese Dienste versandten Mitteilungen wird von B-M App nicht empfangen, sofern der angegebene Empfänger nicht direkt info@bm-app.it ist.</p>`],
+          ['6. Anbieter und Empfänger', '', `Für den Betrieb des Dienstes können technische Anbieter eingesetzt werden, darunter:<ul><li>Supabase für Authentifizierung, Datenbanken und Infrastrukturdienste;</li><li>GitHub Pages für die Veröffentlichung von Anwendungen und Webseiten;</li><li>OVHcloud/Zimbra für die E-Mail-Verwaltung;</li><li>Google Maps, wenn Karten oder geografische Links verwendet werden;</li><li>Meta, WhatsApp und andere soziale Netzwerke, wenn der Benutzer die entsprechenden Links öffnet.</li></ul><p>Die Daten werden nicht verkauft. Sie können den zuständigen Behörden mitgeteilt werden, wenn dies gesetzlich vorgeschrieben ist.</p>`],
+          ['7. Internationale Übermittlungen', '', `Einige Anbieter können Daten auch außerhalb des Europäischen Wirtschaftsraums verarbeiten. In diesen Fällen erfolgt die Verarbeitung gemäß den nach dem geltenden Recht erforderlichen Garantien, einschließlich, soweit erforderlich, Angemessenheitsbeschlüssen oder Standardvertragsklauseln.`],
+          ['8. Speicherdauer', '', `Konto- und Seitendaten werden so lange gespeichert, wie dies zur Erbringung des Dienstes erforderlich ist, und bis das Konto oder die Seite gelöscht wird, vorbehaltlich zusätzlicher gesetzlich vorgeschriebener oder zum Schutz von Rechten erforderlicher Zeiträume.<p>Technische Sicherungskopien können für einen begrenzten Zeitraum in Sicherungssystemen verbleiben, bevor sie endgültig gelöscht werden.</p>`],
+          ['9. Sicherheit', '', `Es werden angemessene technische und organisatorische Maßnahmen getroffen, um Daten vor unbefugtem Zugriff, Verlust, Änderung oder Offenlegung zu schützen.<p>Der Benutzer ist für den Schutz seiner Zugangsdaten verantwortlich und muss verdächtige Zugriffe unverzüglich melden.</p>`],
+          ['10. Rechte der betroffenen Person', '', `Soweit gesetzlich vorgesehen, kann der Benutzer Folgendes verlangen:<ul><li>Auskunft über seine Daten;</li><li>Berichtigung oder Aktualisierung;</li><li>Löschung;</li><li>Einschränkung der Verarbeitung;</li><li>Datenübertragbarkeit;</li><li>Widerspruch gegen die Verarbeitung;</li><li>Widerruf der Einwilligung, wenn die Verarbeitung auf einer Einwilligung beruht.</li></ul><p>Zur Ausübung dieser Rechte oder für Fragen zur Datenverarbeitung wenden Sie sich an <a href="mailto:info@bm-app.it">info@bm-app.it</a>. Ist die betroffene Person der Ansicht, dass ihre personenbezogenen Daten unter Verstoß gegen geltendes Recht verarbeitet werden, hat sie außerdem das Recht, eine Beschwerde bei der <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer">italienischen Datenschutzbehörde</a> einzureichen.</p>`],
+          ['11. Minderjährige', '', `B-M Business richtet sich an Unternehmen, Fachkräfte und volljährige Benutzer. Der Dienst ist nicht darauf ausgelegt, wissentlich Daten von Minderjährigen zu erfassen.`],
+          ['12. Technische Speicherung und externe Dienste', '', `Die Anwendung kann lokale Speichertechnologien verwenden, die unbedingt erforderlich sind, um die Sitzung aufrechtzuerhalten, Einstellungen zu speichern und den Betrieb des Dienstes zu gewährleisten.<p>Die Seiten können Komponenten oder Links externer Dienste enthalten, für die deren eigene Datenschutzerklärungen und Technologien gelten.</p>`],
+          ['13. Änderungen dieser Erklärung', '', `Diese Erklärung kann aufgrund technischer, rechtlicher oder funktionaler Änderungen aktualisiert werden. Das Datum und die Versionsnummer werden am Anfang der Seite angegeben.`]
+        ]
+      }
+    };
+
+    const supportedLanguages = ['it', 'en', 'es', 'fr', 'de'];
+    const languageSelect = document.getElementById('language-select');
+    const privacyContent = document.getElementById('privacy-content');
+    const privacyTitle = document.getElementById('privacy-title');
+    const languageLabel = document.getElementById('language-label');
+    const privacyFooter = document.getElementById('privacy-footer');
+    const pageDescription = document.getElementById('page-description');
+
+    function getRequestedLanguage() {
+      const requested = new URLSearchParams(window.location.search).get('lang');
+      return supportedLanguages.includes(requested) ? requested : 'it';
+    }
+
+    function buildContent(translation) {
+      const notice = `
+        <div class="privacy-notice">
+          <strong>${translation.updated}</strong> ${translation.date}
+          <br><strong>${translation.version}</strong> 1.0
+        </div>`;
+
+      const sections = translation.sections.map(([title, prefix, content]) => {
+        if (title === 'intro') return `<p>${content}</p>`;
+        return `
+          <h2>${title}</h2>
+          ${prefix}
+          <div class="section-content">${content}</div>
+        `;
+      }).join('');
+
+      return `${notice}${sections}
+        <a class="back-link" href="https://business.bm-app.it/" data-back-link>
+          ${translation.back}
+        </a>`;
+    }
+
+    function renderPrivacy(language) {
+      const translation = privacyTranslations[language];
+
+      document.documentElement.lang = language;
+      document.title = translation.pageTitle;
+      pageDescription.content = translation.description;
+      privacyTitle.textContent = translation.title;
+      document.getElementById('privacy-subtitle').textContent = {
+       it: 'B-M App e B-M Business',
+       en: 'B-M App and B-M Business',
+       es: 'B-M App y B-M Business',
+       fr: 'B-M App et B-M Business',
+       de: 'B-M App und B-M Business'
+    }[language];
+      languageLabel.textContent = translation.language;
+      languageSelect.value = language;
+      languageSelect.setAttribute('aria-label', translation.language);
+      privacyContent.innerHTML = buildContent(translation);
+      privacyFooter.textContent = translation.footer;
+
+      const backLink = document.querySelector('[data-back-link]');
+      if (backLink && document.referrer) {
+        backLink.addEventListener('click', (event) => {
+          event.preventDefault();
+          window.location.href = document.referrer;
+        });
+      }
+    }
+
+    languageSelect.addEventListener('change', () => {
+      const selectedLanguage = languageSelect.value;
+      const pageUrl = new URL(window.location.href);
+      pageUrl.searchParams.set('lang', selectedLanguage);
+      window.history.replaceState({}, '', pageUrl);
+      renderPrivacy(selectedLanguage);
+    });
+
+    renderPrivacy(getRequestedLanguage());
+  </script>
+</body>
+</html>

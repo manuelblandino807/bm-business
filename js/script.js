@@ -66,6 +66,7 @@ const translations = {
     bookNow: 'Prenota ora',
     photo: 'Foto',
     of: 'di',
+    privacy: 'Privacy',
     rights: 'Tutti i diritti riservati.'
   },
 
@@ -125,6 +126,7 @@ const translations = {
     bookNow: 'Book now',
     photo: 'Photo',
     of: 'of',
+    privacy: 'Privacy',
     rights: 'All rights reserved.'
   },
 
@@ -184,6 +186,7 @@ const translations = {
     bookNow: 'Reservar ahora',
     photo: 'Foto',
     of: 'de',
+    privacy: 'Privacidad',
     rights: 'Todos los derechos reservados.'
   },
 
@@ -243,6 +246,7 @@ const translations = {
     bookNow: 'Réserver maintenant',
     photo: 'Photo',
     of: 'de',
+    privacy: 'Confidentialité',
     rights: 'Tous droits réservés.'
   },
 
@@ -302,6 +306,7 @@ const translations = {
     bookNow: 'Jetzt buchen',
     photo: 'Foto',
     of: 'von',
+    privacy: 'Datenschutz',
     rights: 'Alle Rechte vorbehalten.'
   }
 };
@@ -1070,6 +1075,9 @@ if (heroElement) {
       document.getElementById(
       'save-contact-button'
     ); 
+
+    const privacyLink =
+      document.getElementById('privacy-link');
 
     const footerRights =
       document.getElementById('footer-rights');
@@ -2667,6 +2675,12 @@ if (shareButton) {
 
 if (saveContactButton) {
   saveContactButton.textContent = t.saveContact;
+}
+
+if (privacyLink) {
+  privacyLink.textContent = t.privacy;
+  privacyLink.href =
+    `privacy.html?lang=${currentLang}`;
 }
 
 if (footerRights) {

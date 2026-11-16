@@ -4312,6 +4312,11 @@ if (isGeneratedProfile || businessSlug) {
   }
 }
 
+    // An optional service contact overrides only this card's action.
+    if (service.contactChannel) {
+      mainAction = dedicatedServiceAction(service);
+    }
+
     const serviceButton =
       document.createElement('a');
 
@@ -4823,3 +4828,36 @@ if (saveContactButton) {
 }
 
 loadBusinessData();
+// Return an empty action for invalid dedicated data, hiding the button.
+function dedicatedServiceAction(service) {
+  const text = String(service.contactLabel || '').trim();
+  const value = String(service.contactValue || '').trim();
+  if (!text || !value) return {};
+  let link = '';
+  switch (service.contactChannel) {
+    case 'email':
+      if (/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(value)) {
+        link = `mailto:${encodeURIComponent(value).replace(/%40/g, '@')}`;
+      }
+      break;
+    case 'whatsapp':
+    case 'phone': {
+      const digits = value.replace(/[^0-9]/g, '');
+      if (/^\+?[0-9][0-9 ()\-]*$/.test(value) &&
+          digits.length >= 5 && digits.length <= 15) {
+        link = service.contactChannel === 'whatsapp'
+          ? `https://wa.me/${digits}`
+          : `tel:${value.startsWith('+') ? '+' : ''}${digits}`;
+      }
+      break;
+    }
+    case 'link':
+      try {
+        const url = new URL(value);
+        if (['http:', 'https:'].includes(url.protocol) && url.hostname &&
+            !url.username && !url.password && !/\s/.test(value)) link = url.href;
+      } catch (_) { /* Invalid dedicated links stay hidden. */ }
+      break;
+  }
+  return link ? { text, link } : {};
+}
